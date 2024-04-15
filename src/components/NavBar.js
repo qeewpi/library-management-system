@@ -5,6 +5,7 @@ import cartSVG from "../icons/cart.svg";
 import hamburgerSVG from "../icons/hamburgerMenu.svg";
 import msgSVG from "../icons/msg.svg";
 import searchSVG from "../icons/search.svg";
+import userFilledSVG from "../icons/user-filled.svg";
 
 function NavBar() {
   return (
@@ -15,32 +16,35 @@ function NavBar() {
           <h1 className="text-xl flex-grow">eLibrary</h1>
         </div>
         <div className=" flex flex-grow justify-center items-center max-w-sm lg:max-w-lg">
-          <div className="searchBar flex flex-row px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow">
+          <div className="searchBar flex flex-row px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
             <img src={searchSVG} alt="" />
             <input
               type="text"
               placeholder="Search titles..."
-              className="text-gray-400 bg-transparent outline-none flex-grow md:hidden"
+              className="text-gray-500 bg-transparent outline-none flex-grow md:hidden focus:text-primaryBlack text-primaryBlack"
             />
             <input
               type="text"
               placeholder="Search titles, authors..."
-              className="text-gray-400 bg-transparent outline-none flex-grow hidden md:block lg:hidden"
+              className="text-gray-500 bg-transparent outline-none flex-grow hidden md:block lg:hidden focus:text-primaryBlack text-primaryBlack"
             />
             <input
               type="text"
               placeholder="Search book titles, authors, publishers..."
-              className="text-gray-400 bg-transparent outline-none flex-grow hidden lg:block"
+              className="text-gray-500 bg-transparent outline-none flex-grow hidden lg:block focus:text-primaryBlack text-primaryBlack"
             />
           </div>
         </div>
-        <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center">
-          <div className="flex flex-row items-start gap-x-2">
+        <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-xs">
+          <div className="flex flex-row gap-x-2">
+            <div className="flex flex-grow items-center pr-2">
+              <img src={userFilledSVG} alt="" />
+            </div>
             <div className="nameDiv flex flex-col hidden xl:block">
               <h1>Juan Dela Cruz</h1>
               <h1 className="text-gray-500">Student</h1>
             </div>
-            <div className="p-2">
+            <div className="p-2 items-start">
               <img src={hamburgerSVG} alt="" className="scale-150" />
             </div>
           </div>
