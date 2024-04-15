@@ -16,7 +16,7 @@ function LogIn() {
         />
       </div>
 
-      <div className="form w-1/2 max-w-screen px-24 lg:p-32 py-10  rounded-lg overflow-hidden">
+      <div className="form w-1/2 max-w-screen px-24 lg:p-32 py-10 overflow-hidden">
         <form action="">
           <div
             className="header flex flex-col gap-y-6
@@ -40,7 +40,7 @@ function LogIn() {
                 type="text"
                 placeholder="Email"
                 required
-                className="w-full pl-12 py-4 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+                className="w-full pl-12 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
 
               <img
@@ -56,7 +56,7 @@ function LogIn() {
                 type="password"
                 placeholder="Password"
                 required
-                className="w-full pl-12 py-4 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+                className="w-full pl-12 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
               <img
                 src={password}
@@ -75,7 +75,7 @@ function LogIn() {
 
         <button
           type="submit"
-          className="btn mt-8 w-full py-2 rounded-lg bg-primaryBlue text-white hover:bg-secondaryBlue"
+          className="btn mt-8 w-full py-2 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
         >
           Login
         </button>
