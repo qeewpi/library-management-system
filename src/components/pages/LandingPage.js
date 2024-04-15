@@ -12,7 +12,7 @@ function LandingPage() {
           <h1 className="text-xl">eLibrary</h1>
         </div>
       </div>
-      <div className="px-16 pt-24 flex flex-row">
+      <div className="px-16 pt-24 flex flex-row gap-4">
         <div>
           <h1 className="header text-4xl p-2 flex">Welcome to eLibrary</h1>
           <p className="text-xl p-2 text-gray-500">
@@ -20,7 +20,7 @@ function LandingPage() {
             books online.
           </p>
           <div className="buttonsDiv">
-            <button className="p-4 px-12 bg-primaryBlue text-white rounded-xl">
+            <button className="p-4 px-12 bg-secondaryBlue text-white rounded-xl">
               <h1>Sign Up</h1>
               <Link to="/SignUp"></Link>
             </button>
