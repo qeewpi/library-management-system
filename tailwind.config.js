@@ -10,6 +10,7 @@ module.exports = {
         tertiaryBlue: "#448EF6",
         primaryYellow: "#FDB44B",
         customGrey: "#F5F5F5",
+        customWhite: "#FBFBFB",
       },
     },
   },
