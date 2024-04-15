@@ -1,9 +1,17 @@
 import React from "react";
+import library from "../../img/library.jpg";
+
 
 function LogIn() {
   return (
-    <div class="">
-      <h1 className="font-2xl font-bold">Log In test</h1>
+    <div>
+      <div>
+        <img src={library} alt="Library"/>
+      </div>
+
+      <div className = "form">
+        <h1 className="inblock">Log In</h1>
+      </div>
     </div>
   );
 }
