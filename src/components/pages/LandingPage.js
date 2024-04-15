@@ -20,7 +20,7 @@ function LandingPage() {
             books online.
           </p>
           <div className="buttonsDiv">
-            <button className="p-4 fill-blue-800">
+            <button className="p-4 px-12 bg-primaryBlue text-white rounded-xl">
               <h1>Sign Up</h1>
               <Link to="/SignUp"></Link>
             </button>
