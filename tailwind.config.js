@@ -9,6 +9,7 @@ module.exports = {
         secondaryBlue: "#005792",
         tertiaryBlue: "#448EF6",
         primaryYellow: "#FDB44B",
+        customGrey: "#F5F5F5",
       },
     },
   },
