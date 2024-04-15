@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import brandSVG from "../../icons/brand.svg";
+import landingPageImg from "../../img/landingPageImage.png";
 
 function LandingPage() {
   return (
@@ -17,6 +19,15 @@ function LandingPage() {
             eLibrary is a digital library that allows you to borrow and return
             books online.
           </p>
+          <div className="buttonsDiv">
+            <button className="p-4 px-12 bg-primaryBlue text-white rounded-xl">
+              <h1>Sign Up</h1>
+              <Link to="/SignUp"></Link>
+            </button>
+          </div>
+        </div>
+        <div>
+          <img src={landingPageImg} alt="" />
         </div>
       </div>
     </div>
