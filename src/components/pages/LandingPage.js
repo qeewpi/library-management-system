@@ -13,11 +13,17 @@ function LandingPage() {
         </div>
       </div>
       <div className="px-16 pt-24 flex flex-row">
-        <div className=" flex flex-col gap-y-5">
+        <div className=" flex flex-col gap-y-5 w-3/4 lg:w-5/12">
           <h1 className="header text-4xl flex">Welcome to eLibrary</h1>
-          <p className="text-xl text-gray-500">
-            eLibrary is a digital library that allows you to borrow and return
-            books online.
+          <p className="text-lg text-gray-500">
+            With eLibrary, you can easily search for books, check their
+            availability, and request for borrowing. Our user-friendly interface
+            makes it convenient for you to manage your borrowed books and keep
+            track of due dates.
+          </p>
+          <p className="text-lg text-gray-500">
+            Join eLibrary today and experience the convenience of a digital
+            library. Sign up now to get started on your reading journey!
           </p>
           <div className="buttonsDiv gap-x-4 flex flex-row">
             <Link to="/SignUp">
@@ -32,8 +38,12 @@ function LandingPage() {
             </Link>
           </div>
         </div>
-        <div>
-          <img src={landingPageImg} alt="" />
+        <div className="flex flex-grow justify-center">
+          <img
+            src={landingPageImg}
+            alt=""
+            className="hidden md:block lg:scale-125 object-cover"
+          />
         </div>
       </div>
     </div>
