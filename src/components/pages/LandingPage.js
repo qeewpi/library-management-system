@@ -3,7 +3,7 @@ import React from "react";
 function LandingPage() {
   return (
     <div>
-      <div className="px-64 py-32 place-items-center">
+      <div className="px-64 py-32 text-center">
         <h1 className="font-2xl font-bold">eLibrary</h1>
       </div>
 
