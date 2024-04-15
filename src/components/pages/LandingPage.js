@@ -38,11 +38,11 @@ function LandingPage() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-grow justify-center">
+        <div className="flex flex-grow justify-end">
           <img
             src={landingPageImg}
             alt=""
-            className="hidden md:block lg:scale-125 object-cover"
+            className="hidden lg:block object-cover w-8/12 h-full"
           />
         </div>
       </div>
