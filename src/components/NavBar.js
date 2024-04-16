@@ -13,10 +13,10 @@ function NavBar() {
       <div className="px-16 p-12 flex justify-between flex-row">
         <div className="flex flex-row gap-2 items-center w-40 lg:w-96">
           <img src={brandSVG} alt="" />
-          <h1 className="text-xl flex-grow">eLibrary</h1>
+          <h1 className="text-`xl flex-grow">eLibrary</h1>
         </div>
         <div className=" flex flex-grow justify-center items-center max-w-sm lg:max-w-lg">
-          <div className="searchBar flex flex-row px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
+          <div className="searchBar hidden md:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
             <img src={searchSVG} alt="" />
             <input
               type="text"
