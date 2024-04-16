@@ -9,7 +9,7 @@ import userFilledSVG from "../icons/user-filled.svg";
 
 function NavBar() {
   return (
-    <div className="font-semibold">
+    <div className="bg-white">
       <div className="px-16 p-12 flex justify-between flex-row">
         <div className="flex flex-row gap-2 items-center w-40 lg:w-96">
           <img src={brandSVG} alt="" />
