@@ -75,7 +75,7 @@ function LogIn() {
 
         <button
           type="submit"
-          className="btn mt-8 w-full py-2 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+          className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
         >
           Login
         </button>
