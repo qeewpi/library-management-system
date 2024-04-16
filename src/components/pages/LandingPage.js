@@ -13,7 +13,7 @@ function LandingPage() {
         </div>
       </div>
       <div className="px-16 pt-24 flex flex-row">
-        <div className=" flex flex-col gap-y-5 w-3/4 lg:w-5/12">
+        <div className=" flex flex-col gap-y-5 w-3/4 lg:w-6/12">
           <h1 className="header text-4xl flex">Welcome to eLibrary</h1>
           <p className="text-lg text-gray-500">
             With eLibrary, you can easily search for books, check their
@@ -38,11 +38,11 @@ function LandingPage() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-grow justify-center">
+        <div className="flex flex-grow justify-end">
           <img
             src={landingPageImg}
             alt=""
-            className="hidden md:block lg:scale-125 object-cover"
+            className="hidden lg:block object-cover w-8/12 h-full"
           />
         </div>
       </div>
