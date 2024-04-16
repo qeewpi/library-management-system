@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import alertSVG from "../icons/alert.svg";
 import brandSVG from "../icons/brand.svg";
 import cartSVG from "../icons/cart.svg";
@@ -8,6 +9,16 @@ import searchSVG from "../icons/search.svg";
 import userFilledSVG from "../icons/user-filled.svg";
 
 function NavBar() {
+  const location = useLocation();
+
+  if (
+    location.pathname === "/" ||
+    location.pathname === "/sign-up" ||
+    location.pathname === "/log-in"
+  ) {
+    return null;
+  }
+
   return (
     <div className="bg-white">
       <div className="px-16 p-12 flex justify-between flex-row">

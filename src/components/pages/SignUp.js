@@ -96,7 +96,7 @@ function SignUp() {
         <div className="register-link flex justify-center mt-6 text-gray-500">
           <p>
             Already have an account?{" "}
-            <Link to="/LogIn" className="text-primaryBlue">
+            <Link to="/log-in" className="text-primaryBlue">
               Login
             </Link>
           </p>

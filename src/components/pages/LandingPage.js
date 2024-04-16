@@ -26,12 +26,12 @@ function LandingPage() {
             library. Sign up now to get started on your reading journey!
           </p>
           <div className="buttonsDiv gap-x-4 flex flex-row">
-            <Link to="/SignUp">
+            <Link to="/sign-up">
               <button className="p-4 px-12 bg-secondaryBlue text-white rounded-xl">
                 Sign Up
               </button>
             </Link>
-            <Link to="/LogIn">
+            <Link to="/log-in">
               <button className="p-4 px-12 bg-primaryYellow text-white rounded-xl">
                 Log In
               </button>
