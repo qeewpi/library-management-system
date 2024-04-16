@@ -3,6 +3,7 @@ import Home from "./components/pages/Home";
 import LandingPage from "./components/pages/LandingPage";
 import LogIn from "./components/pages/LogIn";
 import SignUp from "./components/pages/SignUp";
+import Profile from "./components/pages/Profile";
 import "./index.css";
 import React from "react";
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/LogIn" element={<LogIn />} />
           <Route path="/Home" element={<Home />} />
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
