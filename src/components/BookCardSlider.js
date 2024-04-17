@@ -8,7 +8,7 @@ function BookCardSlider() {
       <div className="sliderContainer">
         <Splide
           options={{
-            perPage: 5,
+            perPage: 8,
             gap: "1rem",
             arrows: false,
             pagination: false,
