@@ -6,15 +6,9 @@ import React from "react";
 function Home() {
   return (
     <div className="flex flex-col gap-y-6">
-      <div className="w-full ">
-        <WelcomeHeader />
-      </div>
-      <div className="w-full">
-        <Reminders />
-      </div>
-      <div className="w-full">
-        <PopularBooks />
-      </div>
+      <WelcomeHeader />
+      <Reminders />
+      <PopularBooks />
     </div>
   );
 }
