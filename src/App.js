@@ -33,7 +33,7 @@ function AppContent() {
     }
     return (
       <div className="screens-container flex h-full">
-        <div className="hidden lg:flex flex-col flex-grow w-5/12 xl:w-96 h-screen">
+        <div className="hidden lg:flex flex-col flex-grow w-5/12 xl:w-96 min-h-screen max-h-full">
           <SideNavBar />
         </div>
         <div className="contentDiv px-8 py-16 flex flex-col flex-grow min-h-screen max-h-full w-full bg-[#EDEDED] gap-y-6">
