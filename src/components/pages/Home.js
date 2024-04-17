@@ -1,4 +1,5 @@
 import PopularBooks from "components/PopularBooks";
+import RecommendedBooks from "components/RecommendedBooks";
 import Reminders from "components/Reminders";
 import WelcomeHeader from "components/WelcomeHeader";
 import React from "react";
@@ -9,6 +10,7 @@ function Home() {
       <WelcomeHeader />
       <Reminders />
       <PopularBooks />
+      <RecommendedBooks />
     </div>
   );
 }
