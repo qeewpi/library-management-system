@@ -23,7 +23,7 @@ function ProfileDetail() {
         </div>
         <div className="input-box flex flex-grow items-center text-gray-400">
           <div className="input-box flex w-8-16 items-center text-gray-400 ">
-            <div className="flex flex-grow relative items-center">
+            <div className="flex flex-grow text-sm relative items-center">
               <input
                 type="text"
                 placeholder="Email"
@@ -57,7 +57,7 @@ function ProfileDetail() {
         </div>
         <div className="input-box flex flex-grow items-center text-gray-400">
           <div className="input-box flex w-8-16 items-center text-gray-400 ">
-            <div className="flex flex-grow relative items-center">
+            <div className="flex flex-grow text-sm relative items-center">
               <input
                 type="text"
                 placeholder="Email Address"
@@ -81,17 +81,18 @@ function ProfileDetail() {
         </div>
       </div>
 
-      <div className="p-4 flex mb-4 border-b-2 w-full items-center">
+      <div className="p-4 flex flex-row mb-4 border-b-2 w-full items-center">
         <div className="flex h-full w-2/12">
           <span className="text-primaryblack mr-4 text-base w-full">
             Update Password
           </span>
-        </div>
-        <div className="input-box flex flex-grow items-center text-gray-400">
+      </div>
+        <div className="flex flex-col gap-8">
+          <div className="input-box flex flex-grow items-center text-gray-400">
           <div className="input-box flex w-8-16 items-center text-gray-400 ">
-            <div className="flex flex-grow relative items-center">
+            <div className="flex flex-grow text-sm relative items-center">
               <input
-                type="text"
+                type="password"
                 placeholder="Enter Current Password"
                 required
                 className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -113,9 +114,9 @@ function ProfileDetail() {
 
         <div className="input-box flex flex-grow items-center text-gray-400">
           <div className="input-box flex w-8-16 items-center text-gray-400 ">
-            <div className="flex flex-grow relative items-center">
+            <div className="flex flex-grow text-sm relative items-center">
               <input
-                type="text"
+                type="password"
                 placeholder="Enter New Password"
                 required
                 className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -134,7 +135,7 @@ function ProfileDetail() {
             </div>
           </div>
         </div>
-      </div>
+      </div></div>
 
       <div className="p-4 flex mb-4 border-b-2 w-full items-center">
         <div className="flex h-full w-2/12">
@@ -144,8 +145,8 @@ function ProfileDetail() {
         </div>
         <div className="input-box flex flex-grow items-center text-gray-400">
           <div className="input-box flex w-8-16 l-8-16 items-center text-gray-400 ">
-            <div className="flex flex-grow relative items-center">
-            <textarea name="postContent" rows={4} cols={30}
+            <div className="flex flex-grow text-sm relative items-center">
+            <textarea name="postContent" rows={6} cols={40}
                 placeholder="Enter your bio here."
             
                 className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
