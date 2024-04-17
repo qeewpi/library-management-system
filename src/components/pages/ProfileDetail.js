@@ -3,7 +3,7 @@ import React from "react";
 function ProfileDetail() {
   return (
     <div className="text-base bg-white font-semibold p-6 rounded-xl ">
-      <div className="p-4 flex mb-4 border-b-2 w-full items-center">
+      <div className="fieldDiv p-4 flex mb-4 border-b-2 w-full items-center">
         <div className="flex h-full w-2/12">
           <span className="text-primaryblack mr-4 text-base w-full">
             Username
@@ -16,7 +16,7 @@ function ProfileDetail() {
                 type="text"
                 placeholder="Email"
                 required
-                className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+                className="w-full pl-12 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
 
               <svg
