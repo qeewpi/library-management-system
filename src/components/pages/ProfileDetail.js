@@ -3,10 +3,14 @@ import React from "react";
 function ProfileDetail() {
   return (
     <div className="text-base bg-white font-semibold p-6 rounded-xl ">
-      <div className="p-4 flex mb-4 w-full items-center">
-        <div className="flex h-full w-2/12 "> 
+      <div className="p-4 flex mb-4 w-full border-b-2 items-center">
+        <div className="flex h-full w-full "> 
             <span className="text-primaryblack mr-4 text-base w-full">
               Profile
+
+            <p className="text-gray-400 mr-4 text-base w-full">
+              Update your personal details here.
+            </p>
             </span>
           </div>
         </div> 
