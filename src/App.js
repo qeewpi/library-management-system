@@ -5,6 +5,8 @@ import LandingPage from "components/pages/LandingPage";
 import LogIn from "components/pages/LogIn";
 import Profile from "components/pages/Profile";
 import SignUp from "components/pages/SignUp";
+import Results from "components/pages/Results";
+import ReadingList from "components/pages/ReadingList";
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
@@ -27,7 +29,9 @@ function AppContent() {
     if (
       location.pathname === "/" ||
       location.pathname === "/sign-up" ||
-      location.pathname === "/log-in"
+      location.pathname === "/log-in" ||
+      location.pathname === "/results" ||
+      location.pathname === "/readinglist"
     ) {
       return null;
     }
@@ -56,6 +60,8 @@ function AppContent() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/log-in" element={<LogIn />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/readinglist" element={<ReadingList />} />
       </Routes>
 
       {renderScreensContainer()}
