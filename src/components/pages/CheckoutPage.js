@@ -4,14 +4,16 @@ import Cart from "components/Cart";
 
 function CheckoutPage() {
   return (
-    <div className="flex flex-1 flex-row gap-4">
+    <div className="flex flex-grow flex-row gap-4">
       <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
-        <span>
-          <h1 className="flex p-8">
-            <span className="font-bold text-primaryBlack">Cart</span>
-            <span className="text-gray-400">3 Items</span>
-          </h1>
-        </span>
+        <div>
+          <h1 className="font-bold text-primaryBlack">Cart</h1>
+
+          <div className="flex flex-row justify-between">
+            <h1 className="text-gray-400">3 Items</h1>
+            <h1 className="text-primaryBlue"> Empty cart</h1>
+          </div>
+        </div>
 
         <div className="p-4 border-b-4">
           <Cart />
@@ -26,7 +28,7 @@ function CheckoutPage() {
         </div>
       </div>
 
-      <div className="flex flex-1 w-1/4">
+      <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
         <Checkout />
       </div>
     </div>
