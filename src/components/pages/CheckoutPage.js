@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import Checkout from "components/Checkout";
 import Cart from "components/Cart";
+import Checkout from "components/Checkout";
+import React from "react";
 
 function CheckoutPage() {
   return (
