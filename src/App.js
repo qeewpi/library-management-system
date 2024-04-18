@@ -9,6 +9,7 @@ import ReadingList from "components/pages/ReadingList";
 import Results from "components/pages/Results";
 import SignUp from "components/pages/SignUp";
 import OrderSummary from "components/pages/OrderSummary";
+import CheckoutPage from "components/pages/CheckoutPage";
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
@@ -61,6 +62,7 @@ function AppContent() {
             <Route path="/results" element={<Results />} />
             <Route path="/reading-list" element={<ReadingList />} />
             <Route path="/order-summary" element={<OrderSummary />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </div>
       </div>

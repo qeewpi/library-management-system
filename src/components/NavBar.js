@@ -26,26 +26,7 @@ function NavBar() {
           <img src={brandSVG} alt="" />
           <h1 className="text-`xl flex-grow">eLibrary</h1>
         </div>
-        <div className=" flex flex-grow justify-center items-center max-w-sm lg:max-w-lg">
-          <div className="searchBar hidden md:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
-            <img src={searchSVG} alt="" />
-            <input
-              type="text"
-              placeholder="Search titles..."
-              className="text-gray-500 bg-transparent outline-none flex-grow md:hidden focus:text-primaryBlack text-primaryBlack"
-            />
-            <input
-              type="text"
-              placeholder="Search titles, authors..."
-              className="text-gray-500 bg-transparent outline-none flex-grow hidden md:block lg:hidden focus:text-primaryBlack text-primaryBlack"
-            />
-            <input
-              type="text"
-              placeholder="Search book titles, authors, publishers..."
-              className="text-gray-500 bg-transparent outline-none flex-grow hidden lg:block focus:text-primaryBlack text-primaryBlack"
-            />
-          </div>
-        </div>
+        
         <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-xs">
           <div className="flex flex-row gap-x-2">
             <div className="flex flex-grow items-center pr-2">
