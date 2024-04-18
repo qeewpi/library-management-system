@@ -1,6 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { borrowedBooks } from "../data/userBorrowedBooks";
 
 const BookLibrary = () => {
+  const borrowedBooksData = borrowedBooks[0].borrowedBooks; // Extracting borrowed books data from the borrowedBooks array
+
   return (
     <div className="flex flex-1 flex-col items-start rounded-[20px] bg-white p-10 md:self-stretch md:p-5">
       <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
@@ -9,34 +13,25 @@ const BookLibrary = () => {
       >
         Your Book Library
       </h1>
-      <div className="mb-[42px] ml-[5px] mt-1.5 grid grid-cols-3 gap-4 self-stretch md:ml-0 md:grid-cols-2 sm:grid-cols-1">
-        {data.map((d, index) => (
-          <img
-            key={"gridbookone" + index}
-            src="images/cardItemPlaceholder.png"
-            alt="book_placeholder"
-            className="h-[201px] w-full object-cover md:h-auto"
-          />
-        ))}
+      <div className="mb-[42px] ml-[5px] self-stretch md:ml-0">
+        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-3">
+          {borrowedBooksData.map((book) => (
+            <Link to={"/book/" + book.bookId}>
+              <div key={book.orderId} className="flex flex-col items-center">
+                <img
+                  src={book.img}
+                  alt={book.bookTitle}
+                  className="h-[12rem] md:h-[16rem] xl:h-[320px] xl:w-[256px] object-fill rounded-xl"
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-// basically, tinry ko toh para may placeholder image, pero not working pa din :<
-const data = [
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-  { bookone: "img/cardItemPlaceholder.png" },
-];
-
-// nilagyan ko ng ganito kasi medj nalilito pa ako paano yung styles HWHAHAHHAHHAHA sori sori
 const sizesText = {
   xs: "text-[8px] font-normal",
   lg: "text-[13px] font-normal",

@@ -15,7 +15,7 @@ function Reminders() {
             View overdue books
           </button>
         </Link>
-        <Link to="/return">
+        <Link to="/renew">
           <button className="p-4 px-12 bg-primaryYellow text-white rounded-xl w-full h-full">
             Renew books online
           </button>

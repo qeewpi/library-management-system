@@ -22,7 +22,11 @@ function BookCardSlider() {
               <div className="sliderItem flex flex-col">
                 <Link to={"/book/" + book.id}>
                   <div>
-                    <img src={book.img} alt="" className="w-full h-full" />
+                    <img
+                      src={book.img}
+                      alt=""
+                      className="h-[18rem] rounded-xl object-cover"
+                    />
                   </div>
                   <div className="pt-3">
                     <h1>{book.bookTitle}</h1>

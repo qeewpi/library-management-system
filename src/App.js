@@ -8,7 +8,7 @@ import Profile from "components/pages/Profile";
 import ReadingList from "components/pages/ReadingList";
 import Results from "components/pages/Results";
 import SignUp from "components/pages/SignUp";
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
 
@@ -16,7 +16,18 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <AppContent />
+        <div className="sticky top-0 z-10">
+          <NavBar />
+        </div>
+        <div className="flex">
+          <div className="hidden lg:flex flex-col w-[19rem] lg:[]xl:w-96 max-h-screen fixed z-20">
+            <SideNavBar />
+          </div>
+          <div className="flex flex-grow w-full h-full ml-0 lg:ml-[19rem]">
+            <AppContent />
+          </div>
+        </div>
+        <IndividualContent />
       </BrowserRouter>
     </div>
   );
@@ -24,6 +35,11 @@ function App() {
 
 function AppContent() {
   const location = useLocation();
+
+  // Scroll to the top of the page whenever the URL changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   // Conditional rendering logic for screens-container
   const renderScreensContainer = () => {
@@ -35,11 +51,8 @@ function AppContent() {
       return null;
     }
     return (
-      <div className="screens-container flex">
-        <div className="hidden lg:flex flex-col w-5/12 xl:w-96 min-h-screen">
-          <SideNavBar />
-        </div>
-        <div className="contentDiv px-8 py-16 flex flex-col flex-grow max-h-screen w-full bg-[#EDEDED] gap-y-6 overflow-auto">
+      <div className="screens-container flex flex-grow">
+        <div className="contentDiv px-8 py-16 flex flex-col flex-grow min-h-screen min-w-full bg-[#EDEDED] gap-y-6 overflow-auto">
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
@@ -54,21 +67,29 @@ function AppContent() {
 
   return (
     <>
-      <div className="appContainerDiv overflow-hidden max-h-screen">
-        <div className="sticky top-0">
-          <NavBar />
-        </div>
-
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/log-in" element={<LogIn />} />
-        </Routes>
-
+      <div className="appContainerDiv overflow-hidden max-h-screen flex flex-grow">
         {renderScreensContainer()}
       </div>
     </>
   );
+}
+
+function IndividualContent() {
+  const location = useLocation();
+
+  if (
+    location.pathname === "/" ||
+    location.pathname === "/sign-up" ||
+    location.pathname === "/log-in"
+  ) {
+    return (
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/log-in" element={<LogIn />} />
+      </Routes>
+    );
+  }
 }
 
 export default App;
