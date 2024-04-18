@@ -5,7 +5,7 @@ function SideNavBar() {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col py-16 gap-y-2 flex-grow bg-primaryBlue text-white items-start">
+    <div className="flex flex-col py-16 gap-y-2 h-screen bg-primaryBlue text-white items-start">
       <NavLink
         to={"/home"}
         className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
@@ -67,11 +67,15 @@ function SideNavBar() {
       <NavLink
         to={"/browse-library"}
         className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
-          location.pathname === "/browse-library" ? "text-primaryYellow" : ""
+          location.pathname === "/browse-library" ||
+          location.pathname.startsWith("/book/")
+            ? "text-primaryYellow"
+            : ""
         }`}
       >
         <div className="flex flex-row items-center gap-x-6">
-          {location.pathname === "/browse-library" ? (
+          {location.pathname === "/browse-library" ||
+          location.pathname.startsWith("/book/") ? (
             <svg
               width="20"
               height="18"
