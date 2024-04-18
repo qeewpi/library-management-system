@@ -45,7 +45,7 @@ function BookDetails() {
           </div>
         </div>
       </div>
-      <RecommendedBooks />
+      <RecommendedBooks imageBaseUrl="../../" />
     </div>
   );
 }
