@@ -10,7 +10,7 @@ import "./index.css";
 
 function App() {
   // Temporary isAdmin state for Demo purposes
-  const isAdmin = true;
+  const isAdmin = false;
 
   return (
     <div className="App">
