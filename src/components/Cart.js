@@ -19,7 +19,8 @@ function Cart() {
     return (
         <div className="flex flex-row gap-x-8">
             <div className="flex">
-                <img src={`../../${book.img}`} alt={book.bookTitle} />
+                <img src={`../../${book.img}`} alt={book.bookTitle} className="h-[12rem] w-[8rem] object-cover rounded-xl"z
+/>
             </div>
             <div className="textDiv flex flex-col gap-y-6 justify-between">
                 <div className="flex flex-col gap-y-1">

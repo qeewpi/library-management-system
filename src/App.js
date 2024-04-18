@@ -13,6 +13,9 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
 import CheckoutPage from "components/pages/CheckoutPage";
+import Checkout from "components/Checkout";
+
+
 
 function App() {
   return (
@@ -63,7 +66,10 @@ function AppContent() {
             <Route path="/results" element={<Results />} />
             <Route path="/reading-list" element={<ReadingList />} />
             <Route path="/order-summary" element={<OrderSummary />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/checkout-page" element={<CheckoutPage />} />
+            <Route path="/checkout" element={<Checkout />} />
+
+
           </Routes>
         </div>
       </div>
