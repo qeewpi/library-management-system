@@ -1,4 +1,4 @@
-import React from "react";
+import { default as React } from "react";
 import { Link, useParams } from "react-router-dom";
 import { books } from "../../data/booksData";
 import RecommendedBooks from "./../RecommendedBooks";
@@ -9,6 +9,7 @@ function BookDetails() {
 
   // Find the book with the matching id
   const book = books.find((book) => book.id === parseInt(id));
+  // ...
 
   // If book is not found, display a message
   if (!book) {
@@ -45,7 +46,7 @@ function BookDetails() {
           </div>
         </div>
       </div>
-      <RecommendedBooks />
+      <RecommendedBooks imageBaseUrl="../../" />
     </div>
   );
 }

@@ -4,12 +4,12 @@ import BookDetails from "components/pages/BookDetails";
 import Home from "components/pages/Home";
 import LandingPage from "components/pages/LandingPage";
 import LogIn from "components/pages/LogIn";
+import OrderSummary from "components/pages/OrderSummary";
 import Profile from "components/pages/Profile";
 import ReadingList from "components/pages/ReadingList";
 import Results from "components/pages/Results";
 import SignUp from "components/pages/SignUp";
 import OrderSummary from "components/pages/OrderSummary";
-import CheckoutPage from "components/pages/CheckoutPage";
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
@@ -41,6 +41,7 @@ function AppContent() {
   // Scroll to the top of the page whenever the URL changes
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log(location.pathname);
   }, [location.pathname]);
 
   // Conditional rendering logic for screens-container

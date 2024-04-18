@@ -10,7 +10,7 @@ function Home() {
       <WelcomeHeader />
       <Reminders />
       <PopularBooks />
-      <RecommendedBooks />
+      <RecommendedBooks imageBaseUrl={""} />
     </div>
   );
 }
