@@ -10,10 +10,10 @@ import "./index.css";
 
 function App() {
   // Temporary isAdmin state for Demo purposes
-  const isAdmin = false;
+  const isAdmin = true;
 
   return (
-    <div className="App">
+    <div className="true">
       <BrowserRouter>
         <NavBar isAdmin={isAdmin} />
         <div className="flex">

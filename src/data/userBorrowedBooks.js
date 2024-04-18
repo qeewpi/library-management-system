@@ -3,6 +3,7 @@ export const borrowedBooks = [
     user: {
       name: "John Doe",
       email: "john.doe@example.com",
+      id: "1",
     },
     borrowedBooks: [
       {
@@ -67,6 +68,17 @@ export const borrowedBooks = [
         borrowedDate: "2024-04-18",
         dueDate: "2024-05-10",
         img: "images/harry_potter.png",
+      },
+    ],
+    returnedBooks: [
+      {
+        bookId: 8,
+        orderId: 8,
+        bookTitle: "The Hunger Games",
+        bookAuthor: "Suzanne Collins",
+        borrowedDate: "2024-04-15",
+        returnedDate: "2024-04-19",
+        img: "images/hunger_games.png",
       },
     ],
   },
