@@ -12,7 +12,7 @@ function Checkout() {
       <div>
         <button
           type="submit"
-          className="btn mt-8 w-full py- rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+          className="btn mt-8 w-full  rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
         >
           Checkout
         </button>
