@@ -5,9 +5,9 @@ import Home from "components/pages/Home";
 import LandingPage from "components/pages/LandingPage";
 import LogIn from "components/pages/LogIn";
 import Profile from "components/pages/Profile";
-import SignUp from "components/pages/SignUp";
-import Results from "components/pages/Results";
 import ReadingList from "components/pages/ReadingList";
+import Results from "components/pages/Results";
+import SignUp from "components/pages/SignUp";
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
@@ -30,9 +30,7 @@ function AppContent() {
     if (
       location.pathname === "/" ||
       location.pathname === "/sign-up" ||
-      location.pathname === "/log-in" ||
-      location.pathname === "/results" ||
-      location.pathname === "/readinglist"
+      location.pathname === "/log-in"
     ) {
       return null;
     }
@@ -46,6 +44,8 @@ function AppContent() {
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/book/:id" element={<BookDetails />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/reading-list" element={<ReadingList />} />
           </Routes>
         </div>
       </div>
@@ -59,13 +59,11 @@ function AppContent() {
           <NavBar />
         </div>
 
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/log-in" element={<LogIn />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/readinglist" element={<ReadingList />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/log-in" element={<LogIn />} />
+        </Routes>
 
         {renderScreensContainer()}
       </div>

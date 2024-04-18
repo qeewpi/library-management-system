@@ -4,12 +4,16 @@ const BookLibrary = () => {
   return (
     <div className="flex flex-1 flex-col items-start rounded-[20px] bg-white p-10 md:self-stretch md:p-5">
       <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
-      <h1 className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`}>Your Book Library</h1>
+      <h1
+        className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`}
+      >
+        Your Book Library
+      </h1>
       <div className="mb-[42px] ml-[5px] mt-1.5 grid grid-cols-3 gap-4 self-stretch md:ml-0 md:grid-cols-2 sm:grid-cols-1">
         {data.map((d, index) => (
           <img
             key={"gridbookone" + index}
-            src="img/cardItemPlaceholder.png"
+            src="images/cardItemPlaceholder.png"
             alt="book_placeholder"
             className="h-[201px] w-full object-cover md:h-auto"
           />
@@ -21,15 +25,15 @@ const BookLibrary = () => {
 
 // basically, tinry ko toh para may placeholder image, pero not working pa din :<
 const data = [
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
-    { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
+  { bookone: "img/cardItemPlaceholder.png" },
 ];
 
 // nilagyan ko ng ganito kasi medj nalilito pa ako paano yung styles HWHAHAHHAHHAHA sori sori
