@@ -19,7 +19,7 @@ function UserContent() {
           <Route path="/results" element={<Results />} />
           <Route path="/reading-list" element={<ReadingList />} />
           <Route path="/order-summary" element={<OrderSummary />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/checkout-page" element={<CheckoutPage />} />
         </Routes>
       </div>
     </div>
