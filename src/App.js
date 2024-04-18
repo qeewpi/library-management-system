@@ -9,10 +9,10 @@ import Profile from "components/pages/Profile";
 import ReadingList from "components/pages/ReadingList";
 import Results from "components/pages/Results";
 import SignUp from "components/pages/SignUp";
-import OrderSummary from "components/pages/OrderSummary";
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
+import CheckoutPage from "components/pages/CheckoutPage";
 
 function App() {
   return (
