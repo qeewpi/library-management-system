@@ -3,20 +3,32 @@ import React from "react";
 function ProfileDetail() {
   return (
     <div className="text-base bg-white font-semibold p-6 rounded-xl ">
-      <div className="fieldDiv p-4 flex mb-4 border-b-2 w-full items-center">
+      <div className="p-4 flex mb-4 w-full border-b-2 items-center">
+        <div className="flex h-full w-full "> 
+            <span className="text-primaryblack mr-4 text-base w-full">
+              Profile
+
+            <p className="text-gray-400 mr-4 text-base w-full">
+              Update your personal details here.
+            </p>
+            </span>
+          </div>
+        </div> 
+        
+      <div className="p-4 flex mb-4 border-b-2 w-full items-center">
         <div className="flex h-full w-2/12">
           <span className="text-primaryblack mr-4 text-base w-full">
             Username
           </span>
         </div>
         <div className="input-box flex flex-grow items-center text-gray-400">
-          <div className="input-box flex w-4/12 items-center text-gray-400 ">
-            <div className="flex flex-grow relative items-center">
+          <div className="input-box flex w-8-16 items-center text-gray-400 ">
+            <div className="flex flex-grow text-sm relative items-center">
               <input
                 type="text"
                 placeholder="Email"
                 required
-                className="w-full pl-12 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+                className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
 
               <svg
@@ -36,47 +48,112 @@ function ProfileDetail() {
           </div>
         </div>
       </div>
+
       <div className="p-4 flex mb-4 border-b-2 w-full items-center">
-        <div className="w-2/12">
-          <span className="text-primaryblack mr-4 text-base w-full">Email</span>
+        <div className="flex h-full w-2/12">
+          <span className="text-primaryblack mr-4 text-base w-full">
+            Email Address
+          </span>
         </div>
-        <div>
-          {" "}
-          <input
-            type="email"
-            className="border border-gray-300 rounded-md p-2 flex-grow-2 text-base"
-            placeholder="Email address"
-          />
+        <div className="input-box flex flex-grow items-center text-gray-400">
+          <div className="input-box flex w-8-16 items-center text-gray-400 ">
+            <div className="flex flex-grow text-sm relative items-center">
+              <input
+                type="text"
+                placeholder="Email Address"
+                required
+                className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+              />
+
+              <svg 
+                width="20" 
+                height="16" 
+                viewBox="0 0 20 16" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute left-0 h-5 w-5 ml-3 pointer-events-none"
+              >
+               
+                <path d="M3.25 0H16.75C18.483 0 19.8992 1.35645 19.9949 3.06558L20 3.25V12.75C20 14.483 18.6435 15.8992 16.9344 15.9949L16.75 16H3.25C1.51697 16 0.10075 14.6435 0.00514007 12.9344L0 12.75V3.25C0 1.51697 1.35645 0.10075 3.06558 0.00513983L3.25 0ZM18.5 5.373L10.3493 9.6637C10.1619 9.7623 9.9431 9.7764 9.7468 9.706L9.6507 9.6637L1.5 5.374V12.75C1.5 13.6682 2.20711 14.4212 3.10647 14.4942L3.25 14.5H16.75C17.6682 14.5 18.4212 13.7929 18.4942 12.8935L18.5 12.75V5.373ZM16.75 1.5H3.25C2.33183 1.5 1.57881 2.20711 1.5058 3.10647L1.5 3.25V3.679L10 8.1525L18.5 3.678V3.25C18.5 2.33183 17.7929 1.57881 16.8935 1.5058L16.75 1.5Z" fill="#212121"/>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="p-4 flex items-start mb-4 space-x-48">
-        <span className="text-primaryblack mr-4 text-base w-full">
-          Update Password
-        </span>
-        <input
-          type="password"
-          className="border border-gray-300 rounded-md p-2 flex-grow-2 text-base"
-          placeholder="Enter your current password"
-        />
+      <div className="p-4 flex flex-row mb-4 border-b-2 w-full items-center">
+        <div className="flex h-full w-2/12">
+          <span className="text-primaryblack mr-4 text-base w-full">
+            Update Password
+          </span>
       </div>
+        <div className="flex flex-col gap-8">
+          <div className="input-box flex flex-grow items-center text-gray-400">
+          <div className="input-box flex w-8-16 items-center text-gray-400 ">
+            <div className="flex flex-grow text-sm relative items-center">
+              <input
+                type="password"
+                placeholder="Enter Current Password"
+                required
+                className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+              />
 
-      <div className="p-4 flex items-start mb-4 border-b-2 space-x-48">
-        <input
-          type="password"
-          className="border border-gray-300 rounded-md p-2 flex-grow-2 text-base"
-          placeholder="Enter your new password"
-        />
-      </div>
+              <svg 
+                width="16" 
+                height="19" 
+                viewBox="0 0 16 19" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute left-0 h-5 w-5 ml-3 pointer-events-none"
+                >
+                <path d="M8 13.5C8.8284 13.5 9.5 12.8284 9.5 12C9.5 11.1716 8.8284 10.5 8 10.5C7.1716 10.5 6.5 11.1716 6.5 12C6.5 12.8284 7.1716 13.5 8 13.5ZM4 4C4 1.79086 5.79086 0 8 0C10.2091 0 12 1.79086 12 4V5H12.75C14.5449 5 16 6.45507 16 8.25V15.75C16 17.5449 14.5449 19 12.75 19H3.25C1.45507 19 0 17.5449 0 15.75V8.25C0 6.45507 1.45507 5 3.25 5H4V4ZM8 1.5C6.6193 1.5 5.5 2.61929 5.5 4V5H10.5V4C10.5 2.61929 9.3807 1.5 8 1.5ZM3.25 6.5C2.2835 6.5 1.5 7.2835 1.5 8.25V15.75C1.5 16.7165 2.2835 17.5 3.25 17.5H12.75C13.7165 17.5 14.5 16.7165 14.5 15.75V8.25C14.5 7.2835 13.7165 6.5 12.75 6.5H3.25Z" fill="#212121"/>
+              </svg>
+            </div>
+          </div>
+        </div>
 
-      <div className="p-4 flex items-start border-b-2 space-x-48">
-        <span className="text-primaryblack mr-4 text-base w-full">
-          Your Bio
-        </span>
-        <textarea
-          className="border border-gray-300 rounded-md p-2 text-base"
-          placeholder="Enter your bio here."
-        />
+        <div className="input-box flex flex-grow items-center text-gray-400">
+          <div className="input-box flex w-8-16 items-center text-gray-400 ">
+            <div className="flex flex-grow text-sm relative items-center">
+              <input
+                type="password"
+                placeholder="Enter New Password"
+                required
+                className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+              />
+
+                <svg 
+                width="16" 
+                height="19" 
+                viewBox="0 0 16 19" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute left-0 h-5 w-5 ml-3 pointer-events-none"
+                >
+                <path d="M8 13.5C8.8284 13.5 9.5 12.8284 9.5 12C9.5 11.1716 8.8284 10.5 8 10.5C7.1716 10.5 6.5 11.1716 6.5 12C6.5 12.8284 7.1716 13.5 8 13.5ZM4 4C4 1.79086 5.79086 0 8 0C10.2091 0 12 1.79086 12 4V5H12.75C14.5449 5 16 6.45507 16 8.25V15.75C16 17.5449 14.5449 19 12.75 19H3.25C1.45507 19 0 17.5449 0 15.75V8.25C0 6.45507 1.45507 5 3.25 5H4V4ZM8 1.5C6.6193 1.5 5.5 2.61929 5.5 4V5H10.5V4C10.5 2.61929 9.3807 1.5 8 1.5ZM3.25 6.5C2.2835 6.5 1.5 7.2835 1.5 8.25V15.75C1.5 16.7165 2.2835 17.5 3.25 17.5H12.75C13.7165 17.5 14.5 16.7165 14.5 15.75V8.25C14.5 7.2835 13.7165 6.5 12.75 6.5H3.25Z" fill="#212121"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div></div>
+
+      <div className="p-4 flex mb-4 border-b-2 w-full items-center">
+        <div className="flex h-full w-2/12">
+          <span className="text-primaryblack mr-4 text-base w-full">
+            Your Bio
+          </span>
+        </div>
+        <div className="input-box flex flex-grow items-center text-gray-400">
+          <div className="input-box flex w-8-16 l-8-16 items-center text-gray-400 ">
+            <div className="flex flex-grow text-sm relative items-center">
+            <textarea name="postContent" rows={6} cols={40}
+                placeholder="Enter your bio here."
+            
+                className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <button
