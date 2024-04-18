@@ -40,6 +40,7 @@ function AppContent() {
   // Scroll to the top of the page whenever the URL changes
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log(location.pathname);
   }, [location.pathname]);
 
   // Conditional rendering logic for screens-container
