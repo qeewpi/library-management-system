@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import UserList from "../pages/admin/UserList";
+import Profile from "components/pages/admin/Profile";
 // Import admin-specific components
 // import AdminDashboard from "components/pages/AdminDashboard";
 // import AdminUsers from "components/pages/AdminUsers";
@@ -14,7 +15,8 @@ function AdminContent() {
           {/* Example: */}
           {/* <Route path="/admin/dashboard" element={<AdminDashboard />} /> */}
           {/* <Route path="/admin/users" element={<AdminUsers />} /> */}
-          <Route path="/admin/user-list" element=<UserList /> />
+          <Route path="/admin/user-list" element={<UserList />} />
+          <Route path="/admin/profile" element={<Profile />} />
         </Routes>
       </div>
     </div>
