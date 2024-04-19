@@ -1,10 +1,10 @@
-import BookDetails from "components/pages/BookDetails";
-import CheckoutPage from "components/pages/CheckoutPage";
-import Home from "components/pages/Home";
-import OrderSummary from "components/pages/OrderSummary";
-import Profile from "components/pages/Profile";
-import ReadingList from "components/pages/ReadingList";
-import Results from "components/pages/Results";
+import BookDetails from "components/pages/user/BookDetails";
+import CheckoutPage from "components/pages/user/CheckoutPage";
+import Home from "components/pages/user/Home";
+import OrderSummary from "components/pages/user/OrderSummary";
+import Profile from "components/pages/user/Profile";
+import ReadingList from "components/pages/user/ReadingList";
+import Results from "components/pages/user/Results";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 

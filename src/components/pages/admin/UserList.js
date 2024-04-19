@@ -1,6 +1,6 @@
-import AdminWelcome from "components/AdminWelcome";
+import AdminWelcome from "components/admin-components/AdminWelcome";
 import React from "react";
-import { UserTable } from "../UserTable";
+import { UserTable } from "../../admin-components/UserTable";
 
 function UserList() {
   return (

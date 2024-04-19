@@ -1,12 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import alertSVG from "../icons/alert.svg";
-import brandSVG from "../icons/brand.svg";
-import cartSVG from "../icons/cart.svg";
-import hamburgerSVG from "../icons/hamburgerMenu.svg";
-import msgSVG from "../icons/msg.svg";
-import searchSVG from "../icons/search.svg";
-import userFilledSVG from "../icons/user-filled.svg";
+import alertSVG from "../../icons/alert.svg";
+import brandSVG from "../../icons/brand.svg";
+import cartSVG from "../../icons/cart.svg";
+import hamburgerSVG from "../../icons/hamburgerMenu.svg";
+import msgSVG from "../../icons/msg.svg";
+import searchSVG from "../../icons/search.svg";
+import userFilledSVG from "../../icons/user-filled.svg";
 
 function UserNavBar() {
   const location = useLocation();

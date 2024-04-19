@@ -1,7 +1,7 @@
 import { default as React } from "react";
 import { Link, useParams } from "react-router-dom";
-import { books } from "../../data/booksData";
-import RecommendedBooks from "./../RecommendedBooks";
+import { books } from "../../../data/booksData";
+import RecommendedBooks from "../../user-components/RecommendedBooks";
 
 function BookDetails() {
   // Get the id parameter from the URL

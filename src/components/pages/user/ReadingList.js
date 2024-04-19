@@ -1,5 +1,5 @@
-import BookLibrary from "components/BookLibrary";
-import BookSelected from "components/BookSelected";
+import BookSelected from "components/user-components/BookSelected";
+import BookLibrary from "components/user-components/BookLibrary";
 import React from "react";
 
 function ReadingList() {

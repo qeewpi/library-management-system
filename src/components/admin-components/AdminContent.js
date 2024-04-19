@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import UserList from "./pages/UserList";
+import UserList from "../pages/admin/UserList";
 // Import admin-specific components
 // import AdminDashboard from "components/pages/AdminDashboard";
 // import AdminUsers from "components/pages/AdminUsers";

@@ -1,4 +1,4 @@
-import OrderItem from "components/OrderItem";
+import OrderItem from "components/user-components/OrderItem";
 import React from "react";
 
 function OrderSummary() {

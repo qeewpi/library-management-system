@@ -1,5 +1,5 @@
 import React from 'react';
-import BookResults from "components/BookResults";
+import BookResults from "components/user-components/BookResults";
 
 
 function Results() {

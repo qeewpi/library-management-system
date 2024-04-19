@@ -1,6 +1,6 @@
 import React from "react";
-import AdminNavBar from "./AdminNavBar";
-import UserNavBar from "./UserNavBar";
+import AdminNavBar from "./admin-components/AdminNavBar";
+import UserNavBar from "./user-components/UserNavBar";
 
 function NavBar({ isAdmin }) {
   return (

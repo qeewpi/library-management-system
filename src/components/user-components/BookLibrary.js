@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { borrowedBooks } from "../data/userBorrowedBooks";
+import { borrowedBooks } from "../../data/userBorrowedBooks";
 
 const BookLibrary = () => {
   const borrowedBooksData = borrowedBooks[0].borrowedBooks; // Extracting borrowed books data from the borrowedBooks array

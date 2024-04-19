@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Profile from "./Profile";
+import Home from "./user/Home";
+import Profile from "./user/Profile";
 
 function Pages() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import UserSideNavBar from "../components/UserSideNavBar";
-import AdminSideNavBar from "./AdminSideNavBar";
+import UserSideNavBar from "./user-components/UserSideNavBar";
+import AdminSideNavBar from "./admin-components/AdminSideNavBar";
 
 function SideNavBar({ isAdmin }) {
   return (

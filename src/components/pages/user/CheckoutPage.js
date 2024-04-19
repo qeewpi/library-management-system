@@ -1,5 +1,5 @@
-import Cart from "components/Cart";
-import Checkout from "components/Checkout";
+import Cart from "components/user-components/Cart";
+import Checkout from "components/user-components/Checkout";
 import React from "react";
 
 function CheckoutPage() {

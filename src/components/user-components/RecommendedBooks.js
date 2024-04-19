@@ -1,7 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import React from "react";
 import { Link } from "react-router-dom";
-import { popularBooks } from "../data/recommendedBooks";
+import { popularBooks } from "../../data/recommendedBooks";
 
 function RecommendedBooks({ imageBaseUrl }) {
   return (

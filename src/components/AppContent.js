@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import AdminContent from "./AdminContent";
-import UserContent from "./UserContent";
+import UserContent from "./user-components/UserContent";
+import AdminContent from "./admin-components/AdminContent";
 
 function AppContent({ isAdmin }) {
   const location = useLocation();
