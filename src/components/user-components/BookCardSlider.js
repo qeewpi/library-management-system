@@ -11,6 +11,26 @@ function BookCardSlider() {
         <Splide
           options={{
             perPage: 8,
+            breakpoints: {
+              1536: {
+                perPage: 8,
+              },
+              1280: {
+                perPage: 5,
+              },
+              1024: {
+                perPage: 5,
+              },
+              768: {
+                perPage: 3,
+              },
+              640: {
+                perPage: 2,
+              },
+              480: {
+                perPage: 1,
+              },
+            },
             gap: "1rem",
             arrows: false,
             pagination: false,
@@ -25,7 +45,7 @@ function BookCardSlider() {
                     <img
                       src={book.img}
                       alt=""
-                      className="h-[18rem] rounded-xl object-cover"
+                      className="h-[10rem] md:h-[14rem] lg:h-[14rem] xl:h-[15rem] w-full rounded-xl object-cover"
                     />
                   </div>
                   <div className="pt-3">
