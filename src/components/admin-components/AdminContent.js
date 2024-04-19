@@ -1,12 +1,12 @@
-import LibraryCatalog from "components/pages/admin/LibraryCatalog";
 import Profile from "components/pages/admin/Profile";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import UserList from "../pages/admin/UserList";
-import Profile from "components/pages/admin/Profile";
 // Import admin-specific components
 // import AdminDashboard from "components/pages/AdminDashboard";
 // import AdminUsers from "components/pagess/AdminUsers";
+import BorrowedBooks from "components/pages/admin/BorrowedBooks";
+import LibraryCatalog from "../pages/admin/LibraryCatalog";
 
 function AdminContent() {
   return (
@@ -19,6 +19,8 @@ function AdminContent() {
           {/* <Route path="/admin/users" element={<AdminUsers />} /> */}
           <Route path="/admin/user-list" element={<UserList />} />
           <Route path="/admin/profile" element={<Profile />} />
+          <Route path="/admin/library-catalog" element={<LibraryCatalog />} />
+          <Route path="/admin/borrowed-books" element={<BorrowedBooks />} />
         </Routes>
       </div>
     </div>
