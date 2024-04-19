@@ -21,11 +21,11 @@ function BookDetails() {
     <div className="flex flex-col gap-y-6">
       <div className="book-details-wrapper text-xl bg-white font-semibold p-6 rounded-xl flex">
         <div className="flex flex-row gap-x-8 flex-grow justify-items-stretch">
-          <div className="flex w-3/12">
+          <div className="imageContainer flex w-4/12 xl:w-full 2xl:w-4/12">
             <img
               src={`../../${book.img}`}
               alt={book.bookTitle}
-              className="h-[28rem] w-full rounded-xl object-cover"
+              className="h-[26rem] 2xl:h-[32rem] w-full rounded-xl object-cover"
             />
           </div>
           <div className="textDiv flex flex-col gap-y-6 w-full">
