@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchBar() {
   return (
-    <div className="items-center hidden gap-x-2 lg:flex">
+    <div className="items-center flex gap-x-2 ">
       <div className="join">
         <div>
           <div>

@@ -25,11 +25,14 @@ const GenericForm = ({ fields, onSubmit, header, description }) => {
           </h2>
         )}
       </div>
-      <div className="flex flex-col pt-6 gap-y-4 w-1/2">
+      <div className="flex flex-col pt-6 gap-y-4 xl:w-1/2">
         {fields.map((field) => (
           <div key={field.name} className="flex items-center gap-y-4">
             {field.label && (
-              <label htmlFor={field.name} className="label w-1/4 text-base">
+              <label
+                htmlFor={field.name}
+                className="label w-2/4 2xl:w-1/4 text-base"
+              >
                 {field.label}
               </label>
             )}

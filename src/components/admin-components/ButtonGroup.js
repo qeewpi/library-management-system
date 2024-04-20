@@ -5,7 +5,7 @@ export function ButtonGroup({ button1, button2, button1Link, button2Link }) {
   return (
     <div className="grid grid-cols-2 items-center gap-4">
       <Link to={`/admin/${button1Link}`}>
-        <button className="btn btn-success btn-block text-white">
+        <button className="btn btn-success text-white w-full">
           <svg
             width="24"
             height="24"
@@ -20,7 +20,7 @@ export function ButtonGroup({ button1, button2, button1Link, button2Link }) {
         </button>
       </Link>
       <Link to={`/admin/${button2Link}`}>
-        <button className="btn btn-block btn-error text-white">
+        <button className="btn btn-error text-white w-full">
           <svg
             width="24"
             height="24"
