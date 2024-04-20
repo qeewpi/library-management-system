@@ -1,29 +1,52 @@
 import React from "react";
 import GenericForm from "./GenericForm";
 
-const AddEntityForm = ({ entity, onSubmit, header, description }) => {
+const AddEntityForm = ({
+  entity,
+  onSubmit,
+  header,
+  description,
+  username,
+  name,
+  email,
+  password,
+  onInputChange,
+}) => {
   let fields = [];
 
   // Define fields based on entity type
   switch (entity) {
     case "user":
       fields = [
-        { name: "name", label: "Name", type: "text", required: true },
-        { name: "email", label: "Email", type: "email", required: true },
         {
-          name: "booksBorrowed",
-          label: "Books Borrowed",
-          type: "number",
+          name: "username",
+          label: "Username",
+          type: "text",
           required: true,
+          value: username,
         },
-        { name: "role", label: "Role", type: "text", required: true },
-        { name: "status", label: "Status", type: "text", required: true },
+        {
+          name: "name",
+          label: "Name",
+          type: "text",
+          required: true,
+          value: name,
+        },
+        {
+          name: "email",
+          label: "Email",
+          type: "email",
+          required: true,
+          value: email,
+        },
         {
           name: "password",
           label: "Password",
           type: "password",
           required: true,
+          value: password,
         },
+        // Add more fields specific to user entity
       ];
       break;
     case "admin":
@@ -121,6 +144,7 @@ const AddEntityForm = ({ entity, onSubmit, header, description }) => {
       onSubmit={onSubmit}
       header={header}
       description={description}
+      onInputChange={onInputChange}
     />
   );
 };
