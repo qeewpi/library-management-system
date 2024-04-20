@@ -18,8 +18,8 @@ function UserList() {
             <ButtonGroup
               button1={"Add User"}
               button2={"Delete User"}
-              button1Link={"add-user"}
-              button2Link={"delete-user"}
+              button1Link={"add/user"}
+              button2Link={"delete/user"}
             />
           </div>
         </div>

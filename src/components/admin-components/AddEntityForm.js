@@ -11,7 +11,20 @@ const AddEntityForm = ({ entity, onSubmit, header, description }) => {
       fields = [
         { name: "name", label: "Name", type: "text", required: true },
         { name: "email", label: "Email", type: "email", required: true },
-        // Add more fields specific to user entity
+        {
+          name: "booksBorrowed",
+          label: "Books Borrowed",
+          type: "number",
+          required: true,
+        },
+        { name: "role", label: "Role", type: "text", required: true },
+        { name: "status", label: "Status", type: "text", required: true },
+        {
+          name: "password",
+          label: "Password",
+          type: "password",
+          required: true,
+        },
       ];
       break;
     case "book":
@@ -47,12 +60,58 @@ const AddEntityForm = ({ entity, onSubmit, header, description }) => {
         // Add more fields specific to book entity
       ];
       break;
+    case "borrowedBook":
+      fields = [
+        { name: "userName", label: "User Name", type: "text", required: true },
+        {
+          name: "userEmail",
+          label: "User Email",
+          type: "email",
+          required: true,
+        },
+        { name: "userId", label: "User ID", type: "number", required: true },
+        { name: "bookId", label: "Book ID", type: "number", required: true },
+        { name: "orderId", label: "Order ID", type: "number", required: true },
+        {
+          name: "bookTitle",
+          label: "Book Title",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "bookAuthor",
+          label: "Book Author",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "borrowedDate",
+          label: "Borrowed Date",
+          type: "date",
+          required: true,
+        },
+        { name: "dueDate", label: "Due Date", type: "date", required: true },
+        {
+          name: "image",
+          label: "Image",
+          type: "file",
+          placeholder: "Upload image",
+        },
+      ];
+      break;
     // Add more cases for other entities
     default:
       break;
   }
 
-  return <GenericForm fields={fields} onSubmit={onSubmit} header={header} description={description} />;
+  return (
+    <GenericForm
+      fields={fields}
+      onSubmit={onSubmit}
+      header={header}
+      description={description}
+    />
+  );
 };
 
 export default AddEntityForm;

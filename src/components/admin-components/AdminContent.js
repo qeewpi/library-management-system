@@ -1,4 +1,6 @@
 import AddBook from "components/pages/admin/AddBook";
+import AddBorrowedBook from "components/pages/admin/AddBorrowedBook";
+import AddUser from "components/pages/admin/AddUser";
 import BorrowedBooks from "components/pages/admin/BorrowedBooks";
 import Profile from "components/pages/admin/Profile";
 import React from "react";
@@ -15,7 +17,9 @@ function AdminContent() {
           <Route path="/admin/profile" element={<Profile />} />
           <Route path="/admin/library-catalog" element={<LibraryCatalog />} />
           <Route path="/admin/borrowed-books" element={<BorrowedBooks />} />
-          <Route path="/admin/add-book/*" element={<AddBook />} />
+          <Route path="/admin/add/book" element={<AddBook />} />
+          <Route path="/admin/add/user" element={<AddUser />} />
+          <Route path="admin/add/borrowed-book" element={<AddBorrowedBook />} />
         </Routes>
       </div>
     </div>

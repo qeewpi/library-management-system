@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function ButtonGroup({ button1, button2, button1Link, button2Link }) {
   return (
     <div className="grid grid-cols-2 items-center gap-4">
-      <Link to={`/admin/${button1Link}/`}>
+      <Link to={`/admin/${button1Link}`}>
         <button className="btn btn-success btn-block text-white">
           <svg
             width="24"
@@ -19,7 +19,7 @@ export function ButtonGroup({ button1, button2, button1Link, button2Link }) {
           {button1}
         </button>
       </Link>
-      <Link to={`/admin/${button2Link}/`}>
+      <Link to={`/admin/${button2Link}`}>
         <button className="btn btn-block btn-error text-white">
           <svg
             width="24"

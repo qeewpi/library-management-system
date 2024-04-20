@@ -14,8 +14,8 @@ function LibraryCatalog() {
             <ButtonGroup
               button1={"Add Book"}
               button2={"Delete Book"}
-              button1Link={"add-book"}
-              button2Link={"delete-book"}
+              button1Link={"add/book"}
+              button2Link={"delete/book"}
             />
           </div>
         </div>
