@@ -61,10 +61,10 @@ export function UserTable() {
         <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             <th className="font-medium border-b p-6">User ID</th>
+            <th className="font-medium border-b p-6">Username</th>
             <th className="font-medium border-b p-6">Name</th>
-            <th className="font-medium border-b p-6">Book</th>
-            <th className="font-medium border-b p-6">Status</th>
-            <th className="font-medium border-b p-6">Deadline</th>
+            <th className="font-medium border-b p-6">Email</th>
+            <th className="font-medium border-b p-6">Password</th>
             <th className="font-medium border-b p-6">Actions</th>
           </tr>
         </thead>
