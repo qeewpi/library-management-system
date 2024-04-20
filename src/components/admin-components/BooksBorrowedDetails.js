@@ -3,12 +3,8 @@ import React from "react";
 
 const TABLE_HEAD = [
   "User Name",
-  "User Email",
-  "User ID",
-  "Book ID",
   "Order ID",
   "Book Title",
-  "Book Author",
   "Borrowed Date",
   "Due Date",
   "Actions",
@@ -34,12 +30,8 @@ export function BooksBorrowedDetails() {
               className="text-sm font-medium text-primaryBlack border-gray-200"
             >
               <td className="border-b p-6">{book.userName}</td>
-              <td className="border-b p-6">{book.userEmail}</td>
-              <td className="border-b p-6">{book.userId}</td>
-              <td className="border-b p-6">{book.bookId}</td>
               <td className="border-b p-6">{book.orderId}</td>
               <td className="border-b p-6">{book.bookTitle}</td>
-              <td className="border-b p-6">{book.bookAuthor}</td>
               <td className="border-b p-6">{book.borrowedDate}</td>
               <td className="border-b p-6">{book.dueDate}</td>
               <td className="flex gap-x-3 items-center border-b p-6">
