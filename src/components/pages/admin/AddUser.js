@@ -96,7 +96,7 @@ const AddUser = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary text-white">
+        <button type="submit" className="btn btn-success text-white">
           Submit
         </button>
       </div>
