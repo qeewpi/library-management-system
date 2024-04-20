@@ -12,10 +12,16 @@ function UserList() {
         <div>
           <h1 className="text-xl">User Table</h1>
         </div>
-        <div className="flex flex-row justify-between">
+        <div className="flex justify-between">
           <SearchBar />
-          <ButtonGroup button1={"Add User"} button2={"Delete User"}
-          button1Link={"add-user"} button2Link={"delete-user"}/>
+          <div className="w-1/4">
+            <ButtonGroup
+              button1={"Add User"}
+              button2={"Delete User"}
+              button1Link={"add-user"}
+              button2Link={"delete-user"}
+            />
+          </div>
         </div>
         <UserTable />
       </div>
