@@ -7,21 +7,21 @@ const BookLibrary = () => {
 
   return (
     <div className="flex flex-1 flex-col items-start rounded-[20px] bg-white p-10 md:self-stretch md:p-5">
-      <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
-      <h1
-        className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`}
-      >
+      <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>
+        Welcome!
+      </p>
+      <h1 className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`} style={{ paddingBottom: "15px" }}>
         Your Book Library
       </h1>
-      <div className="mb-[42px] ml-[5px] self-stretch md:ml-0">
-        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="overflow-auto mb-[42px] ml-[5px] self-stretch md:ml-0" style={{ maxHeight: "calc(161vh - 300px)" }}>
+        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-2">
           {borrowedBooksData.map((book) => (
-            <Link to={"/book/" + book.bookId}>
-              <div key={book.orderId} className="flex flex-col items-center">
+            <Link to={"/book/" + book.bookId} key={book.orderId}>
+              <div className="flex flex-col items-center">
                 <img
                   src={book.img}
                   alt={book.bookTitle}
-                  className="h-[12rem] md:h-[16rem] xl:h-[320px] xl:w-[256px] object-fill rounded-xl"
+                  className="h-[12rem] sm:h-[16rem] md:h-[16rem] xl:h-[320px] xl:w-[210px] object-fill rounded-xl"
                 />
               </div>
             </Link>

@@ -19,10 +19,10 @@ const sizes = {
     }
 };
 
-function BookResults () {
+function BookResults() {
     return (
         <div className="flex flex-col gap-8 rounded-[15px] bg-white py-[68px] pl-[68px] pr-14 md:p-5 flex-grow">
-            <div className="ml-5 mt-5 flex flex-col items-start md:ml-2">
+            <div className="ml-5 mt-5 md:ml-2">
                 <h1 className={`${sizes.heading["4xl"]} !text-black-900`}>
                     Results for “lorem ipsum”
                 </h1>
@@ -30,11 +30,13 @@ function BookResults () {
                     About XX,XXX Books Searched
                 </p>
             </div>
-            <div className="mb-11 ml-4 grid grid-cols-5 gap-4 md:ml-0 md:grid-cols-3 sm:grid-cols-1 overflow-y-auto max-h-[400px]">
-                {[...Array(12)].map((d, index) => (
+            <div className="mb-11 ml-4 md:ml-0 md:grid md:p-3 md:grid-cols-5 sm:p-1 sm:grid-cols-3 gap-4 overflow-y-auto max-h-[400px]">
+                {[...Array(15)].map((d, index) => (
                     <div key={"userresults" + index} className="flex w-full flex-col items-start gap-2.5">
-                        <div className="flex flex-col items-center justify-center self-stretch rounded-[12px] bg-gray-200 px-14 py-[66px] md:p-5" style={{ backgroundImage: "url('img/cardItemPlaceholder.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <div className="flex flex-col items-center justify-center rounded-[12px]">
+                            <img src="images/cardItemPlaceholder.png" alt="Placeholder" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
                         </div>
+
                         <div className="flex flex-col items-start gap-[3px]">
                             <h2 className={`${sizes.heading["lg"]}`}>
                                 Title
@@ -46,7 +48,6 @@ function BookResults () {
                     </div>
                 ))}
             </div>
-
         </div>
     );
 }

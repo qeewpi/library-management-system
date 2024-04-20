@@ -7,7 +7,7 @@ const BookSelected = () => {
         <img
           src="images/cardItemPlaceholder.png"
           alt="book_placeholder"
-          className="h-[471px] w-[471px] object-cover"
+          className="relative h-[471px] w-[530px] rounded-[20px] object-cover filter blur-sm border border-white"
         />
         <img
           src="images/cardItemPlaceholder.png"
