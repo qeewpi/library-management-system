@@ -18,6 +18,9 @@ module.exports = {
         customWhite: "#FBFBFB",
       },
     },
+    daisyui: {
+      themes: false,
+    },
   },
   plugins: [require("daisyui")],
 };

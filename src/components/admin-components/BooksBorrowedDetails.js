@@ -17,7 +17,7 @@ const TABLE_HEAD = [
 export function BooksBorrowedDetails() {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-max table-auto text-left text-primaryBlack">
+      <table className="w-full min-w-max table-lg text-left text-primaryBlack">
         <thead className="text-sm text-gray-500">
           <tr className="border-gray-200 border-b">
             {TABLE_HEAD.map((head) => (

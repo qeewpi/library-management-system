@@ -18,6 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   @apply text-primaryBlack;
   @apply font-semibold;
+  @apply bg-white;
 }
 
 code {

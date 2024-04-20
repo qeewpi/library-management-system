@@ -5,7 +5,7 @@ import landingPageImg from "../../img/landingPageImage.png";
 
 function LandingPage() {
   return (
-    <div className="font-semibold">
+    <div className="font-semibold h-screen w-screen">
       <div className="px-64 pt-12 flex justify-center">
         <div className="flex flex-row gap-2">
           <img src={brandSVG} alt="" />
