@@ -3,12 +3,16 @@ import { borrowedBooks } from "data/borrowedBooksCollated";
 import React from "react";
 
 const TABLE_HEAD = [
-  "Book ID",
-  "Book",
+  "User Name",
+  "User Email",
   "User ID",
-  "Borrowed By",
-  "Date Borrowed",
-  "Deadline",
+  "Book ID",
+  "Order ID",
+  "Book Title",
+  "Book Author",
+  "Borrowed Date",
+  "Due Date",
+  "Actions",
 ];
 
 export function BooksBorrowedDetails() {
