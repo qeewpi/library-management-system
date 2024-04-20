@@ -1,6 +1,10 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
+  let navigate = useNavigate();
+
   const [user, setUser] = useState({
     username: "",
     name: "",
@@ -14,16 +18,18 @@ const AddUser = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (formData) => {
+  const handleSubmit = async (e) => {
+    // Prevent default form submission
+    e.preventDefault();
     // Handle form submission based on formData
-    console.log(formData);
+    await axios.post("http://localhost:8080/user", user);
+    navigate("/admin/user-list");
   };
 
   return (
     <form
       onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit(user);
+        handleSubmit(e);
       }}
       className="bg-white gap-y-4 flex flex-col p-6 rounded-xl"
     >
