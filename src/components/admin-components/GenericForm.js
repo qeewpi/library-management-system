@@ -17,11 +17,15 @@ const GenericForm = ({ fields, onSubmit, header, description }) => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col">
-      <div className="textDiv flex flex-col gap-y-1">
-        {header && <h1 className="font-semibold text-lg">{header}</h1>}
-        {description && <h2 className=" text-gray-500 mb-4">{description}</h2>}
+      <div className="textDiv flex flex-col gap-y-1 border-b-2">
+        {header && <h1 className="font-semibold text-xl">{header}</h1>}
+        {description && (
+          <h2 className=" text-gray-500 mb-4 text-lg font-medium">
+            {description}
+          </h2>
+        )}
       </div>
-      <div className="flex flex-col gap-y-4 w-1/2">
+      <div className="flex flex-col pt-6 gap-y-4 w-1/2">
         {fields.map((field) => (
           <div key={field.name} className="flex items-center gap-y-4">
             {field.label && (
