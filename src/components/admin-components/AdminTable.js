@@ -4,30 +4,35 @@ const TABLE_HEAD = ["Name", "Username", "Password", "Date Added"];
 
 const TABLE_ROWS = [
   {
+    adminId: 1,
     name: "Reyna",
     userName: "admin@one.com",
     passWord: "Stealing sight.",
     dateAdded: "06-02-2020",
   },
   {
+    adminId: 2,
     name: "Killjoy",
     userName: "admin@two.com",
     passWord: "Initiated!",
     dateAdded: "08-04-2020",
   },
   {
+    adminId: 3,
     name: "Skye",
     userName: "admin@three.com",
     passWord: "Blinding.",
     dateAdded: "10-27-2020",
   },
   {
+    adminId: 4,
     name: "Yoru",
     userName: "admin@four.com",
     passWord: "Decoy destroyed.",
     dateAdded: "01-12-2021",
   },
   {
+    adminId: 5,
     name: "Astra",
     userName: "admin@five.com",
     passWord: "World divided!",
@@ -42,6 +47,7 @@ export function AdminTable() {
         {/* head */}
         <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
+            <th className="font-medium border-b p-6">Admin ID</th>
             <th className="font-medium border-b p-6">Name</th>
             <th className="font-medium border-b p-6">Username</th>
             <th className="font-medium border-b p-6">Password</th>
@@ -51,11 +57,12 @@ export function AdminTable() {
         <tbody className="">
           {/* rows */}
           {TABLE_ROWS.map(
-            ({ userId, name, userName, passWord, dateAdded }, index) => (
+            ({ adminId, name, userName, passWord, dateAdded }, index) => (
               <tr
                 key={name}
                 className="text-sm font-medium text-primaryBlack border-gray-200"
               >
+                <td className="border-b p-6">{adminId}</td>
                 <td className="border-b p-6">{name}</td>
                 <td className="border-b p-6">{userName}</td>
                 <td className="border-b p-6">{passWord}</td>

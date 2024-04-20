@@ -11,6 +11,11 @@ const DeleteEntityForm = ({ entity, onSubmit, header, description }) => {
         { name: "userId", label: "User ID", type: "number", required: true },
       ];
       break;
+    case "admin":
+      fields = [
+        { name: "adminId", label: "Admin ID", type: "number", required: true },
+      ];
+      break;
     case "book":
       fields = [
         { name: "bookId", label: "Book ID", type: "number", required: true },

@@ -14,10 +14,10 @@ function AdminList() {
           <SearchBar />
           <div className="w-2/4 2xl:w-1/4">
             <ButtonGroup
-              button1={"Add User"}
-              button2={"Delete User"}
-              button1Link={"add/user"}
-              button2Link={"delete/user"}
+              button1={"Add Admin"}
+              button2={"Delete Admin"}
+              button1Link={"add/admin"}
+              button2Link={"delete/admin"}
             />
           </div>
         </div>

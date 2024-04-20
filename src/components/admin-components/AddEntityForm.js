@@ -26,6 +26,25 @@ const AddEntityForm = ({ entity, onSubmit, header, description }) => {
         },
       ];
       break;
+    case "admin":
+      fields = [
+        { name: "adminId", label: "Admin ID", type: "number", required: true },
+        { name: "name", label: "Name", type: "text", required: true },
+        { name: "userName", label: "Username", type: "text", required: true },
+        {
+          name: "password",
+          label: "Password",
+          type: "password",
+          required: true,
+        },
+        {
+          name: "dateAdded",
+          label: "Date Added",
+          type: "date",
+          required: true,
+        },
+      ];
+      break;
     case "book":
       fields = [
         {
