@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const TABLE_HEAD = ["User ID", "Name", "Book", "Status", "Deadline", "Actions"];
 
@@ -41,6 +42,18 @@ const TABLE_ROWS = [
 ];
 
 export function UserTable() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
+  const loadUsers = async () => {
+    // Fetch users from API
+    const response = await axios.get("http://localhost:8080/users");
+    setUsers(response.data);
+  };
+
   return (
     <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
       <table className="table table-lg border-gray-500 border-spacing-y-4">
@@ -57,16 +70,15 @@ export function UserTable() {
         </thead>
         <tbody className="">
           {/* rows */}
-          {TABLE_ROWS.map(({ userId, name, book, status, deadline }, index) => (
-            <tr
-              key={name}
-              className="text-sm font-medium text-primaryBlack border-gray-200"
-            >
-              <th className="border-b p-6 font-medium">{userId}</th>
-              <td className="border-b p-6">{name}</td>
-              <td className="border-b p-6">{book}</td>
-              <td className="border-b p-6">{status}</td>
-              <td className="border-b p-6">{deadline}</td>
+          {users.map((user, index) => (
+            <tr className="text-sm font-medium text-primaryBlack border-gray-200">
+              <th scope="row" key={index} className="border-b p-6 font-medium">
+                {index + 1}
+              </th>
+              <td className="border-b p-6">{user.username}</td>
+              <td className="border-b p-6">{user.name}</td>
+              <td className="border-b p-6">{user.email}</td>
+              <td className="border-b p-6">{user.password}</td>
               <td className="flex gap-x-3 items-center border-b p-6">
                 <svg
                   width="25"

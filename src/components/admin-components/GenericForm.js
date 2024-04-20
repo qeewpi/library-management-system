@@ -1,6 +1,12 @@
 import { default as React, useState } from "react";
 
-const GenericForm = ({ fields, onSubmit, header, description }) => {
+const GenericForm = ({
+  fields,
+  onSubmit,
+  header,
+  description,
+  onInputChange,
+}) => {
   const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
@@ -40,8 +46,8 @@ const GenericForm = ({ fields, onSubmit, header, description }) => {
               <textarea
                 id={field.name}
                 name={field.name}
-                value={formData[field.name] || ""}
-                onChange={handleChange}
+                value={formData[field.value] || ""}
+                onChange={(e) => onInputChange(e)}
                 placeholder={field.placeholder}
                 className="textarea textarea-bordered input-grow w-full text-base font-medium"
                 required={field.required}
@@ -60,8 +66,8 @@ const GenericForm = ({ fields, onSubmit, header, description }) => {
                 type={field.type}
                 id={field.name}
                 name={field.name}
-                value={formData[field.name] || ""}
-                onChange={handleChange}
+                value={formData[field.value] || ""}
+                onChange={(e) => onInputChange(e)}
                 placeholder={field.placeholder}
                 className="input-grow input input-bordered text-base font-medium w-full"
                 required={field.required}
