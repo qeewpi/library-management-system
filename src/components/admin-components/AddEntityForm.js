@@ -28,7 +28,6 @@ const AddEntityForm = ({ entity, onSubmit, header, description }) => {
       break;
     case "admin":
       fields = [
-        { name: "adminId", label: "Admin ID", type: "number", required: true },
         { name: "name", label: "Name", type: "text", required: true },
         { name: "userName", label: "Username", type: "text", required: true },
         {
