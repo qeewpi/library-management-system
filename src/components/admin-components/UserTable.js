@@ -1,4 +1,3 @@
-import { Card, Typography } from "@material-tailwind/react";
 import React from "react";
 
 const TABLE_HEAD = ["User ID", "Name", "Book", "Status", "Deadline", "Actions"];
@@ -43,51 +42,32 @@ const TABLE_ROWS = [
 
 export function UserTable() {
   return (
-    <Card className="h-full w-full overflow-scroll shadow-none">
-      <table className="w-full min-w-max table-auto text-left text-primaryBlack">
-        <thead>
-          <tr>
-            {TABLE_HEAD.map((head) => (
-              <th
-                key={head}
-                className="border-blue-gray-100 border-b-2 p-6 bg-blue-gray-50/50 text-blue-gray-500"
-              >
-                <Typography variant="small" className="font-semibold">
-                  {head}
-                </Typography>
-              </th>
-            ))}
+    <div className="overflow-x-auto">
+      <table className="table table-lg border-gray-500 border-separate border-spacing-y-4">
+        {/* head */}
+        <thead className="text-sm text-gray-500">
+          <tr className="border-gray-200 border-b">
+            <th className="border-b"></th>
+            <th className="font-medium border-b">Name</th>
+            <th className="font-medium border-b">Book</th>
+            <th className="font-medium border-b">Status</th>
+            <th className="font-medium border-b">Deadline</th>
+            <th className="font-medium border-b">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
+          {/* rows */}
           {TABLE_ROWS.map(({ userId, name, book, status, deadline }, index) => (
-            <tr key={name} className="even:bg-blue-gray-50/50">
-              <td className="p-6">
-                <Typography variant="small" className="font-medium">
-                  {userId}
-                </Typography>
-              </td>
-              <td className="p-6">
-                <Typography variant="small" className="font-medium">
-                  {name}
-                </Typography>
-              </td>
-              <td className="p-6">
-                <Typography variant="small" className="font-medium">
-                  {book}
-                </Typography>
-              </td>
-              <td className="p-6">
-                <Typography variant="small" className="font-medium">
-                  {status}
-                </Typography>
-              </td>
-              <td className="p-6">
-                <Typography variant="small" className="font-medium">
-                  {deadline}
-                </Typography>
-              </td>
-              <td className="p-6 flex flex-row gap-x-3 items-center">
+            <tr
+              key={name}
+              className="text-sm font-medium text-primaryBlack border-gray-200"
+            >
+              <th className="border-b pb-6">{userId}</th>
+              <td className="border-b pb-6">{name}</td>
+              <td className="border-b pb-6">{book}</td>
+              <td className="border-b pb-6">{status}</td>
+              <td className="border-b pb-6">{deadline}</td>
+              <td className="flex gap-x-3 items-center border-b pb-6">
                 <svg
                   width="25"
                   height="24"
@@ -121,6 +101,6 @@ export function UserTable() {
           ))}
         </tbody>
       </table>
-    </Card>
+    </div>
   );
 }
