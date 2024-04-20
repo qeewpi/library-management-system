@@ -1,5 +1,5 @@
-import React from "react";
 import ProfileDetail from "components/admin-components/ProfileDetail";
+import React from "react";
 
 function Profile() {
   return (
@@ -7,12 +7,14 @@ function Profile() {
       <div className="flex flex-grow flex-row gap-4">
         <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
           <div>
-            <h1 className="font-bold text-primaryBlack text-xl">About You</h1>
+            <h1 className="font-bold text-primaryBlack text-xl">Profile</h1>
           </div>
 
-          <div className="flex flex-col pt-20 border-b-2 p-4">
+          <div className="flex flex-col border-b-2 pt-4 pb-4">
             <h1 className="">Bio</h1>
-            <h1 className="text-gray-400">Tell Something About Yourself!</h1>
+            <h1 className="text-gray-400 pb-2">
+              Tell Something About Yourself!
+            </h1>
             <div className="input-box flex flex-grow items-center text-gray-400">
               <div className="input-box flex w-8-16 l-8-16 items-center text-gray-400 ">
                 <div className="flex flex-grow text-sm relative items-center">
@@ -28,9 +30,9 @@ function Profile() {
             </div>
           </div>
 
-          <div className="flex flex-col border-b-2 p-4">
+          <div className="flex flex-col border-b-2 pt-4 pb-4">
             <h1 className="">Address</h1>
-            <h1 className="text-gray-400">
+            <h1 className="text-gray-400 pb-2">
               Number/Block, Street, Region, Zip Code, Country
             </h1>
             <div className="input-box flex flex-grow items-center text-gray-400">
@@ -48,9 +50,9 @@ function Profile() {
             </div>
           </div>
 
-          <div className="flex flex-col border-b-2 p-4">
+          <div className="flex flex-col border-b-2 pt-4 pb-4">
             <h1 className="">Summary </h1>
-            <h1 className="text-gray-400">Your Employment Summary </h1>
+            <h1 className="text-gray-400 pb-2">Your Employment Summary </h1>
             <div className="input-box flex flex-grow items-center text-gray-400">
               <div className="input-box flex w-8-16 l-8-16 items-center text-gray-400 ">
                 <div className="flex flex-grow text-sm relative items-center">
