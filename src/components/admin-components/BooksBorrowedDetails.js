@@ -12,12 +12,12 @@ const TABLE_HEAD = [
 
 export function BooksBorrowedDetails() {
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-max table-lg text-left text-primaryBlack">
-        <thead className="text-sm text-gray-500">
+    <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
+      <table className="w-full min-w-max text-left text-primaryBlack ">
+        <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             {TABLE_HEAD.map((head) => (
-              <th key={head} className="border-b p-6">
+              <th key={head} className="border-b p-6 ">
                 {head}
               </th>
             ))}
