@@ -36,12 +36,6 @@ const AddEntityForm = ({ entity, onSubmit, header, description }) => {
           type: "password",
           required: true,
         },
-        {
-          name: "dateAdded",
-          label: "Date Added",
-          type: "date",
-          required: true,
-        },
       ];
       break;
     case "book":
