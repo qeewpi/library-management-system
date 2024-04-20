@@ -11,7 +11,12 @@ function LibraryCatalog() {
           <h1 className="text-xl">Library Catalog</h1>
           <div className="flex flex-row justify-between">
             <SearchBar />
-            <ButtonGroup button1={"Add Book"} button2={"Delete Book"} />
+            <ButtonGroup
+              button1={"Add Book"}
+              button2={"Delete Book"}
+              button1Link={"add-book"}
+              button2Link={"delete-book"}
+            />
           </div>
         </div>
         <BooksTable />

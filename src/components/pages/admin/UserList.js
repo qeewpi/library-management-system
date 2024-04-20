@@ -14,7 +14,8 @@ function UserList() {
         </div>
         <div className="flex flex-row justify-between">
           <SearchBar />
-          <ButtonGroup button1={"Add User"} button2={"Delete User"} />
+          <ButtonGroup button1={"Add User"} button2={"Delete User"}
+          button1Link={"add-user"} button2Link={"delete-user"}/>
         </div>
         <UserTable />
       </div>

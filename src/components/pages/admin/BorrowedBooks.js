@@ -15,6 +15,8 @@ function BorrowedBooks() {
           <ButtonGroup
             button1={"Add Borrowed Book"}
             button2={"Delete Borrowed Book"}
+            button1Link={"add-borrowed-book"}
+            button2Link={"delete-borrowed-book"}
           />
         </div>
         <BooksBorrowedDetails />
