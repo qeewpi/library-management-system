@@ -2,8 +2,8 @@ import { borrowedBooks } from "data/borrowedBooksCollated";
 import React from "react";
 
 const TABLE_HEAD = [
-  "User Name",
   "Order ID",
+  "User Name",
   "Book Title",
   "Borrowed Date",
   "Due Date",
@@ -26,11 +26,11 @@ export function BooksBorrowedDetails() {
         <tbody>
           {borrowedBooks.map((book) => (
             <tr
-              key={book.userId}
+              key={book.orderId}
               className="text-sm font-medium text-primaryBlack border-gray-200"
             >
-              <td className="border-b p-6">{book.userName}</td>
               <td className="border-b p-6">{book.orderId}</td>
+              <td className="border-b p-6">{book.userName}</td>
               <td className="border-b p-6">{book.bookTitle}</td>
               <td className="border-b p-6">{book.borrowedDate}</td>
               <td className="border-b p-6">{book.dueDate}</td>
