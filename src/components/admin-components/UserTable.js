@@ -42,17 +42,17 @@ const TABLE_ROWS = [
 
 export function UserTable() {
   return (
-    <div className="overflow-x-auto">
-      <table className="table table-lg border-gray-500 border-separate border-spacing-y-4">
+    <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
+      <table className="table table-lg border-gray-500 border-spacing-y-4">
         {/* head */}
-        <thead className="text-sm text-gray-500">
+        <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
-            <th className="border-b"></th>
-            <th className="font-medium border-b">Name</th>
-            <th className="font-medium border-b">Book</th>
-            <th className="font-medium border-b">Status</th>
-            <th className="font-medium border-b">Deadline</th>
-            <th className="font-medium border-b">Actions</th>
+            <th className="font-medium border-b p-6">User ID</th>
+            <th className="font-medium border-b p-6">Name</th>
+            <th className="font-medium border-b p-6">Book</th>
+            <th className="font-medium border-b p-6">Status</th>
+            <th className="font-medium border-b p-6">Deadline</th>
+            <th className="font-medium border-b p-6">Actions</th>
           </tr>
         </thead>
         <tbody className="">
@@ -62,12 +62,12 @@ export function UserTable() {
               key={name}
               className="text-sm font-medium text-primaryBlack border-gray-200"
             >
-              <th className="border-b pb-6">{userId}</th>
-              <td className="border-b pb-6">{name}</td>
-              <td className="border-b pb-6">{book}</td>
-              <td className="border-b pb-6">{status}</td>
-              <td className="border-b pb-6">{deadline}</td>
-              <td className="flex gap-x-3 items-center border-b pb-6">
+              <th className="border-b p-6">{userId}</th>
+              <td className="border-b p-6">{name}</td>
+              <td className="border-b p-6">{book}</td>
+              <td className="border-b p-6">{status}</td>
+              <td className="border-b p-6">{deadline}</td>
+              <td className="flex gap-x-3 items-center border-b p-6">
                 <svg
                   width="25"
                   height="24"

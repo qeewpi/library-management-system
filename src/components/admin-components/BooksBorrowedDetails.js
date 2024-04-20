@@ -17,7 +17,7 @@ export function BooksBorrowedDetails() {
         <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             {TABLE_HEAD.map((head) => (
-              <th key={head} className="border-b p-6 ">
+              <th key={head} className="border-b p-6 font-medium">
                 {head}
               </th>
             ))}
