@@ -1,4 +1,3 @@
-// AddEntityForm.js
 import React from "react";
 import GenericForm from "./GenericForm";
 
