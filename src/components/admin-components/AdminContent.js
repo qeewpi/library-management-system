@@ -9,6 +9,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LibraryCatalog from "../pages/admin/LibraryCatalog";
 import UserList from "../pages/admin/UserList";
+import AdminList from "components/pages/admin/AdminList";
 
 function AdminContent() {
   return (
@@ -16,6 +17,7 @@ function AdminContent() {
       <div className="contentDiv px-8 py-16 flex flex-col flex-grow min-h-screen min-w-full bg-[#EDEDED] gap-y-6 overflow-auto">
         <Routes>
           <Route path="/admin/user-list" element={<UserList />} />
+          <Route path="/admin/admin-list" element={<AdminList />} />
           <Route path="/admin/profile" element={<Profile />} />
           <Route path="/admin/library-catalog" element={<LibraryCatalog />} />
           <Route path="/admin/borrowed-books" element={<BorrowedBooks />} />
