@@ -62,7 +62,7 @@ export function UserTable() {
               key={name}
               className="text-sm font-medium text-primaryBlack border-gray-200"
             >
-              <th className="border-b p-6">{userId}</th>
+              <th className="border-b p-6 font-medium">{userId}</th>
               <td className="border-b p-6">{name}</td>
               <td className="border-b p-6">{book}</td>
               <td className="border-b p-6">{status}</td>
