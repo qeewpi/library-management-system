@@ -22,8 +22,12 @@ const AddUser = () => {
     // Prevent default form submission
     e.preventDefault();
     // Handle form submission based on formData
-    await axios.post("http://localhost:8080/user", user);
-    navigate("/admin/user-list");
+    try {
+      await axios.post("http://localhost:8080/user", user);
+      navigate("/admin/user-list");
+    } catch (error) {
+      console.error("Failed to add user");
+    }
   };
 
   return (
