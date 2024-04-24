@@ -1,10 +1,16 @@
 import AdminWelcome from "components/admin-components/AdminWelcome";
 import { ButtonGroup } from "components/admin-components/ButtonGroup";
 import SearchBar from "components/admin-components/SearchBar";
-import React from "react";
+import React, { useState } from "react";
 import { UserTable } from "../../admin-components/UserTable";
 
 function UserList() {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearchChange = (searchValue) => {
+    setSearchValue(searchValue);
+  };
+
   return (
     <div className="flex flex-col gap-y-6">
       <AdminWelcome />
@@ -13,7 +19,7 @@ function UserList() {
           <h1 className="text-xl">User Table</h1>
         </div>
         <div className="flex gap-y-4 flex-col lg:flex-row justify-between">
-          <SearchBar />
+          <SearchBar onSearchChange={handleSearchChange} />
           <div className="w-2/4">
             <ButtonGroup
               button1={"Add User"}
@@ -23,7 +29,7 @@ function UserList() {
             />
           </div>
         </div>
-        <UserTable />
+        <UserTable searchValue={searchValue} />
       </div>
     </div>
   );

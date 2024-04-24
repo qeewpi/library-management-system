@@ -1,16 +1,22 @@
 import SearchBar from "components/admin-components/SearchBar";
-import React from "react";
+import React, { useState } from "react";
 import BooksTable from "./../../admin-components/BooksTable";
 import { ButtonGroup } from "./../../admin-components/ButtonGroup";
 
 function LibraryCatalog() {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearchChange = (searchValue) => {
+    setSearchValue(searchValue);
+  };
+
   return (
     <div className="flex flex-col gap-y-6">
       <div className="bg-white gap-y-4 flex flex-col p-6 rounded-xl">
         <div className="flex flex-col gap-y-4">
           <h1 className="text-xl">Library Catalog</h1>
           <div className="flex flex-row justify-between">
-            <SearchBar />
+            <SearchBar onSearchChange={handleSearchChange} />
             <ButtonGroup
               button1={"Add Book"}
               button2={"Delete Book"}
@@ -19,7 +25,7 @@ function LibraryCatalog() {
             />
           </div>
         </div>
-        <BooksTable />
+        <BooksTable searchValue={searchValue} />
       </div>
     </div>
   );

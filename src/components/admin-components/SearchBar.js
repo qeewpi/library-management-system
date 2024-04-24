@@ -1,27 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SearchBar() {
+function SearchBar({ onSearchChange }) {
+  const [search, setSearch] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+    onSearchChange(e.target.value);
+  };
+
   return (
-    <div className="items-center flex gap-x-2 ">
-      <div className="join">
-        <div>
-          <div>
-            <input
-              className="input input-bordered join-item"
-              placeholder="Search"
-            />
-          </div>
-        </div>
-        <select className="select select-bordered join-item">
-          <option disabled selected>
-            Filter
-          </option>
-          <option>Sci-fi</option>
-          <option>Drama</option>
-          <option>Action</option>
-        </select>
-        <div className="indicator">
-          <button className="btn join-item">Search</button>
+    <div className="w-1/2 ">
+      <div className="w-full">
+        <div className="w-full">
+          <input
+            className="input input-bordered w-full"
+            placeholder="Search"
+            onChange={handleSearchChange}
+          />
         </div>
       </div>
     </div>
