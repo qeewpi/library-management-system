@@ -4,13 +4,22 @@ import SideNavBar from "components/SideNavBar";
 import LandingPage from "components/pages/LandingPage";
 import LogIn from "components/pages/LogIn";
 import SignUp from "components/pages/SignUp";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import AuthService from "../src/service/AuthService";
 import "./index.css";
 
 function App() {
-  // Temporary isAdmin state for Demo purposes
-  const isAdmin = true;
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    // Check if user is logged in and if they have admin privileges
+    if (user) {
+      setIsAdmin(user.roles.includes("ROLE_ADMIN"));
+    }
+  }, []);
 
   return (
     <div className="true">

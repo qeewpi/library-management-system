@@ -1,11 +1,41 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import brandSVG from "../../icons/brand.svg";
 import email from "../../icons/email.svg";
 import password from "../../icons/password.svg";
 import library from "../../img/library.jpg";
+import AuthService from "../../service/AuthService";
 
 function LogIn() {
+  let navigate = useNavigate();
+
+  const [usernameInput, setUsernameInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [loginFailed, setLoginFailed] = useState(false);
+
+  const handleUsernameChange = (e) => {
+    setUsernameInput(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPasswordInput(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await AuthService.login(usernameInput, passwordInput);
+      if (user.roles.includes("ROLE_ADMIN")) {
+        navigate("/admin/user-list");
+      } else {
+        navigate("/home");
+      }
+    } catch (error) {
+      console.error(error);
+      setLoginFailed(true);
+    }
+  };
+
   return (
     <div className="login-page flex justify-center items-center h-screen font-semibold">
       <div className="image w-1/2 h-full bg-cover bg-no-repeat bg-center relative overflow-hidden">
@@ -17,7 +47,7 @@ function LogIn() {
       </div>
 
       <div className="form w-1/2 max-w-screen px-24 lg:p-32 py-10 overflow-hidden">
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <div
             className="header flex flex-col gap-y-6
           "
@@ -31,6 +61,11 @@ function LogIn() {
               <p className="mt-2 text-gray-500">
                 Lorem ipsum dolor sit amet consectetur.
               </p>
+              {loginFailed && (
+                <p className="mt-2 text-red-900">
+                  Login failed, please try again.
+                </p>
+              )}
             </div>
           </div>
 
@@ -38,8 +73,10 @@ function LogIn() {
             <div className="flex flex-grow relative items-center">
               <input
                 type="text"
-                placeholder="Email"
+                placeholder="Username"
                 required
+                value={usernameInput}
+                onChange={(e) => handleUsernameChange(e)}
                 className="w-full pl-12 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
 
@@ -56,6 +93,8 @@ function LogIn() {
                 type="password"
                 placeholder="Password"
                 required
+                value={passwordInput}
+                onChange={(e) => handlePasswordChange(e)}
                 className="w-full pl-12 py-4 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
               <img
@@ -65,20 +104,19 @@ function LogIn() {
               />
             </div>
           </div>
+          <div className="forgot flex justify-end mt-4 text-primaryBlue">
+            <label>
+              <a href="#">Forgot password?</a>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+          >
+            Login
+          </button>
         </form>
-
-        <div className="forgot flex justify-end mt-4 text-primaryBlue">
-          <label>
-            <a href="#">Forgot password?</a>
-          </label>
-        </div>
-
-        <button
-          type="submit"
-          className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
-        >
-          Login
-        </button>
 
         <div className="register-link flex justify-center mt-6 text-gray-500">
           <p>
