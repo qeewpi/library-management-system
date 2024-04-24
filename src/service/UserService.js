@@ -20,6 +20,15 @@ const UserService = {
     }
   },
 
+  getUser: async (userId) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/user/${userId}`);
+      return response.data;
+    } catch (error) {
+      throw new Error("Failed to fetch user");
+    }
+  },
+
   editUser: async (userId, userData) => {
     try {
       await axios.put(`${API_BASE_URL}/user/${userId}`, userData);

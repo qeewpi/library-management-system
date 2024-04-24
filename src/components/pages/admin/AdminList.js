@@ -1,7 +1,7 @@
+import { AdminTable } from "components/admin-components/AdminTable";
 import { ButtonGroup } from "components/admin-components/ButtonGroup";
 import SearchBar from "components/admin-components/SearchBar";
 import React from "react";
-import { AdminTable } from "components/admin-components/AdminTable";
 
 function AdminList() {
   return (
@@ -12,7 +12,7 @@ function AdminList() {
         </div>
         <div className="flex gap-y-4 flex-col xl:flex-row justify-between">
           <SearchBar />
-          <div className="w-2/4 2xl:w-1/4">
+          <div className="w-2/4">
             <ButtonGroup
               button1={"Add Admin"}
               button2={"Delete Admin"}

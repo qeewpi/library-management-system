@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import UserService from "service/UserService";
 
-const AddUser = () => {
+const EditUser = () => {
   let navigate = useNavigate();
+
+  const { id } = useParams();
 
   const [user, setUser] = useState({
     username: "",
@@ -18,15 +20,28 @@ const AddUser = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   const handleSubmit = async (e) => {
     // Prevent default form submission
     e.preventDefault();
     // Handle form submission based on formData
     try {
-      await UserService.addUser(user);
+      await UserService.editUser(id, user);
       navigate("/admin/user-list");
     } catch (error) {
       console.error("Failed to add user");
+    }
+  };
+
+  const fetchUser = async () => {
+    try {
+      const response = await UserService.getUser(id);
+      setUser(response);
+    } catch (error) {
+      console.error("Failed to fetch user");
     }
   };
 
@@ -38,9 +53,9 @@ const AddUser = () => {
       className="bg-white gap-y-4 flex flex-col p-6 rounded-xl"
     >
       <div className="textDiv flex flex-col gap-y-1 border-b-2">
-        <h1 className="font-semibold text-xl">Add a user</h1>
+        <h1 className="font-semibold text-xl">Edit user details</h1>
         <h2 className="text-gray-500 mb-4 text-lg font-medium">
-          Fill in the details of the user you want to add.
+          Fill in the details of the user you want to edit.
         </h2>
       </div>
       <div className="flex flex-col pt-1 gap-y-4 xl:w-1/2">
@@ -105,7 +120,7 @@ const AddUser = () => {
             type="submit"
             className="btn btn-success text-white btn-block join-item"
           >
-            Submit  
+            Submit
           </button>
           <button
             onClick={() => navigate("/admin/user-list")}
@@ -119,4 +134,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default EditUser;
