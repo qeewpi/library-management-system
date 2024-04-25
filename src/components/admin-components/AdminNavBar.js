@@ -34,7 +34,7 @@ function AdminNavBar() {
         </div>
 
         <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-xs">
-          <div className="flex flex-row gap-x-2">
+          <div className="flex flex-row gap-x-2 items-center">
             <div className="flex flex-grow items-center pr-2">
               <img src={userFilledSVG} alt="" />
             </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import CartService from "service/CartService";
 import brandSVG from "../../icons/brand.svg";
 import email from "../../icons/email.svg";
 import password from "../../icons/password.svg";
@@ -25,10 +26,15 @@ function LogIn() {
     e.preventDefault();
     try {
       const user = await AuthService.login(usernameInput, passwordInput);
+
+      CartService.createCart();
+
       if (user.roles.includes("ROLE_ADMIN")) {
         navigate("/admin/user-list");
+        window.location.reload();
       } else {
         navigate("/home");
+        window.location.reload();
       }
     } catch (error) {
       console.error(error);

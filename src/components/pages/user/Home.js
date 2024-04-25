@@ -1,6 +1,6 @@
 import Reminders from "components/user-components/Reminders";
 import WelcomeHeader from "components/user-components/WelcomeHeader";
-import PopularBooks from "components/user-components/PopularBooks";
+import PopularBooks from "components/user-components/BooksCatalog";
 import RecommendedBooks from "components/user-components/RecommendedBooks";
 import React from "react";
 

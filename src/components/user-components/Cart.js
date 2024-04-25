@@ -1,15 +1,7 @@
-import { books } from "data/booksData";
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
+import BookService from "service/BookService";
 
-function Cart() {
-  // Display the book details
-  // Generate a random id
-  const randomId = Math.floor(Math.random() * books.length) + 1;
-
-  // Find the book with the random id
-  const book = books.find((book) => book.id === randomId);
-
+function Cart({ book }) {
   // If book is not found, display a message
   if (!book) {
     return <div>Book not found</div>;
@@ -20,15 +12,15 @@ function Cart() {
     <div className="flex flex-row gap-x-8">
       <div className="flex">
         <img
-          src={`../../${book.img}`}
-          alt={book.bookTitle}
+          src={BookService.downloadBookImage(book.imagePath)}
+          alt={book.title}
           className="h-[12rem] w-[8rem] object-cover rounded-xl"
         />
       </div>
       <div className="textDiv flex flex-grow flex-col gap-y-6 justify-between">
         <div className="flex flex-col gap-y-1">
-          <h1 className="">{book.bookTitle}</h1>
-          <h1 className=" text-gray-500">{book.bookAuthor}</h1>
+          <h1 className="">{book.title}</h1>
+          <h1 className=" text-gray-500">{book.author}</h1>
         </div>
 
         <div className="flex flex-row justify-between">

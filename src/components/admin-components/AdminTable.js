@@ -32,7 +32,7 @@ export function AdminTable({ searchValue }) {
 
   return (
     <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
-      <table className="table table-lg border-gray-500 border-spacing-y-4">
+      <table className="table 2xl:table-lg border-gray-500 border-spacing-y-4">
         {/* head */}
         <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">

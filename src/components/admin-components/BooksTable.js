@@ -29,7 +29,7 @@ function BooksTable({ searchValue }) {
 
   const deleteBook = async (id) => {
     try {
-      await BookService.deleteBook(id);
+      await BookService.deleteBook([id]);
       loadBooks();
     } catch (error) {
       console.error("Failed to delete book", error);

@@ -1,6 +1,7 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthService from "service/AuthService";
+import CartService from "service/CartService";
 import alertSVG from "../../icons/alert.svg";
 import brandSVG from "../../icons/brand.svg";
 import cartSVG from "../../icons/cart.svg";
@@ -24,6 +25,7 @@ function UserNavBar() {
 
   const handleLogout = async () => {
     AuthService.logout();
+    CartService.clearCart();
     navigate("/log-in");
   };
 
@@ -57,7 +59,7 @@ function UserNavBar() {
         </div>
 
         <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-xs">
-          <div className="flex flex-row gap-x-2">
+          <div className="flex flex-row gap-x-2 items-center">
             <div className="flex flex-grow items-center pr-2">
               <img src={userFilledSVG} alt="" />
             </div>
@@ -84,7 +86,9 @@ function UserNavBar() {
           <div className="buttonsDiv flex flex-row gap-x-4">
             <img src={msgSVG} alt="" />
             <img src={alertSVG} alt="" />
-            <img src={cartSVG} alt="" />
+            <Link to="/checkout-page">
+              <img src={cartSVG} alt="" />
+            </Link>
           </div>
         </div>
       </div>

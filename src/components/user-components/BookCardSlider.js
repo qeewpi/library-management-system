@@ -2,9 +2,9 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import React from "react";
 import { Link } from "react-router-dom";
-import { books } from "../../data/booksData.js";
+import BookService from "service/BookService";
 
-function BookCardSlider() {
+function BookCardSlider({ books }) {
   return (
     <div className="">
       <div className="sliderContainer">
@@ -38,12 +38,12 @@ function BookCardSlider() {
           }}
         >
           {books.map((book) => (
-            <SplideSlide>
+            <SplideSlide key={book.id}>
               <div className="sliderItem flex flex-col">
                 <Link to={"/book/" + book.id}>
                   <div>
                     <img
-                      src={book.img}
+                      src={BookService.downloadBookImage(book.imagePath)}
                       alt=""
                       className="h-[10rem] md:h-[14rem] lg:h-[14rem] xl:h-[15rem] w-full rounded-xl object-cover"
                     />
