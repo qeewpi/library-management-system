@@ -60,9 +60,14 @@ class CartService {
 
   // Function to remove a book from the cart
   removeBookFromCart(bookId) {
+    bookId = String(bookId);
     this.cart.books = this.cart.books.filter((book) => book.id !== bookId);
+    this.saveCart();
+  }
 
-    // Save the updated cart back to local storage
+  // Function to empty the cart
+  emptyCart() {
+    this.cart.books = [];
     this.saveCart();
   }
 

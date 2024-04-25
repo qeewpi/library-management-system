@@ -1,5 +1,7 @@
 import { default as React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import BookService from "service/BookService";
 import CartService from "service/CartService";
 import RecommendedBooks from "../../user-components/RecommendedBooks";
@@ -9,6 +11,10 @@ function BookDetails() {
   const { id } = useParams();
 
   const [book, setBook] = useState(null);
+
+  const notify = () => {
+    toast("Default Notification !");
+  };
 
   useEffect(() => {
     loadBook();
@@ -29,9 +35,46 @@ function BookDetails() {
   };
 
   const handleAddToCart = async () => {
+    // if book already exists in cart, show a message
+    if (CartService.getCart().books.find((book) => book.id === id)) {
+      toast.error(`Book already exists in cart! 😟`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    }
     try {
       await CartService.addBookToCart([id]);
+      toast.success(`Added ${book.title} to cart! 😄`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } catch (error) {
+      toast.error(`Failed to add ${book.title} to cart! 😟`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
       console.error("Failed to add book to cart", error);
     }
   };
@@ -68,6 +111,7 @@ function BookDetails() {
               >
                 Add to cart
               </button>
+              <ToastContainer />
             </div>
           </div>
         </div>

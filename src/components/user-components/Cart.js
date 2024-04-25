@@ -1,11 +1,18 @@
 import React from "react";
 import BookService from "service/BookService";
+import CartService from "service/CartService";
 
-function Cart({ book }) {
+function Cart({ book, loadCart }) {
   // If book is not found, display a message
   if (!book) {
-    return <div>Book not found</div>;
+    return <div></div>;
   }
+
+  const handleDeleteBook = () => {
+    console.log("Deleting book from cart:", book);
+    CartService.removeBookFromCart(book.id);
+    loadCart();
+  };
 
   // Display the book details
   return (
@@ -18,26 +25,28 @@ function Cart({ book }) {
         />
       </div>
       <div className="textDiv flex flex-grow flex-col gap-y-6 justify-between">
-        <div className="flex flex-col gap-y-1">
+        <div className="flex flex-col font-medium">
           <h1 className="">{book.title}</h1>
-          <h1 className=" text-gray-500">{book.author}</h1>
+          <h1 className=" text-gray-400">{book.author}</h1>
         </div>
 
         <div className="flex flex-row justify-between">
-          <h1 className=" text-primaryBlack font-bold">Quantity: 1</h1>
+          <div className=" text-primaryBlack font-bold"></div>
 
-          <svg
-            width="16"
-            height="17"
-            viewBox="0 0 16 17"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6.4 3.09999H9.6C9.6 2.21633 8.88368 1.49999 8 1.49999C7.11632 1.49999 6.4 2.21633 6.4 3.09999ZM5.2 3.09999C5.2 1.55359 6.4536 0.299988 8 0.299988C9.5464 0.299988 10.8 1.55359 10.8 3.09999H15.4C15.7314 3.09999 16 3.36862 16 3.69999C16 4.03136 15.7314 4.29999 15.4 4.29999H14.3447L13.4071 13.9889C13.2583 15.5267 11.966 16.7 10.421 16.7H5.57895C4.03403 16.7 2.74172 15.5267 2.5929 13.9889L1.65526 4.29999H0.6C0.268632 4.29999 0 4.03136 0 3.69999C0 3.36862 0.268632 3.09999 0.6 3.09999H5.2ZM6.8 6.89999C6.8 6.56862 6.53136 6.29999 6.2 6.29999C5.86863 6.29999 5.6 6.56862 5.6 6.89999V12.9C5.6 13.2313 5.86863 13.5 6.2 13.5C6.53136 13.5 6.8 13.2313 6.8 12.9V6.89999ZM9.8 6.29999C9.46864 6.29999 9.2 6.56862 9.2 6.89999V12.9C9.2 13.2313 9.46864 13.5 9.8 13.5C10.1314 13.5 10.4 13.2313 10.4 12.9V6.89999C10.4 6.56862 10.1314 6.29999 9.8 6.29999Z"
-              fill="#212121"
-            />
-          </svg>
+          <button onClick={handleDeleteBook}>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 5H14C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5ZM8.5 5C8.5 3.067 10.067 1.5 12 1.5C13.933 1.5 15.5 3.067 15.5 5H21.25C21.6642 5 22 5.33579 22 5.75C22 6.16421 21.6642 6.5 21.25 6.5H19.9309L18.7589 18.6112C18.5729 20.5334 16.9575 22 15.0263 22H8.97369C7.04254 22 5.42715 20.5334 5.24113 18.6112L4.06908 6.5H2.75C2.33579 6.5 2 6.16421 2 5.75C2 5.33579 2.33579 5 2.75 5H8.5ZM10.5 9.75C10.5 9.33579 10.1642 9 9.75 9C9.33579 9 9 9.33579 9 9.75V17.25C9 17.6642 9.33579 18 9.75 18C10.1642 18 10.5 17.6642 10.5 17.25V9.75ZM14.25 9C14.6642 9 15 9.33579 15 9.75V17.25C15 17.6642 14.6642 18 14.25 18C13.8358 18 13.5 17.6642 13.5 17.25V9.75C13.5 9.33579 13.8358 9 14.25 9ZM6.73416 18.4667C6.84577 19.62 7.815 20.5 8.97369 20.5H15.0263C16.185 20.5 17.1542 19.62 17.2658 18.4667L18.4239 6.5H5.57608L6.73416 18.4667Z"
+                fill="#212121"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

@@ -27,30 +27,52 @@ function CheckoutPage() {
   };
 
   if (!cart || !books.length) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex flex-grow flex-row gap-4">
+        <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
+          <div>
+            <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
+            <div className="text-gray-400 mt-2 font-medium">
+              Cart is currently empty. Please browse the library to add books.
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
+          <Checkout books={books} />
+        </div>
+      </div>
+    );
   }
+
+  const handleEmptyCart = () => {
+    CartService.emptyCart();
+    setCart(CartService.getCart());
+    setBooks([]);
+  };
 
   return (
     <div className="flex flex-grow flex-row gap-4">
       <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
         <div>
-          <h1 className="font-bold text-primaryBlack">Cart</h1>
+          <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
 
           <div className="flex flex-row justify-between">
             <h1 className="text-gray-400">{cart.books.length} Items</h1>
-            <h1 className="text-primaryBlue"> Empty cart</h1>
+            <button onClick={handleEmptyCart}>
+              <h1 className="text-primaryBlue">Empty cart</h1>
+            </button>
           </div>
         </div>
 
         {books.map((book) => (
-          <div key={book.id} className="p-4 border-b-4">
-            <Cart book={book} />
+          <div key={book.id} className="py-4 border-b-2">
+            <Cart book={book} loadCart={loadCart} />
           </div>
         ))}
       </div>
 
       <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
-        <Checkout />
+        <Checkout books={books} />
       </div>
     </div>
   );
