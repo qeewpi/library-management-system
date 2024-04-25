@@ -12,15 +12,14 @@ function BookDetails() {
 
   const [book, setBook] = useState(null);
 
-  const notify = () => {
-    toast("Default Notification !");
-  };
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     loadBook();
   }, []);
 
   const loadBook = async () => {
+    setIsLoading(true);
     try {
       const book = await BookService.getBook(id);
       if (book.imagePath) {
@@ -31,13 +30,15 @@ function BookDetails() {
       }
     } catch (error) {
       console.error("Failed to fetch book", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleAddToCart = async () => {
     // if book already exists in cart, show a message
     if (CartService.getCart().books.find((book) => book.id === id)) {
-      toast.error(`Book already exists in cart! 😟`, {
+      toast.error(`The "${book.title}" is already in your cart! 😟`, {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -52,7 +53,7 @@ function BookDetails() {
     }
     try {
       await CartService.addBookToCart([id]);
-      toast.success(`Added ${book.title} to cart! 😄`, {
+      toast.success(`Added "${book.title}" to your cart! 😄`, {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -64,7 +65,7 @@ function BookDetails() {
         transition: Bounce,
       });
     } catch (error) {
-      toast.error(`Failed to add ${book.title} to cart! 😟`, {
+      toast.error(`Failed to add "${book.title}" to cart! 😟`, {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -80,8 +81,23 @@ function BookDetails() {
   };
 
   // If book is not found, display a message
-  if (!book) {
+  if (!book && !isLoading) {
     return <div>Book not found</div>;
+  } else if (!book) {
+    return (
+      <div className="flex min-w-screen min-h-screen items-center justify-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
+
+  // If data is being loaded, display a spinner
+  if (isLoading) {
+    return (
+      <div className="flex min-w-screen min-h-screen items-cente justify-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
   }
 
   // Display the book details

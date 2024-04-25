@@ -1,6 +1,7 @@
 import Cart from "components/user-components/Cart";
 import Checkout from "components/user-components/Checkout";
 import React, { useEffect, useState } from "react";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import BookService from "service/BookService";
 import CartService from "service/CartService";
 
@@ -26,9 +27,39 @@ function CheckoutPage() {
     setBooks(books);
   };
 
-  if (!cart || !books.length) {
+  const updateBooks = async () => {
+    const cart = CartService.getCart();
+    const bookPromises = cart.books.map((book) => {
+      return BookService.getBook(book.id);
+    });
+    const books = await Promise.all(bookPromises);
+    console.log("Fetched books:", books);
+    setBooks(books);
+  };
+
+  const onDeleteBook = (bookId) => {
+    CartService.removeBookFromCart(bookId);
+    updateBooks();
+  };
+
+  const handleDeleteBookToast = (book) => {
+    toast.success(`Removed "${book.title}" from your cart. 👋`, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+
+  if (!cart?.books?.length || !books?.length) {
     return (
       <div className="flex flex-grow flex-row gap-4">
+        <ToastContainer />
         <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
           <div>
             <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
@@ -52,6 +83,7 @@ function CheckoutPage() {
 
   return (
     <div className="flex flex-grow flex-row gap-4">
+      <ToastContainer />
       <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
         <div>
           <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
@@ -66,7 +98,11 @@ function CheckoutPage() {
 
         {books.map((book) => (
           <div key={book.id} className="py-4 border-b-2">
-            <Cart book={book} loadCart={loadCart} />
+            <Cart
+              book={book}
+              onDeleteBook={onDeleteBook}
+              handleDeleteBookToast={handleDeleteBookToast}
+            />
           </div>
         ))}
       </div>

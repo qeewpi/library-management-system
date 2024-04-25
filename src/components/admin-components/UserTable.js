@@ -31,8 +31,8 @@ export function UserTable({ searchValue }) {
   };
 
   return (
-    <div className="overflow-auto border border-b-0 rounded-xl border-gray-200 w-screen">
-      <table className="table  border-gray-500 border-spacing-y-4">
+    <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
+      <table className="table table-lg border-gray-500 border-spacing-y-4">
         {/* head */}
         <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
@@ -40,7 +40,7 @@ export function UserTable({ searchValue }) {
             <th className="font-medium border-b p-6">Username</th>
             <th className="font-medium border-b p-6">Name</th>
             <th className="font-medium border-b p-6">Email</th>
-            <th className="font-medium border-b p-6 max-w-xs">Password</th>
+            <th className="font-medium border-b p-6">Password</th>
             <th className="font-medium border-b p-6">Actions</th>
           </tr>
         </thead>

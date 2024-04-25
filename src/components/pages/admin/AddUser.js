@@ -12,6 +12,7 @@ const AddUser = () => {
     password: "",
   });
 
+  // add user with specified role
   const { username, name, email, password } = user;
 
   const handleChange = (e) => {
