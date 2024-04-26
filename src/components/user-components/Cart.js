@@ -1,17 +1,17 @@
 import React from "react";
 import BookService from "service/BookService";
-import CartService from "service/CartService";
 
-function Cart({ book, loadCart }) {
+function Cart({ book, handleDeleteBookToast, onDeleteBook }) {
   // If book is not found, display a message
   if (!book) {
     return <div></div>;
   }
 
-  const handleDeleteBook = () => {
-    console.log("Deleting book from cart:", book);
-    CartService.removeBookFromCart(book.id);
-    loadCart();
+  // Delete the book from the cart
+  const handleDeleteBook = (book) => {
+    console.log("Deleting book from cart:", book.id);
+    onDeleteBook(book.id);
+    handleDeleteBookToast(book);
   };
 
   // Display the book details
@@ -33,7 +33,7 @@ function Cart({ book, loadCart }) {
         <div className="flex flex-row justify-between">
           <div className=" text-primaryBlack font-bold"></div>
 
-          <button onClick={handleDeleteBook}>
+          <button onClick={() => handleDeleteBook(book)}>
             <svg
               width="24"
               height="24"

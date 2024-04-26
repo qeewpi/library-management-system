@@ -15,7 +15,7 @@ function Checkout({ books }) {
         <div className="">
           {/* Total quantity of books */}
           <h1 className="flex justify-between">
-            <span>Items:</span>
+            <span>Books:</span>
             <span>{books.length}</span>
           </h1>
         </div>
