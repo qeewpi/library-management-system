@@ -29,9 +29,10 @@ function Profile() {
             <div className="flex flex-grow text-sm relative items-center">
               <input
                 type="text"
-                placeholder={currentUser.username}
-                required
+                value={currentUser.username}
                 className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
+                required
+                readOnly
               />
 
               <svg
