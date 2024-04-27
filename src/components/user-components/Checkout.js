@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
 import CartService from "service/CartService";
 import OrderService from "service/OrderService";
 
@@ -17,6 +18,24 @@ function Checkout({ books }) {
   }, []);
 
   const handleOrderCheckout = async () => {
+    const storedCart = localStorage.getItem("cart");
+    const parsedCart = storedCart ? JSON.parse(storedCart) : null;
+
+    if (!parsedCart || !parsedCart.books || parsedCart.books.length === 0) {
+      toast.error(`You cannot checkout an empty cart! 😅`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    }
+
     setIsLoading(true);
     try {
       const response = await OrderService.addOrder(cart);

@@ -1,35 +1,85 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { borrowedBooks } from "../../data/userBorrowedBooks";
+import React, { useEffect, useState } from "react";
+import AuthService from "service/AuthService";
+import OrderService from "service/OrderService";
+import BookService from "./../../service/BookService";
 
-const BookLibrary = () => {
-  const borrowedBooksData = borrowedBooks[0].borrowedBooks; // Extracting borrowed books data from the borrowedBooks array
+const BookLibrary = ({ setSelectedBook }) => {
+  const [orders, setOrders] = useState([]);
+  const currentUser = AuthService.getCurrentUser();
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const orders = await OrderService.getOrdersByUserId(currentUser.id);
+      setOrders(orders);
+    };
+
+    fetchOrders();
+  }, []);
+
+  const getGridColsClass = (orders) => {
+    const totalBooks = orders.reduce(
+      (sum, order) => sum + order.books.length,
+      0
+    );
+    if (totalBooks <= 2) {
+      return "grid-cols-2";
+    } else if (totalBooks <= 3) {
+      return "xl:grid-cols-3";
+    } else {
+      return "2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1";
+    }
+  };
+
+  if (orders.length === 0) {
+    return (
+      <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-5 min-h-full">
+        <div className="containerDiv flex-grow flex flex-col w-full">
+          <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
+          <h1
+            className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`}
+            style={{ paddingBottom: "15px" }}
+          >
+            Your Book Library
+          </h1>
+          <div className="overflow-auto mb-[42px] ml-[5px]  md:ml-0 min-h-full w-full flex">
+            <p className="text-gray-600 font-medium">
+              Your reading list is empty. Start exploring the library to find
+              books to borrow! 📚🔍
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-10 md:self-stretch md:p-5">
-      <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
-      <h1
-        className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`}
-        style={{ paddingBottom: "15px" }}
-      >
-        Your Book Library
-      </h1>
-      <div
-        className="overflow-auto mb-[42px] ml-[5px] self-stretch md:ml-0"
-        style={{ maxHeight: "calc(161vh - 300px)" }}
-      >
-        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
-          {borrowedBooksData.map((book) => (
-            <Link to={"/book/" + book.bookId} key={book.orderId}>
-              <div className="flex flex-col items-center">
-                <img
-                  src={book.img}
-                  alt={book.bookTitle}
-                  className="h-[12rem] sm:h-[16rem] md:h-[12rem] xl:h-[15rem] xl:w-[16rem] 2xl:h-[18rem] object-fill rounded-xl"
-                />
-              </div>
-            </Link>
-          ))}
+    <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-5 min-h-full">
+      <div className="containerDiv flex-grow flex flex-col">
+        <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
+        <h1
+          className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`}
+          style={{ paddingBottom: "15px" }}
+        >
+          Your Book Library
+        </h1>
+        <div className="overflow-auto mb-[42px] ml-[5px]  md:ml-0 min-h-full">
+          <div
+            className={`grid gap-4 mt-4 ${getGridColsClass(orders)} min-h-full`}
+          >
+            {orders.flatMap((order) =>
+              order.books.map((book) => (
+                <button onClick={() => setSelectedBook({ ...book, order })}>
+                  <div className="flex flex-col items-center ">
+                    <img
+                      src={BookService.downloadBookImage(book.imagePath)}
+                      alt={book.title}
+                      className="object-cover rounded-xl aspect-[1/1.6]"
+                    />
+                  </div>
+                </button>
+              ))
+            )}
+          </div>
         </div>
       </div>
     </div>

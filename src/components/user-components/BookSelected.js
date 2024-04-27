@@ -1,74 +1,144 @@
 import React from "react";
+import BookService from "service/BookService";
+import cardItemPlaceholder from "../../img/cardItemPlaceholder.png";
 
-const BookSelected = () => {
+const BookSelected = ({ selectedBook }) => {
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
+  };
+
+  const calculateDaysRemaining = (dueDate) => {
+    const due = new Date(dueDate);
+    const today = new Date();
+    const timeDifference = due.getTime() - today.getTime();
+    const daysRemaining = Math.ceil(timeDifference / (1000 * 3600 * 24));
+    return daysRemaining;
+  };
+
+  if (!selectedBook) {
+    return (
+      <div className="flex w-[45%] flex-col gap-[26px] bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl">
+        <div className="relative h-[471px] md:h-auto">
+          <img
+            src={cardItemPlaceholder}
+            alt="Book Placeholder"
+            className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white"
+          />
+          <img
+            src={cardItemPlaceholder}
+            alt="Book Placeholder"
+            className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover"
+          />
+        </div>
+        <div className="flex flex-col items-start gap-[21px] p-5">
+          <div className="flex flex-col items-start gap-0.5">
+            <h2 className={`${sizesHeading["3xl"]} !text-black`}>
+              Ready to Dive In?
+            </h2>
+            <p className={`${sizesText["2xl"]}`}>
+              Select a book to display its details
+            </p>
+          </div>
+          <div className="flex w-[91%] items-center justify-between gap-4 pr-[5px] md:w-full">
+            <div className="flex flex-col items-start">
+              <p className={`${sizesText.s}`}>Status</p>
+              <h3 className={`${sizesHeading.s} !text-black`}>...</h3>
+            </div>
+            <div className="flex flex-col items-start">
+              <p className={`${sizesText.s}`}>Borrowed On</p>
+              <h4 className={`${sizesHeading.s} !text-black`}>...</h4>
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <p className={`${sizesText.s}`}>Deadline</p>
+              <h5 className={`${sizesHeading.s} !text-black`}>...</h5>
+            </div>
+            <div className="flex flex-col items-start gap-0.5">
+              <p className={`${sizesText.s}`}>Days Remaining</p>
+              <h6 className={`${sizesHeading.s} !text-black`}>...</h6>
+            </div>
+          </div>
+          <div className="flex flex-col items-start self-stretch">
+            <p className={`${sizesHeading.s} !text-black`}>Description</p>
+            <p className="text-[13px] font-light !text-black">...</p>
+          </div>
+          <div className="flex w-full">
+            <button className="bg-primaryYellow p-3 rounded-xl text-white text-xs">
+              Browse Library
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex w-[45%] flex-col gap-[26px] bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl">
+    <div className="flex w-[45%] flex-col gap-4 bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl h-full">
       <div className="relative h-[471px] md:h-auto">
         <img
-          src="images/cardItemPlaceholder.png"
-          alt="book_placeholder"
-          className="relative h-[471px] w-[530px] rounded-xl object-cover filter blur-sm border border-white"
+          src={BookService.downloadBookImage(selectedBook.imagePath)}
+          alt={selectedBook.title}
+          className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white"
         />
         <img
-          src="images/cardItemPlaceholder.png"
-          alt="book_placeholder"
-          className="absolute bottom-0 left-0 right-0 top-0 m-auto h-[340px] w-[53%] rounded-[20px] object-cover"
+          src={BookService.downloadBookImage(selectedBook.imagePath)}
+          alt={selectedBook.title}
+          className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover drop-shadow-xl"
         />
-      </div>
-      <div className="flex flex-col items-start gap-[21px] px-10 sm:px-5">
-        <div className="flex items-center justify-between gap-5 self-stretch bg-white-A700">
-          <div className="min-w-[160px] rounded-[20px] sm:px-5 bg-[#005792] text-white px-3 py-3 text-xs font-bold flex justify-center items-center">
-            Currently Borrowed
-          </div>
-          <p
-            className={`${sizesText.xs} w-[21%] self-end text-right italic !text-[#005792]`}
+        <div className="absolute z-5 p-4 -mt-[4.5rem]">
+          <button
+            className="min-w-[160px] rounded-xl sm:px-5 bg-secondaryBlue text-white px-3 py-3 text-xs font-bold flex justify-center items-center drop-shadow-xl"
+            disabled
+            aria-disabled="true"
+            title="This book is currently borrowed."
           >
-            XX days left before the due date
-          </p>
-        </div>
-        <div className="flex flex-col items-start gap-0.5">
-          <h2 className={`${sizesHeading["3xl"]} !text-black`}>
-            Beyond Diversity
-          </h2>
-          <p className={`${sizesText["2xl"]}`}>Lorem Ipsum</p>
-        </div>
-        <div className="flex w-[91%] items-center justify-between gap-5 pr-[5px] md:w-full">
-          <div className="flex flex-col items-start">
-            <p className={`${sizesText.s}`}>Rating</p>
-            <h3 className={`${sizesHeading.s} !text-black`}>4.6</h3>
-          </div>
-          <div className="flex flex-col items-start">
-            <p className={`${sizesText.s}`}>Number of Pages</p>
-            <h4 className={`${sizesHeading.s} !text-black`}>160</h4>
-          </div>
-          <div className="flex flex-col gap-0.5">
-            <p className={`${sizesText.s}`}>Language</p>
-            <h5 className={`${sizesHeading.s} !text-black`}>English</h5>
-          </div>
-          <div className="flex flex-col items-start gap-0.5">
-            <p className={`${sizesText.s}`}>Deadline</p>
-            <h6 className={`${sizesHeading.s} !text-black`}>MM/DD/YYYY</h6>
-          </div>
-        </div>
-        <div className="flex flex-col items-start self-stretch">
-          <p className={`${sizesHeading.s} !text-black`}>Summary</p>
-          <p className="text-[13px] font-light !text-black">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac
-            venenatis elit. Fusce gravida, ante vel egestas lacinia, velit urna
-            lobortis mauris, quis euismod sapien ex in ante. In posuere blandit
-            mauris et fermentum. Quisque semper sem vitae viverra consectetur.
-            Phasellus diam dolor, maximus sit amet nisl non, lacinia facilisis
-            nibh. In posuere, leo id sollicitudin pellentesque, massa augue
-            rhoncus lorem, volutpat luctus orci lectus sed sapien. Duis quis dui
-            non justo sodales finibus. Vivamus auctor, sapien a varius laoreet,
-            eros neque molestie diam, ac placerat quam magna ac tellus.
-            Curabitur convallis id risus eu lacinia. Ut at nisi enim.{" "}
-          </p>
-        </div>
-        <div className="flex w-full">
-          <button className="min-w-[99px] !rounded-br-[12px] !rounded-bl-[12px] !rounded-tr-[12px] !rounded-tl-[12px] pr-[30px] pl-[30px] h-[40px] flex items-center justify-center !bg-orange-300 text-center text-xs font-semibold !text-white sm:px-5 sm:pl-5 sm:pr-5">
-            Return
+            Currently Borrowed
           </button>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-start gap-[21px] ">
+        <div className="flex items-center justify-between gap-5 self-stretch bg-white-A700"></div>
+        <div className="px-5 pb-5 flex flex-col gap-y-4 w-full">
+          <div className="flex flex-col items-start gap-0.5">
+            <h2 className={`${sizesHeading["3xl"]} !text-black`}>
+              {selectedBook.title}
+            </h2>
+            <p className={`${sizesText["2xl"]}`}>{selectedBook.author}</p>
+          </div>
+          <div className="flex w-[91%] items-center justify-between gap-5 pr-[5px] md:w-full">
+            <div className="flex flex-col items-start">
+              <p className={`${sizesText.s}`}>Status</p>
+              <h3 className={`${sizesHeading.s} !text-black`}>
+                {selectedBook.order.status ? "Borrowed" : "Available"}
+              </h3>
+            </div>
+            <div className="flex flex-col items-start">
+              <p className={`${sizesText.s}`}>Borrowed On</p>
+              <h4 className={`${sizesHeading.s} !text-black`}>
+                {formatDate(selectedBook.order.borrowed_at)}
+              </h4>
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <p className={`${sizesText.s}`}>Deadline</p>
+              <h5 className={`${sizesHeading.s} !text-black`}>
+                {formatDate(selectedBook.order.due_date)}
+              </h5>
+            </div>
+            <div className="flex flex-col items-start gap-0.5">
+              <p className={`${sizesText.s}`}>Days Remaining</p>
+              <h6 className={`${sizesHeading.s} !text-black`}>
+                {calculateDaysRemaining(selectedBook.order.due_date)}
+              </h6>
+            </div>
+          </div>
+          <div className="flex flex-col items-start self-stretch">
+            <p className={`${sizesHeading.s} !text-black`}>Description</p>
+            <p className="text-[13px] font-light !text-black">
+              {selectedBook.description}
+            </p>
+          </div>
         </div>
       </div>
     </div>

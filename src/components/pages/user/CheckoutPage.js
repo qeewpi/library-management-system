@@ -114,6 +114,7 @@ function CheckoutPage() {
                 book={book}
                 onDeleteBook={onDeleteBook}
                 handleDeleteBookToast={handleDeleteBookToast}
+                loadCart={loadCart}
               />
             </div>
           ))}

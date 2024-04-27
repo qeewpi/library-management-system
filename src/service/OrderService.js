@@ -60,6 +60,20 @@ const OrderService = {
     }
   },
 
+  getOrdersByUserId: async (userId) => {
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}/user/${userId}/orders`,
+        {
+          headers: getAuthHeader(),
+        }
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error("Failed to fetch order");
+    }
+  },
+
   editOrder: async (orderId, orderData) => {
     try {
       await axios.put(`${API_BASE_URL}/order/${orderId}`, orderData, {

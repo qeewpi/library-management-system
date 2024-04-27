@@ -11,11 +11,11 @@ function OrderItem({ book }) {
   // Display the book details
   return (
     <div className="flex flex-row gap-x-8">
-      <div className="flex">
+      <div className="flex w-1/12">
         <img
           src={BookService.downloadBookImage(book.imagePath)}
-          alt={book.bookTitle}
-          className="h-[12rem] w-[8rem] object-cover rounded-xl"
+          alt={book.title}
+          className="aspect-[1/1.6] object-cover rounded-xl"
         />
       </div>
       <div className="textDiv flex flex-col gap-y-6 justify-between">

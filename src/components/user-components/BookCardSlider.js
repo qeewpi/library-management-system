@@ -45,12 +45,12 @@ function BookCardSlider({ books }) {
                     <img
                       src={BookService.downloadBookImage(book.imagePath)}
                       alt=""
-                      className="h-[10rem] md:h-[14rem] lg:h-[14rem] xl:h-[15rem] w-full rounded-xl object-cover"
+                      className="aspect-[1/1.6] w-full rounded-xl object-cover"
                     />
                   </div>
-                  <div className="pt-3">
-                    <h1>{book.bookTitle}</h1>
-                    <h2 className="text-gray-500">{book.bookAuthor}</h2>
+                  <div className="pt-3 text-sm">
+                    <h1>{book.title}</h1>
+                    <h2 className="text-gray-500">{book.author}</h2>
                   </div>
                 </Link>
               </div>

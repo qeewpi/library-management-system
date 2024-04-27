@@ -46,7 +46,7 @@ function RecommendedBooks({ imageBaseUrl }) {
                       <img
                         src={`${imageBaseUrl}/${book.img}`}
                         alt=""
-                        className="h-[10rem] md:h-[14rem] lg:h-[14rem] xl:h-[15rem] w-full rounded-xl object-cover"
+                        className="aspect-[1/1.6] rounded-xl object-cover"
                       />
                     </div>
                     <div className="pt-3">

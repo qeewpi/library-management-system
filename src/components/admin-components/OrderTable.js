@@ -62,14 +62,14 @@ export function OrderTable({ searchValue }) {
   };
 
   return (
-    <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
-      <table className="table table-lg border-gray-500 border-spacing-y-4">
+    <div className="overflow-x-auto border border-b-0 rounded-xl border-gray-200">
+      <table className="table table-sm border-gray-500 border-spacing-y-4">
         {/* head */}
-        <thead className="text-sm text-gray-500 bg-gray-100">
-          <tr className="border-gray-200 border-b">
+        <thead className="text-sm text-gray-500 bg-gray-100 ">
+          <tr className="border-gray-200 border-b break-words">
             <th className="font-medium border-b p-6">Order ID</th>
             <th className="font-medium border-b p-6">Username</th>
-            <th className="font-medium border-b p-6">ID of Books Borrowed</th>
+            <th className="font-medium border-b p-6">Books Borrowed</th>
             <th className="font-medium border-b p-6">Status</th>
             <th className="font-medium border-b p-6">Borrowed At</th>
             <th className="font-medium border-b p-6">Due Date</th>
@@ -97,11 +97,11 @@ export function OrderTable({ searchValue }) {
             .map((order, index) => (
               <tr
                 key={index}
-                className="text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
+                className="text-sm font-medium text-primaryBlack border-gray-200 break-words"
               >
                 <td className="border-b p-6">{order.id}</td>
                 <td className="border-b p-6">{order.username}</td>
-                <td className="border-b p-6">
+                <td className="border-b p-6 break-words">
                   {order.books.map((book) => book.id).join(", ")}
                 </td>
                 <td className="border-b p-6">{order.status}</td>
@@ -113,7 +113,7 @@ export function OrderTable({ searchValue }) {
                   {formatDate(order.returned_at)}
                 </td>
                 <td className="border-b p-6">
-                  <div className="flex gap-x-3 items h-full">
+                  <div className="grid grid-cols-2 gap-2 2xl:gap-0 xl:grid-cols-4 items h-full">
                     <Link
                       to={`/admin/view/order/${order.id}`}
                       className="text-blue-900"

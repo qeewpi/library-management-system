@@ -12,7 +12,7 @@ function UserList() {
   };
 
   return (
-    <div className="flex flex-col gap-y-6">
+    <div className="flex flex-col gap-y-6 max-w-screen">
       <AdminWelcome />
       <div className="bg-white gap-y-4 flex flex-col p-6 rounded-xl">
         <div>

@@ -1,7 +1,7 @@
 import React from "react";
 import BookService from "service/BookService";
 
-function Cart({ book, handleDeleteBookToast, onDeleteBook }) {
+function Cart({ book, handleDeleteBookToast, onDeleteBook, loadCart }) {
   // If book is not found, display a message
   if (!book) {
     return <div></div>;
@@ -12,16 +12,17 @@ function Cart({ book, handleDeleteBookToast, onDeleteBook }) {
     console.log("Deleting book from cart:", book.id);
     onDeleteBook(book.id);
     handleDeleteBookToast(book);
+    loadCart();
   };
 
   // Display the book details
   return (
-    <div className="flex flex-row gap-x-8">
-      <div className="flex">
+    <div className="flex flex-row gap-x-4">
+      <div className="flex w-2/12">
         <img
           src={BookService.downloadBookImage(book.imagePath)}
           alt={book.title}
-          className="h-[12rem] w-[8rem] object-cover rounded-xl"
+          className="aspect-[1/1.6] object-cover rounded-xl"
         />
       </div>
       <div className="textDiv flex flex-grow flex-col gap-y-6 justify-between">

@@ -84,10 +84,10 @@ function BooksTable({ searchValue }) {
                 <td className="border-b p-6">{book.title}</td>
                 <td className="border-b p-6">{book.author}</td>
                 <td className="border-b p-6">{book.genre}</td>
-                <td className="border-b p-6">
+                <td className="border-b p-6 break-all">
                   {book.description.substring(0, 30) + "..."}
                 </td>
-                <td className="border-b p-6">{book.imagePath}</td>
+                <td className="border-b p-6 break-all">{book.imagePath}</td>
                 <td className="border-b p-6">
                   <div className="flex gap-x-3 items h-full">
                     <Link

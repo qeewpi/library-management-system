@@ -71,7 +71,7 @@ export function UserTable({ searchValue }) {
                 <td className="border-b p-6">{user.username}</td>
                 <td className="border-b p-6">{user.name}</td>
                 <td className="border-b p-6">{user.email}</td>
-                <td className="border-b p-6">{user.password}</td>
+                <td className="border-b p-6 break-all">{user.password}</td>
                 <td className="border-b p-6">
                   <div className="flex gap-x-3 items h-full">
                     <Link
