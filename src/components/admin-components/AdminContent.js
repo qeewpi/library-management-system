@@ -16,6 +16,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LibraryCatalog from "../pages/admin/LibraryCatalog";
 import UserList from "../pages/admin/UserList";
+import ViewBook from "../pages/admin/ViewBook";
+import EditBook from "components/pages/admin/EditBook";
 
 function AdminContent() {
   return (
@@ -32,6 +34,8 @@ function AdminContent() {
           <Route path="/admin/add/user" element={<AddUser />} />
           <Route path="/admin/edit/user/:id" element={<EditUser />} />
           <Route path="/admin/view/user/:id" element={<ViewUser />} />
+          <Route path="/admin/view/book/:id" element={<ViewBook />} />
+          <Route path="/admin/edit/book/:id" element={<EditBook />} />
 
           <Route path="/admin/add/admin" element={<AddAdmin />} />
           <Route path="admin/add/borrowed-book" element={<AddBorrowedBook />} />
