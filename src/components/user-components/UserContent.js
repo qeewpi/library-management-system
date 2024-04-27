@@ -18,7 +18,7 @@ function UserContent() {
           <Route path="/book/:id" element={<BookDetails />} />
           <Route path="/results" element={<Results />} />
           <Route path="/reading-list" element={<ReadingList />} />
-          <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="/order-summary/:id" element={<OrderSummary />} />
           <Route path="/checkout-page" element={<CheckoutPage />} />
         </Routes>
       </div>

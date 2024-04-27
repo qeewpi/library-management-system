@@ -58,18 +58,18 @@ function CheckoutPage() {
 
   if (!cart?.books?.length || !books?.length) {
     return (
-      <div className="flex flex-grow flex-row gap-4">
+      <div className="flex flex-grow flex-row">
         <ToastContainer />
-        <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
-          <div>
+        <div className="flex flex-grow flex-row gap-4 w-full">
+          <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
             <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
             <div className="text-gray-400 mt-2 font-medium">
               Cart is currently empty. Please browse the library to add books.
             </div>
           </div>
-        </div>
-        <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
-          <Checkout books={books} />
+          <div className="flex flex-col bg-white p-6 rounded-xl h-max w-1/4">
+            <Checkout books={books} />
+          </div>
         </div>
       </div>
     );
@@ -79,36 +79,49 @@ function CheckoutPage() {
     CartService.emptyCart();
     setCart(CartService.getCart());
     setBooks([]);
+    toast.success(`You have emptied your cart. 👋`, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   return (
-    <div className="flex flex-grow flex-row gap-4">
+    <div className="flex flex-grow flex-row">
       <ToastContainer />
-      <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
-        <div>
-          <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
+      <div className="flex flex-grow flex-row gap-4 w-full">
+        <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
+          <div>
+            <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
 
-          <div className="flex flex-row justify-between">
-            <h1 className="text-gray-400">{cart.books.length} Items</h1>
-            <button onClick={handleEmptyCart}>
-              <h1 className="text-primaryBlue">Empty cart</h1>
-            </button>
+            <div className="flex flex-row justify-between">
+              <h1 className="text-gray-400">{cart.books.length} Items</h1>
+              <button onClick={handleEmptyCart}>
+                <h1 className="text-primaryBlue">Empty cart</h1>
+              </button>
+            </div>
           </div>
+
+          {books.map((book) => (
+            <div key={book.id} className="py-4 border-b-2">
+              <Cart
+                book={book}
+                onDeleteBook={onDeleteBook}
+                handleDeleteBookToast={handleDeleteBookToast}
+              />
+            </div>
+          ))}
         </div>
 
-        {books.map((book) => (
-          <div key={book.id} className="py-4 border-b-2">
-            <Cart
-              book={book}
-              onDeleteBook={onDeleteBook}
-              handleDeleteBookToast={handleDeleteBookToast}
-            />
-          </div>
-        ))}
-      </div>
-
-      <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
-        <Checkout books={books} />
+        <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
+          <Checkout books={books} />
+        </div>
       </div>
     </div>
   );

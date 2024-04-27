@@ -1,11 +1,8 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AuthService from "service/AuthService";
 import CartService from "service/CartService";
-import alertSVG from "../../icons/alert.svg";
 import brandSVG from "../../icons/brand.svg";
-import cartSVG from "../../icons/cart.svg";
-import msgSVG from "../../icons/msg.svg";
 import searchSVG from "../../icons/search.svg";
 import userFilledSVG from "../../icons/user-filled.svg";
 
@@ -82,13 +79,6 @@ function UserNavBar() {
                 />
               </svg>
             </button>
-          </div>
-          <div className="buttonsDiv flex flex-row gap-x-4">
-            <img src={msgSVG} alt="" />
-            <img src={alertSVG} alt="" />
-            <Link to="/checkout-page">
-              <img src={cartSVG} alt="" />
-            </Link>
           </div>
         </div>
       </div>

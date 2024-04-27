@@ -1,14 +1,8 @@
-import { books } from "data/booksData";
 import React from "react";
+import BookService from "service/BookService";
 
-function OrderItem() {
-  // Display the book details
-  // Generate a random id
-  const randomId = Math.floor(Math.random() * books.length) + 1;
-
-  // Find the book with the random id
-  const book = books.find((book) => book.id === randomId);
-
+function OrderItem({ book }) {
+  // map books into book
   // If book is not found, display a message
   if (!book) {
     return <div>Book not found</div>;
@@ -19,15 +13,15 @@ function OrderItem() {
     <div className="flex flex-row gap-x-8">
       <div className="flex">
         <img
-          src={`../../${book.img}`}
+          src={BookService.downloadBookImage(book.imagePath)}
           alt={book.bookTitle}
           className="h-[12rem] w-[8rem] object-cover rounded-xl"
         />
       </div>
       <div className="textDiv flex flex-col gap-y-6 justify-between">
         <div className="flex flex-col gap-y-1">
-          <h1 className="">{book.bookTitle}</h1>
-          <h1 className=" text-gray-500">{book.bookAuthor}</h1>
+          <h1 className="">{book.title}</h1>
+          <h1 className=" text-gray-500">{book.author}</h1>
         </div>
         <div>
           <h1 className=" text-primaryBlack font-bold">Quantity: 1</h1>

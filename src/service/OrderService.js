@@ -40,9 +40,10 @@ const OrderService = {
 
   addOrder: async (orderData) => {
     try {
-      await axios.post(`${API_BASE_URL}/order`, orderData, {
+      const response = await axios.post(`${API_BASE_URL}/order`, orderData, {
         headers: getAuthHeader(),
       });
+      return response.data;
     } catch (error) {
       throw new Error("Failed to add order");
     }

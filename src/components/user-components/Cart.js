@@ -25,7 +25,7 @@ function Cart({ book, handleDeleteBookToast, onDeleteBook }) {
         />
       </div>
       <div className="textDiv flex flex-grow flex-col gap-y-6 justify-between">
-        <div className="flex flex-col font-medium">
+        <div className="flex flex-col font-semibold">
           <h1 className="">{book.title}</h1>
           <h1 className=" text-gray-400">{book.author}</h1>
         </div>

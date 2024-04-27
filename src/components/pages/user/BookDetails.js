@@ -36,6 +36,13 @@ function BookDetails() {
   };
 
   const handleAddToCart = async () => {
+    // if cart doesn't exist yet
+    let cart = CartService.getCart();
+    if (!cart) {
+      CartService.createCart();
+      cart = CartService.getCart();
+    }
+
     // if book already exists in cart, show a message
     if (CartService.getCart().books.find((book) => book.id === id)) {
       toast.error(`The "${book.title}" is already in your cart! 😟`, {

@@ -6,14 +6,18 @@ const BookLibrary = () => {
   const borrowedBooksData = borrowedBooks[0].borrowedBooks; // Extracting borrowed books data from the borrowedBooks array
 
   return (
-    <div className="flex flex-1 flex-col items-start rounded-[20px] bg-white p-10 md:self-stretch md:p-5">
-      <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>
-        Welcome!
-      </p>
-      <h1 className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`} style={{ paddingBottom: "15px" }}>
+    <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-10 md:self-stretch md:p-5">
+      <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
+      <h1
+        className={`${sizesHeading["4xl"]} ml-[5px] mt-4 !text-black-900 md:ml-0`}
+        style={{ paddingBottom: "15px" }}
+      >
         Your Book Library
       </h1>
-      <div className="overflow-auto mb-[42px] ml-[5px] self-stretch md:ml-0" style={{ maxHeight: "calc(161vh - 300px)" }}>
+      <div
+        className="overflow-auto mb-[42px] ml-[5px] self-stretch md:ml-0"
+        style={{ maxHeight: "calc(161vh - 300px)" }}
+      >
         <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-2">
           {borrowedBooksData.map((book) => (
             <Link to={"/book/" + book.bookId} key={book.orderId}>
