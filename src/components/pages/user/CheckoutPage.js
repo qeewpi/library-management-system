@@ -68,7 +68,7 @@ function CheckoutPage() {
             </div>
           </div>
           <div className="flex flex-col bg-white p-6 rounded-xl h-max w-1/4">
-            <Checkout books={books} />
+            <Checkout books={books} cart={cart} />
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@ function CheckoutPage() {
         </div>
 
         <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
-          <Checkout books={books} />
+          <Checkout books={books} cart={cart} />
         </div>
       </div>
     </div>
