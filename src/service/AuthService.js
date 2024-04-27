@@ -12,6 +12,15 @@ const register = (username, name, email, password) => {
 };
 
 // add user with specified role
+const registerWithRole = (username, name, email, password, role) => {
+  return axios.post(API_URL + "signup", {
+    username,
+    name,
+    email,
+    password,
+    role,
+  });
+};
 
 const login = (username, password) => {
   return axios

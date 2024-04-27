@@ -31,12 +31,12 @@ function OrderSummary() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl">
+    <div className="bg-white p-6 rounded-xl pb-10">
       <div className="text-center text-3xl text-primaryBlack font-semibold px-4 py-2">
         <span>ORDER</span>{" "}
         <span className="text-gray-600 font-medium">#{orderId}</span>
       </div>
-      <div className="flex flex-col gap-y-1 text-center">
+      <div className="flex flex-col gap-y-1 text-center py-4">
         {order
           ? order.status === "RETURNED"
             ? `Your order has been completed, ${currentUser.name}! 🎉`
@@ -53,8 +53,8 @@ function OrderSummary() {
               : order.status === "OVERDUE"
               ? "Please return the books to the library as soon as possible. 🙏"
               : order.pickedUp
-              ? "Thanks for picking up your order!"
-              : "Please proceed with picking up your books at the library."
+              ? "Thanks for picking up your order! Enjoy reading your books. 📖"
+              : "Please proceed with picking up your books at the library. 😄"
             : "Loading..."}
         </span>
       </div>
@@ -84,7 +84,7 @@ function OrderSummary() {
           </span>
         </div>
       </div>
-      <div className="font-bold pt-4 px-4">
+      <div className="font-bold pt-8 px-4">
         <h1>Order Summary</h1>
       </div>
       {books.map((book, index) => (
