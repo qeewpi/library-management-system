@@ -18,14 +18,14 @@ const BookLibrary = () => {
         className="overflow-auto mb-[42px] ml-[5px] self-stretch md:ml-0"
         style={{ maxHeight: "calc(161vh - 300px)" }}
       >
-        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
           {borrowedBooksData.map((book) => (
             <Link to={"/book/" + book.bookId} key={book.orderId}>
               <div className="flex flex-col items-center">
                 <img
                   src={book.img}
                   alt={book.bookTitle}
-                  className="h-[12rem] sm:h-[16rem] md:h-[16rem] xl:h-[320px] xl:w-[210px] object-fill rounded-xl"
+                  className="h-[12rem] sm:h-[16rem] md:h-[12rem] xl:h-[15rem] xl:w-[16rem] 2xl:h-[18rem] object-fill rounded-xl"
                 />
               </div>
             </Link>
