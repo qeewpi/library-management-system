@@ -16,21 +16,7 @@ const BookLibrary = ({ setSelectedBook }) => {
     fetchOrders();
   }, []);
 
-  const getGridColsClass = (orders) => {
-    const totalBooks = orders.reduce(
-      (sum, order) => sum + order.books.length,
-      0
-    );
-    if (totalBooks <= 2) {
-      return "grid-cols-2";
-    } else if (totalBooks <= 3) {
-      return "xl:grid-cols-3";
-    } else {
-      return "2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1";
-    }
-  };
-
-  if (orders.length === 0) {
+  if (!orders.some((order) => order.status === "BORROWED")) {
     return (
       <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-5 min-h-full">
         <div className="containerDiv flex-grow flex flex-col w-full">
@@ -53,7 +39,7 @@ const BookLibrary = ({ setSelectedBook }) => {
   }
 
   return (
-    <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-5 min-h-full">
+    <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-6 min-h-full">
       <div className="containerDiv flex-grow flex flex-col">
         <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
         <h1
@@ -64,21 +50,23 @@ const BookLibrary = ({ setSelectedBook }) => {
         </h1>
         <div className="overflow-auto mb-[42px] ml-[5px]  md:ml-0 min-h-full">
           <div
-            className={`grid gap-4 mt-4 ${getGridColsClass(orders)} min-h-full`}
+            className={`grid gap-4 mt-4 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 min-h-full`}
           >
-            {orders.flatMap((order) =>
-              order.books.map((book) => (
-                <button onClick={() => setSelectedBook({ ...book, order })}>
-                  <div className="flex flex-col items-center ">
-                    <img
-                      src={BookService.downloadBookImage(book.imagePath)}
-                      alt={book.title}
-                      className="object-cover rounded-xl aspect-[1/1.6]"
-                    />
-                  </div>
-                </button>
-              ))
-            )}
+            {orders
+              .filter((order) => order.status === "BORROWED")
+              .flatMap((order) =>
+                order.books.map((book) => (
+                  <button onClick={() => setSelectedBook({ ...book, order })}>
+                    <div className="flex flex-col items-center ">
+                      <img
+                        src={BookService.downloadBookImage(book.imagePath)}
+                        alt={book.title}
+                        className="object-cover rounded-xl aspect-[1/1.6]"
+                      />
+                    </div>
+                  </button>
+                ))
+              )}
           </div>
         </div>
       </div>

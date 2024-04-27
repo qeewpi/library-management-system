@@ -23,7 +23,7 @@ function ReadingList() {
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-xl flex flex-col gap-y-6 p-5 mt-4">
+      <div className="bg-white rounded-xl flex flex-col gap-y-6 p-6 mt-4">
         <h1 className="text-xl font-semibold text-black-900">
           Your Order History
         </h1>

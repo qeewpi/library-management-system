@@ -37,18 +37,24 @@ function OrderSummary() {
         <span className="text-gray-600 font-medium">#{orderId}</span>
       </div>
       <div className="flex flex-col gap-y-1 text-center">
-        <h2 className="text-base font-medium text-gray-600">
-          Your order has been confirmed,{" "}
-          <span className="font-semibold text-primaryBlack">
-            {currentUser.name}
-          </span>
-          ! 🥳
-        </h2>
+        {order
+          ? order.status === "RETURNED"
+            ? `Your order has been completed, ${currentUser.name}! 🎉`
+            : order.status === "OVERDUE"
+            ? `Your order is overdue, ${currentUser.name}! 😟`
+            : order.pickedUp
+            ? `Your order has been confirmed, ${currentUser.name}! 😄`
+            : `Your order is ready for pickup, ${currentUser.name}! 📚`
+          : "Loading..."}
         <span className="mr-8 text-base font-medium text-gray-600">
           {order
-            ? order.pickedUp
+            ? order.status === "RETURNED"
+              ? "Thanks for returning the books! You can borrow more books in the library. 📚"
+              : order.status === "OVERDUE"
+              ? "Please return the books to the library as soon as possible. 🙏"
+              : order.pickedUp
               ? "Thanks for picking up your order!"
-              : "Please proceed with picking up your order at the library."
+              : "Please proceed with picking up your books at the library."
             : "Loading..."}
         </span>
       </div>
