@@ -1,4 +1,3 @@
-import AdminWelcome from "components/admin-components/AdminWelcome";
 import { ButtonGroup } from "components/admin-components/ButtonGroup";
 import SearchBar from "components/admin-components/SearchBar";
 import React, { useState } from "react";
@@ -12,7 +11,6 @@ function OrderList() {
   };
   return (
     <div className="flex flex-col gap-y-6 max-w-screen">
-      <AdminWelcome />
       <div className="bg-white gap-y-4 flex flex-col p-6 rounded-xl">
         <div>
           <h1 className="text-xl">Order Table</h1>
