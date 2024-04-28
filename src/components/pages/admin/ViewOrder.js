@@ -63,13 +63,13 @@ const ViewOrder = () => {
       </div>
       <div className="flex flex-col pt-1 gap-y-4 xl:w-1/2">
         <div className="flex items-center gap-y-4">
-          <label htmlFor="username" className="label w-2/4 2xl:w-1/4 text-base">
-            Username
+          <label htmlFor="orderId" className="label w-2/4 2xl:w-1/4 text-base">
+            Order ID
           </label>
           <input
             type="text"
-            id="username"
-            name="username"
+            id="Order ID"
+            name="id"
             value={order ? order.id : "Loading data..."}
             onChange={handleChange}
             className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
@@ -134,7 +134,13 @@ const ViewOrder = () => {
             type="text"
             id="returnedAt"
             name="returnedAt"
-            value={order ? formatDate(order.returned_at) : "Loading data..."}
+            value={
+              order
+                ? order.returned_at !== null
+                  ? formatDate(order.returned_at)
+                  : "To be returned"
+                : "Loading data..."
+            }
             onChange={handleChange}
             className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
             required
