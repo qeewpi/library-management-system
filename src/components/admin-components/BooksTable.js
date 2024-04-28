@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { default as React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BookService from "service/BookService";
 
@@ -42,7 +42,7 @@ function BooksTable({ searchValue }) {
         <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             <th className="font-medium border-b p-6">Book ID</th>
-            <th className="font-medium border-b p-6">Image</th>
+            <th className="font-medium border-b p-6 hidden xl:block">Image</th>
             <th className="font-medium border-b p-6">Title</th>
             <th className="font-medium border-b p-6">Author</th>
             <th className="font-medium border-b p-6">Genre</th>
@@ -77,11 +77,12 @@ function BooksTable({ searchValue }) {
                 >
                   {book.id}
                 </th>
-                <td className="border-b p-6">
+                <td className="border-b p-6 hidden xl:block">
                   <img
                     src={book.imageUrl}
                     alt=""
-                    className="aspect-[1/1.6] rounded-xl object-cover"
+                    className="hidden xl:block aspect-[1/1.6] rounded-xl object-cover 
+                    min-h-48"
                   />
                 </td>
                 <td className="border-b p-6">{book.title}</td>

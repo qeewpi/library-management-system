@@ -114,16 +114,16 @@ const EditBook = () => {
           </select>
         </div>
         <div className="flex items-center gap-y-4">
-          <label htmlFor="password" className="label w-4/12 text-base">
+          <label htmlFor="description" className="label w-4/12 text-base">
             Description
           </label>
-          <input
-            type="text"
+          <textarea
             id="description"
             name="description"
             value={description}
             onChange={handleChange}
-            className="input-grow input input-bordered text-base font-medium w-8/12"
+            placeholder="Enter book description"
+            className="textarea textarea-bordered input-grow w-8/12 text-base font-medium"
             required
           />
         </div>
