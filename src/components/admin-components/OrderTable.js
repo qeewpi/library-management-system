@@ -110,7 +110,9 @@ export function OrderTable({ searchValue }) {
                 </td>
                 <td className="border-b p-6">{formatDate(order.due_date)}</td>
                 <td className="border-b p-6">
-                  {formatDate(order.returned_at)}
+                  {order.returned_at
+                    ? formatDate(order.returned_at)
+                    : "To be returned"}
                 </td>
                 <td className="border-b p-6">
                   <div className="grid grid-cols-2 gap-2 2xl:gap-0 xl:grid-cols-4 items h-full">
