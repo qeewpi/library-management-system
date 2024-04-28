@@ -7,24 +7,16 @@ const ViewOrder = () => {
 
   const { id } = useParams();
 
-  const [order, setOrder] = useState({
-    username: "",
-    booksBorrowed: "",
-    status: "",
-    borrowedAt: "",
-    dueDate: "",
-    returnedAt: "",
-  });
-
-  const { username, booksBorrowed, status, borrowedAt, dueDate, returnedAt } =
-    order;
+  const [order, setOrder] = useState(null);
+  const [books, setBooks] = useState([]);
 
   const handleChange = (e) => {
     setOrder({ ...order, [e.target.name]: e.target.value });
   };
 
   useEffect(() => {
-    fetchUser();
+    fetchOrder();
+    console.log("Order", order);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -39,13 +31,21 @@ const ViewOrder = () => {
     }
   };
 
-  const fetchUser = async () => {
+  const fetchOrder = async () => {
     try {
       const response = await OrderService.getOrder(id);
       setOrder(response);
+      setBooks(response.books);
+      console.log(response);
     } catch (error) {
       console.error("Failed to fetch Order");
     }
+  };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
   };
 
   return (
@@ -70,7 +70,7 @@ const ViewOrder = () => {
             type="text"
             id="username"
             name="username"
-            value={username}
+            value={order ? order.id : "Loading data..."}
             onChange={handleChange}
             className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
             required
@@ -85,7 +85,11 @@ const ViewOrder = () => {
             type="text"
             id="booksBorrowed"
             name="booksBorrowed"
-            value={booksBorrowed}
+            value={
+              books
+                ? books.map((book) => book.title).join(", ")
+                : "Loading data..."
+            }
             onChange={handleChange}
             className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
             required
@@ -100,7 +104,7 @@ const ViewOrder = () => {
             type="text"
             id="status"
             name="status"
-            value={status}
+            value={order ? order.status : "Loading data..."}
             onChange={handleChange}
             className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
             required
@@ -115,7 +119,7 @@ const ViewOrder = () => {
             type="text"
             id="borrowedAt"
             name="borrowedAt"
-            value={borrowedAt}
+            value={order ? formatDate(order.borrowed_at) : "Loading data..."}
             onChange={handleChange}
             className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
             required
@@ -130,7 +134,7 @@ const ViewOrder = () => {
             type="text"
             id="returnedAt"
             name="returnedAt"
-            value={returnedAt}
+            value={order ? formatDate(order.returned_at) : "Loading data..."}
             onChange={handleChange}
             className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
             required
