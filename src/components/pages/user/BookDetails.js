@@ -1,10 +1,10 @@
+import GenreBookSlider from "components/user-components/GenreBookSlider";
 import { default as React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BookService from "service/BookService";
 import CartService from "service/CartService";
-import RecommendedBooks from "../../user-components/RecommendedBooks";
 
 function BookDetails() {
   // Get the id parameter from the URL
@@ -122,7 +122,11 @@ function BookDetails() {
           <div className="textDiv flex flex-col gap-y-6 w-full">
             <div className="flex flex-col gap-y-1">
               <h1 className="text-2xl">{book.title}</h1>
-              <h1 className="text-base text-gray-500">{book.author}</h1>
+              <h1 className="text-base text-gray-500">By {book.author}</h1>
+              <h1 className="text-base text-gray-500 italic">
+                {book.genre.charAt(0).toUpperCase() +
+                  book.genre.slice(1).toLowerCase()}
+              </h1>
             </div>
             <div>
               <p className="text-base">{book.description}</p>
@@ -139,7 +143,7 @@ function BookDetails() {
           </div>
         </div>
       </div>
-      <RecommendedBooks imageBaseUrl="../../" />
+      <GenreBookSlider genre={book.genre} excludeBookId={book.id} />
     </div>
   );
 }
