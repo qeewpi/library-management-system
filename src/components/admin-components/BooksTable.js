@@ -78,7 +78,7 @@ function BooksTable({ searchValue }) {
                   <img
                     src={book.imageUrl}
                     alt=""
-                    className="h-[10rem] w-[8rem] object-cover"
+                    className="aspect-[1/1.6] rounded-xl object-cover"
                   />
                 </td>
                 <td className="border-b p-6">{book.title}</td>
