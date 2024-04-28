@@ -18,6 +18,7 @@ import LibraryCatalog from "../pages/admin/LibraryCatalog";
 import UserList from "../pages/admin/UserList";
 import ViewBook from "../pages/admin/ViewBook";
 import EditBook from "components/pages/admin/EditBook";
+import ViewOrder from "../pages/admin/ViewOrder";
 
 function AdminContent() {
   return (
@@ -36,6 +37,7 @@ function AdminContent() {
           <Route path="/admin/view/user/:id" element={<ViewUser />} />
           <Route path="/admin/view/book/:id" element={<ViewBook />} />
           <Route path="/admin/edit/book/:id" element={<EditBook />} />
+          <Route path="/admin/view/order/:id" element={<ViewOrder />} />
 
           <Route path="/admin/add/admin" element={<AddAdmin />} />
           <Route path="admin/add/borrowed-book" element={<AddBorrowedBook />} />
