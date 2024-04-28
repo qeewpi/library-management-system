@@ -1,47 +1,41 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserService from "service/UserService";
+import AdminService from "service/AdminService";
 
-const AddUser = () => {
+const AddAdmin = () => {
   let navigate = useNavigate();
 
-  const [user, setUser] = useState({
+  const [admin, setAdmin] = useState({
     username: "",
     name: "",
-    email: "",
     password: "",
   });
 
-  // add user with specified role
-  const { username, name, email, password } = user;
+  const { username, name, password } = admin;
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setAdmin({ ...admin, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    // Prevent default form submission
     e.preventDefault();
-    // Handle form submission based on formData
     try {
-      await UserService.addUser(user);
-      navigate("/admin/user-list");
+      await AdminService.addAdmin(admin);
+      navigate("/admin/admin-list");
     } catch (error) {
-      console.error("Failed to add user");
+      console.error("Failed to add admin");
     }
   };
 
   return (
     <form
-      onSubmit={(e) => {
-        handleSubmit(e);
-      }}
+      onSubmit={handleSubmit}
       className="bg-white gap-y-4 flex flex-col p-6 rounded-xl"
     >
       <div className="textDiv flex flex-col gap-y-1 border-b-2">
-        <h1 className="font-semibold text-xl">Add a user</h1>
+        <h1 className="font-semibold text-xl">Add an admin</h1>
         <h2 className="text-gray-500 mb-4 text-lg font-medium">
-          Fill in the details of the user you want to add.
+          Fill in the details of the admin you want to add.
         </h2>
       </div>
       <div className="flex flex-col pt-1 gap-y-4 xl:w-1/2">
@@ -74,20 +68,6 @@ const AddUser = () => {
           />
         </div>
         <div className="flex items-center gap-y-4">
-          <label htmlFor="email" className="label w-2/4 2xl:w-1/4 text-base">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            className="input-grow input input-bordered text-base font-medium w-full"
-            required
-          />
-        </div>
-        <div className="flex items-center gap-y-4">
           <label htmlFor="password" className="label w-2/4 2xl:w-1/4 text-base">
             Password
           </label>
@@ -109,7 +89,7 @@ const AddUser = () => {
             Submit
           </button>
           <button
-            onClick={() => navigate("/admin/user-list")}
+            onClick={() => navigate("/admin/admin-list")}
             className="btn btn-error text-white btn-block join-item"
           >
             Cancel
@@ -120,4 +100,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default AddAdmin;
