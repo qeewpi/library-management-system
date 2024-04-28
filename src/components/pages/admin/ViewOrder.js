@@ -16,7 +16,6 @@ const ViewOrder = () => {
 
   useEffect(() => {
     fetchOrder();
-    console.log("Order", order);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -36,7 +35,6 @@ const ViewOrder = () => {
       const response = await OrderService.getOrder(id);
       setOrder(response);
       setBooks(response.books);
-      console.log(response);
     } catch (error) {
       console.error("Failed to fetch Order");
     }
