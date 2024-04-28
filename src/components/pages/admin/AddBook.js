@@ -41,7 +41,7 @@ function AddBook() {
         </div>
         <div className="flex flex-col pt-6 gap-y-4 xl:w-1/2">
           <div className="flex items-center gap-y-4">
-            <label htmlFor="title" className="label w-2/4 2xl:w-1/4 text-base">
+            <label htmlFor="title" className="label w-4/12 text-base">
               Title
             </label>
             <input
@@ -51,12 +51,12 @@ function AddBook() {
               value={formData.title}
               onChange={handleChange}
               placeholder="Enter book title"
-              className="input-grow input input-bordered text-base font-medium w-full"
+              className="input-grow input input-bordered text-base font-medium w-8/12"
               required
             />
           </div>
           <div className="flex items-center gap-y-4">
-            <label htmlFor="author" className="label w-2/4 2xl:w-1/4 text-base">
+            <label htmlFor="author" className="label w-4/12 text-base">
               Author
             </label>
             <input
@@ -66,30 +66,34 @@ function AddBook() {
               value={formData.author}
               onChange={handleChange}
               placeholder="Enter book author"
-              className="input-grow input input-bordered text-base font-medium w-full"
+              className="input-grow input input-bordered text-base font-medium w-8/12"
               required
             />
           </div>
           <div className="flex items-center gap-y-4">
-            <label htmlFor="genre" className="label w-2/4 2xl:w-1/4 text-base">
+            <label htmlFor="genre" className="label w-4/12 text-base">
               Genre
             </label>
-            <input
-              type="text"
+            <select
               id="genre"
               name="genre"
               value={formData.genre}
               onChange={handleChange}
-              placeholder="Enter book genre"
-              className="input-grow input input-bordered text-base font-medium w-full"
+              className="select select-bordered text-base font-medium w-8/12"
               required
-            />
+            >
+              <option disabled value="">
+                Select book genre
+              </option>
+              <option value="Fiction">Fiction</option>
+              <option value="Non-fiction">Non-fiction</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Biography">Biography</option>
+            </select>
           </div>
           <div className="flex items-center gap-y-4">
-            <label
-              htmlFor="description"
-              className="label w-2/4 2xl:w-1/4 text-base"
-            >
+            <label htmlFor="description" className="label w-4/12 text-base">
               Description
             </label>
             <textarea
@@ -98,12 +102,12 @@ function AddBook() {
               value={formData.description}
               onChange={handleChange}
               placeholder="Enter book description"
-              className="textarea textarea-bordered input-grow w-full text-base font-medium"
+              className="textarea textarea-bordered input-grow w-8/12 text-base font-medium"
               required
             />
           </div>
           <div className="flex items-center gap-y-4">
-            <label htmlFor="image" className="label w-2/4 2xl:w-1/4 text-base">
+            <label htmlFor="image" className="label w-4/12 text-base">
               Image
             </label>
             <input
@@ -111,7 +115,7 @@ function AddBook() {
               id="image"
               name="image"
               onChange={handleChange}
-              className="file-input -ml-10 file-input-primary w-full max-w-xs text-base font-medium"
+              className="file-input file-input-primary w-8/12 max-w-xs text-base font-medium"
             />
           </div>
           <button type="submit" className="btn btn-primary text-white">
