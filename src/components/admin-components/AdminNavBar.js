@@ -1,10 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import AuthService from "service/AuthService";
-import alertSVG from "../../icons/alert.svg";
 import brandSVG from "../../icons/brand.svg";
-import cartSVG from "../../icons/cart.svg";
-import msgSVG from "../../icons/msg.svg";
 import userFilledSVG from "../../icons/user-filled.svg";
 
 function AdminNavBar() {
@@ -57,11 +54,6 @@ function AdminNavBar() {
                 />
               </svg>
             </button>
-          </div>
-          <div className="buttonsDiv flex flex-row gap-x-4">
-            <img src={msgSVG} alt="" />
-            <img src={alertSVG} alt="" />
-            <img src={cartSVG} alt="" />
           </div>
         </div>
       </div>

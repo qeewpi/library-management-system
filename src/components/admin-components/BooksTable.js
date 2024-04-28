@@ -66,7 +66,10 @@ function BooksTable({ searchValue }) {
               }
             })
             .map((book, index) => (
-              <tr className="text-sm font-medium text-primaryBlack border-gray-200 h-full w-full">
+              <tr
+                className="text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
+                key={book.id}
+              >
                 <th
                   scope="row"
                   key={index}

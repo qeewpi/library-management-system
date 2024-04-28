@@ -82,14 +82,14 @@ function AddBook() {
               className="select select-bordered text-base font-medium w-8/12"
               required
             >
-              <option disabled value="">
+              <option disabled value="" className="">
                 Select book genre
               </option>
-              <option value="Fiction">Fiction</option>
-              <option value="Non-fiction">Non-fiction</option>
-              <option value="Mystery">Mystery</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Biography">Biography</option>
+              <option value="FICTION">Fiction</option>
+              <option value="NON_FICTION">Non-fiction</option>
+              <option value="MYSTERY">Mystery</option>
+              <option value="FANTASY">Fantasy</option>
+              <option value="BIOGRAPHY">Biography</option>
             </select>
           </div>
           <div className="flex items-center gap-y-4">
@@ -115,12 +115,23 @@ function AddBook() {
               id="image"
               name="image"
               onChange={handleChange}
-              className="file-input file-input-primary w-8/12 max-w-xs text-base font-medium"
+              className="file-input file-input-primary w-8/12 text-base font-medium"
             />
           </div>
-          <button type="submit" className="btn btn-primary text-white">
-            Submit
-          </button>
+          <div className="join w-1/2">
+            <button
+              type="submit"
+              className="btn btn-success text-white btn-block join-item"
+            >
+              Submit
+            </button>
+            <button
+              onClick={() => navigate("/admin/library-catalog")}
+              className="btn btn-error text-white btn-block join-item"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
     </div>
