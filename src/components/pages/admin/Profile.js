@@ -63,8 +63,9 @@ function Profile() {
             <div className="flex flex-grow text-sm relative items-center">
               <input
                 type="text"
-                placeholder={currentUser.name}
+                value={currentUser.name}
                 required
+                readOnly
                 className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
 
@@ -97,8 +98,9 @@ function Profile() {
             <div className="flex flex-grow text-sm relative items-center">
               <input
                 type="text"
-                placeholder={currentUser.email}
+                value={currentUser.email}
                 required
+                readOnly
                 className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
 
@@ -196,7 +198,7 @@ function Profile() {
                 name="postContent"
                 rows={6}
                 cols={40}
-                placeholder={currentUser.accessToken}
+                value={currentUser.accessToken}
                 className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
               />
             </div>
