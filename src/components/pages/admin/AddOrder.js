@@ -1,29 +1,42 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AdminService from "service/AdminService";
+import OrderService from "service/OrderService";
 
 const AddOrder = () => {
   let navigate = useNavigate();
 
-  const [admin, setAdmin] = useState({
+  const [order, setOrder] = useState({
     username: "",
     name: "",
     password: "",
   });
 
-  const { username, name, password } = admin;
+  const { username, name, password } = order;
 
   const handleChange = (e) => {
-    setAdmin({ ...admin, [e.target.name]: e.target.value });
+    setOrder({ ...order, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AdminService.addAdmin(admin);
-      navigate("/admin/admin-list");
+      const orderData = {
+        user: {
+          id: 2,
+        },
+        books: [
+          {
+            id: "1",
+          },
+          {
+            id: "2",
+          },
+        ],
+      };
+      await OrderService.addOrder(orderData);
+      navigate("/admin/orders");
     } catch (error) {
-      console.error("Failed to add admin");
+      console.error("Failed to add order");
     }
   };
 
@@ -33,16 +46,18 @@ const AddOrder = () => {
       className="bg-white gap-y-4 flex flex-col p-6 rounded-xl"
     >
       <div className="textDiv flex flex-col gap-y-1 border-b-2">
-        <h1 className="font-semibold text-xl">Add an admin</h1>
+        <h1 className="font-semibold text-xl">Add an order</h1>
         <h2 className="text-gray-500 mb-4 text-lg font-medium">
-          Fill in the details of the admin you want to add.
+          Fill in the details of the order you want to add.
         </h2>
       </div>
       <div className="flex flex-col pt-1 gap-y-4 xl:w-1/2">
         <div className="flex items-center gap-y-4">
-          <label htmlFor="username" className="label w-2/4 2xl:w-1/4 text-base">
-            Username
-          </label>
+          <label
+            htmlFor="username"
+            className="label w-2/4 2xl:w-1/4 text-base"
+          ></label>
+          User ID
           <input
             type="text"
             id="username"
@@ -55,7 +70,7 @@ const AddOrder = () => {
         </div>
         <div className="flex items-center gap-y-4">
           <label htmlFor="name" className="label w-2/4 2xl:w-1/4 text-base">
-            Name
+            Book ID
           </label>
           <input
             type="text"
@@ -67,20 +82,7 @@ const AddOrder = () => {
             required
           />
         </div>
-        <div className="flex items-center gap-y-4">
-          <label htmlFor="password" className="label w-2/4 2xl:w-1/4 text-base">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            className="input-grow input input-bordered text-base font-medium w-full"
-            required
-          />
-        </div>
+
         <div className="join w-1/2">
           <button
             type="submit"
