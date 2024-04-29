@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminService from "service/AdminService";
 
-const AddAdmin = () => {
+const AddOrder = () => {
   let navigate = useNavigate();
 
   const [admin, setAdmin] = useState({
@@ -89,7 +89,7 @@ const AddAdmin = () => {
             Submit
           </button>
           <button
-            onClick={() => navigate("/admin/admin-list")}
+            onClick={() => navigate("/admin/orders")}
             className="btn btn-error text-white btn-block join-item"
           >
             Cancel
@@ -100,4 +100,4 @@ const AddAdmin = () => {
   );
 };
 
-export default AddAdmin;
+export default AddOrder;

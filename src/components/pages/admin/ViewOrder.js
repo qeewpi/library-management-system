@@ -145,6 +145,69 @@ const ViewOrder = () => {
             readOnly
           />
         </div>
+        <div className="flex items-center gap-y-4">
+          <label htmlFor="email" className="label w-2/4 2xl:w-1/4 text-base">
+            Pick up status
+          </label>
+          <input
+            type="text"
+            id="pickedUp"
+            name="pickedUp"
+            value={
+              !order
+                ? "Loading data..."
+                : order.pickedUp
+                ? "Picked up"
+                : "To be picked up"
+            }
+            onChange={handleChange}
+            className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
+            required
+            readOnly
+          />
+        </div>
+        <div className="flex items-center gap-y-4">
+          <label htmlFor="email" className="label w-2/4 2xl:w-1/4 text-base">
+            Overdue status
+          </label>
+          <input
+            type="text"
+            id="overdue"
+            name="overdue"
+            value={
+              !order
+                ? "Loading data..."
+                : order.overdue
+                ? "Overdue"
+                : "Not yet overdue"
+            }
+            onChange={handleChange}
+            className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
+            required
+            readOnly
+          />
+        </div>
+        <div className="flex items-center gap-y-4">
+          <label htmlFor="email" className="label w-2/4 2xl:w-1/4 text-base">
+            Days remaining
+          </label>
+          <input
+            type="text"
+            id="overdue"
+            name="overdue"
+            value={
+              !order
+                ? "Loading data..."
+                : order.daysRemaining
+                ? order.daysRemaining
+                : "Loading data..."
+            }
+            onChange={handleChange}
+            className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
+            required
+            readOnly
+          />
+        </div>
         <button
           onClick={() => navigate("/admin/orders")}
           className="btn btn-error text-white"
