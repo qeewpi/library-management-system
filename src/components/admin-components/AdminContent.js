@@ -19,6 +19,7 @@ import UserList from "../pages/admin/UserList";
 import ViewBook from "../pages/admin/ViewBook";
 import EditBook from "components/pages/admin/EditBook";
 import ViewOrder from "../pages/admin/ViewOrder";
+import DeleteOrder from "components/pages/admin/DeleteOrder";
 
 function AdminContent() {
   return (
@@ -44,6 +45,7 @@ function AdminContent() {
           <Route path="admin/delete/admin" element={<DeleteAdmin />} />
           <Route path="admin/delete/book" element={<DeleteBook />} />
           <Route path="admin/delete/user" element={<DeleteUser />} />
+          <Route path="admin/delete/order" element={<DeleteOrder />} />
           <Route
             path="admin/delete/borrowed-book"
             element={<DeleteBorrowedBook />}
