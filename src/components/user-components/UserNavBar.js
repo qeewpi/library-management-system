@@ -5,6 +5,7 @@ import CartService from "service/CartService";
 import brandSVG from "../../icons/brand.svg";
 import searchSVG from "../../icons/search.svg";
 import userFilledSVG from "../../icons/user-filled.svg";
+import { NavLink } from "react-router-dom";
 
 function UserNavBar() {
   let navigate = useNavigate();
@@ -28,11 +29,18 @@ function UserNavBar() {
 
   return (
     <div className="bg-white">
-      <div className="px-16 p-12 flex justify-between flex-row">
-        <div className="flex flex-row gap-2 items-center w-40 lg:w-96">
-          <img src={brandSVG} alt="" />
-          <h1 className="text-2xl flex-grow">BookMarked</h1>
-        </div>
+      <div className="px-16 p-12 grid justify-between grid-cols-3 ">
+        <NavLink
+          to={"/home"}
+          className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-1/4 ${
+            location.pathname === "/home" ? "" : ""
+          }`}
+        >
+          <div className="flex flex-row gap-2 items-center w-40 lg:w-96 transform transition duration-500 hover:scale-110">
+            <img src={brandSVG} alt="" />
+            <h1 className="text-2xl flex-grow ">BookMarked</h1>
+          </div>
+        </NavLink>
 
         <div className=" flex flex-grow justify-center items-center max-w-sm lg:max-w-lg">
           <div className="searchBar hidden md:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
@@ -64,7 +72,11 @@ function UserNavBar() {
               <h1>{currentUser ? currentUser.name : "Guest"}</h1>
               <h1 className="text-gray-500">Student</h1>
             </div>
-            <button className="p-2 items-start" onClick={handleLogout}>
+            <button
+              className="p-2 items-start transform transition duration-500 hover:scale-110"
+              data-tip="Log Out"
+              onClick={handleLogout}
+            >
               <svg
                 width="24"
                 height="24"
