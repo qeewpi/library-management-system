@@ -13,6 +13,7 @@ function LogIn() {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [loginFailed, setLoginFailed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleUsernameChange = (e) => {
     setUsernameInput(e.target.value);
@@ -23,6 +24,7 @@ function LogIn() {
   };
 
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     try {
       const user = await AuthService.login(usernameInput, passwordInput);
@@ -39,6 +41,8 @@ function LogIn() {
     } catch (error) {
       console.error(error);
       setLoginFailed(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -115,13 +119,22 @@ function LogIn() {
               <a href="#">Forgot password?</a>
             </label>
           </div>
-
-          <button
-            type="submit"
-            className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
-          >
-            Login
-          </button>
+          {isLoading ? (
+            <button
+              type="submit"
+              className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+            >
+              <span className="loading loading-spinner loading-xs"></span>
+              Logging you in
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+            >
+              Login
+            </button>
+          )}
         </form>
 
         <div className="register-link flex justify-center mt-6 text-gray-500">

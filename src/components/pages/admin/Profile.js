@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import AuthService from "service/AuthService";
 
 function Profile() {
@@ -12,6 +13,16 @@ function Profile() {
   };
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const fetchUserData = async () => {
+    try {
+      const userData = await AuthService.getCurrentUser();
+      setCurrentUser(userData);
+    } catch (error) {
+      console.error("Failed to fetch user data:", error);
+      // Handle error, e.g., redirect to login
+    }
+  };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -27,7 +38,18 @@ function Profile() {
       );
       setCurrentUser(updatedUser);
       setFormData({ newPassword: "" }); // Clear form after update
-      alert("User information updated successfully!"); // Or use a more sophisticated notification
+      toast.success(`Successfully changed your password`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      fetchUserData(); // Fetch updated user data
     } catch (error) {
       console.error("Update failed:", error);
       alert("Failed to update user information."); // Or display a more helpful error message
@@ -38,17 +60,10 @@ function Profile() {
 
   // Fetch user data on component mount (similar to EditUser's useEffect)
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const userData = await AuthService.getCurrentUser();
-        setCurrentUser(userData);
-      } catch (error) {
-        console.error("Failed to fetch user data:", error);
-        // Handle error, e.g., redirect to login
-      }
-    };
+    setIsLoading(true);
 
     fetchUserData();
+    setIsLoading(false);
   }, []);
 
   return (
@@ -76,7 +91,7 @@ function Profile() {
               <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
-                  value={currentUser.username}
+                  value={isLoading ? "Loading..." : currentUser.username}
                   required
                   readOnly
                   className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -110,7 +125,7 @@ function Profile() {
               <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
-                  value={currentUser.name}
+                  value={isLoading ? "Loading..." : currentUser.name}
                   required
                   readOnly
                   className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -145,7 +160,7 @@ function Profile() {
               <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
-                  value={currentUser.email}
+                  value={isLoading ? "Loading..." : currentUser.email}
                   required
                   readOnly
                   className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -184,7 +199,7 @@ function Profile() {
                     name="newPassword"
                     placeholder="Enter New Password"
                     required
-                    value={formData.newPassword}
+                    value={isLoading ? "Loading..." : formData.newPassword}
                     onChange={handleChange}
                     className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
                   />
@@ -250,7 +265,7 @@ function Profile() {
                   name="postContent"
                   rows={6}
                   cols={40}
-                  value={currentUser.accessToken}
+                  value={isLoading ? "Loading..." : currentUser.accessToken}
                   required
                   readOnly
                   className="w-full p-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -277,6 +292,7 @@ function Profile() {
           </button>
         )}
       </form>
+      <ToastContainer />
     </div>
   );
 }

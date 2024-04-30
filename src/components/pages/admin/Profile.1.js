@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import AuthService from "service/AuthService";
 
-function Profile() {
+export function Profile() {
   const [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   const [formData, setFormData] = useState({
     newPassword: "",
@@ -296,5 +296,3 @@ function Profile() {
     </div>
   );
 }
-
-export default Profile;

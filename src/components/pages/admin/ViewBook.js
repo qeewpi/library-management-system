@@ -60,7 +60,7 @@ const ViewBook = () => {
       </div>
       <div className="flex flex-col pt-1 gap-y-4 xl:w-1/2">
         <div className="flex items-center gap-y-4">
-          <label htmlFor="username" className="label w-2/4 2xl:w-1/4 text-base">
+          <label htmlFor="username" className="label w-4/12 text-base">
             Title
           </label>
           <input
@@ -69,13 +69,13 @@ const ViewBook = () => {
             name="title"
             value={title}
             onChange={handleChange}
-            className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
+            className="input-grow input input-bordered text-base font-medium w-8/12  read-only:opacity-75"
             required
             readOnly
           />
         </div>
         <div className="flex items-center gap-y-4">
-          <label htmlFor="name" className="label w-2/4 2xl:w-1/4 text-base">
+          <label htmlFor="name" className="label w-4/12 text-base">
             Author
           </label>
           <input
@@ -84,13 +84,13 @@ const ViewBook = () => {
             name="author"
             value={author}
             onChange={handleChange}
-            className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
+            className="input-grow input input-bordered text-base font-medium w-8/12  read-only:opacity-75"
             required
             readOnly
           />
         </div>
         <div className="flex items-center gap-y-4">
-          <label htmlFor="email" className="label w-2/4 2xl:w-1/4 text-base">
+          <label htmlFor="email" className="label w-4/12 text-base">
             Genre
           </label>
           <input
@@ -99,7 +99,7 @@ const ViewBook = () => {
             name="genre"
             value={genre}
             onChange={handleChange}
-            className="input-grow input input-bordered text-base font-medium w-full read-only:opacity-75"
+            className="input-grow input input-bordered text-base font-medium w-8/12 read-only:opacity-75"
             required
             readOnly
           />
