@@ -275,17 +275,10 @@ function Profile() {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-secondaryBlue transform transition duration-500 hover:scale-110"
-        >
-          Update
-        </button>
-
         {isLoading ? (
           <button
             type="submit"
-            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900"
+            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900 transform transition duration-500 hover:scale-110"
           >
             <span className="loading loading-spinner loading-xs"></span>
             Loading
@@ -293,7 +286,7 @@ function Profile() {
         ) : (
           <button
             type="submit"
-            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900"
+            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900 transform transition duration-500 hover:scale-110"
           >
             Update
           </button>
