@@ -41,6 +41,7 @@ export function UserTable({ searchValue }) {
             <th className="font-medium border-b p-6">Name</th>
             <th className="font-medium border-b p-6">Email</th>
             <th className="font-medium border-b p-6">Password</th>
+            <th className="font-medium border-b p-6">Role</th>
             <th className="font-medium border-b p-6">Actions</th>
           </tr>
         </thead>
@@ -75,6 +76,9 @@ export function UserTable({ searchValue }) {
                 <td className="border-b p-6">{user.name}</td>
                 <td className="border-b p-6">{user.email}</td>
                 <td className="border-b p-6 break-all">{user.password}</td>
+                <td className="border-b p-6">
+                  {user.roles[0].name === "ROLE_ADMIN" ? "Admin" : "User"}
+                </td>
                 <td className="border-b p-6">
                   <div className="flex gap-x-3 items h-full">
                     <Link
