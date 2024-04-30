@@ -107,6 +107,20 @@ const OrderService = {
       throw new Error("Failed to mark order as returned");
     }
   },
+
+  markOrderAsPickedUp: async (orderId) => {
+    try {
+      await axios.put(
+        `${API_BASE_URL}/order/pickup/${orderId}`,
+        {},
+        {
+          headers: getAuthHeader(),
+        }
+      );
+    } catch (error) {
+      throw new Error("Failed to mark order as picked up.");
+    }
+  },
 };
 
 export default OrderService;

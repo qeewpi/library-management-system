@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import OrderService from "service/OrderService";
 
 export function OrderTable({ searchValue }) {
@@ -39,10 +40,71 @@ export function OrderTable({ searchValue }) {
 
   const markOrderAsReturned = async (id) => {
     try {
-      await OrderService.markOrderAsReturned(id);
-      loadOrders();
+      const order = await OrderService.getOrder(id);
+      if (order.returned_at) {
+        toast.error(`Order #${id} is already marked as returned`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      } else {
+        await OrderService.markOrderAsReturned(id);
+        loadOrders();
+        toast.success(`Marked Order #${id} as returned`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      }
     } catch (error) {
       console.error("Failed to mark order as returned", error);
+    }
+  };
+
+  const markOrderAsPickedUp = async (id) => {
+    try {
+      const order = await OrderService.getOrder(id);
+      if (order.pickedUp) {
+        toast.error(`Order #${id} is already marked as picked up`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      } else {
+        await OrderService.markOrderAsPickedUp(id);
+        loadOrders();
+        toast.success(`Marked Order #${id} as picked up`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      }
+    } catch (error) {
+      console.error("Failed to mark order as picked up", error);
     }
   };
 
@@ -115,10 +177,10 @@ export function OrderTable({ searchValue }) {
                     : "To be returned"}
                 </td>
                 <td className="border-b p-6">
-                  <div className="grid grid-cols-2 gap-2 2xl:gap-0 xl:grid-cols-4 items h-full">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-2 items-center h-full ">
                     <Link
                       to={`/admin/view/order/${order.id}`}
-                      className="tooltip tooltip-success"
+                      className="tooltip tooltip-left tooltip-success"
                       data-tip="View order"
                     >
                       <svg
@@ -135,7 +197,7 @@ export function OrderTable({ searchValue }) {
                     <button>
                       <div
                         onClick={() => deleteOrder(order.id)}
-                        className="tooltip tooltip-error"
+                        className="tooltip tooltip-left tooltip-error"
                         data-tip="Delete order"
                       >
                         <svg
@@ -151,9 +213,34 @@ export function OrderTable({ searchValue }) {
                     </button>
                     <button>
                       <div
+                        onClick={() => markOrderAsPickedUp(order.id)}
+                        className="tooltip tooltip-left tooltip-success"
+                        data-tip="Mark as Picked Up"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="25"
+                          height="24"
+                          viewBox="0 0 48 48"
+                        >
+                          <g
+                            fill="none"
+                            className="stroke-green-900"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                          >
+                            <path d="m20 24l6 2s15-3 17-3s2 2 0 4s-9 8-15 8s-10-3-14-3H4"></path>
+                            <path d="M4 20c2-2 6-5 10-5s13.5 4 15 6s-3 5-3 5"></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </button>
+                    <button>
+                      <div
                         onClick={() => markOrderAsReturned(order.id)}
-                        className="tooltip tooltip-success"
-                        data-tip="Returned"
+                        className="tooltip tooltip-left tooltip-success"
+                        data-tip="Mark as Returned"
                       >
                         <svg
                           width="25"
@@ -172,6 +259,7 @@ export function OrderTable({ searchValue }) {
             ))}
         </tbody>
       </table>
+      <ToastContainer />
     </div>
   );
 }
