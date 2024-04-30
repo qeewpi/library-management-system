@@ -133,11 +133,9 @@ const AddOrder = () => {
       </div>
       <div className="flex flex-col pt-1 gap-y-4 xl:w-1/2">
         <div className="flex items-center gap-y-4">
-          <label
-            htmlFor="userId"
-            className="label w-2/4 2xl:w-1/4 text-base"
-          ></label>
-          User ID
+          <label htmlFor="bookId" className="label w-2/4 2xl:w-1/4 text-base">
+            User ID
+          </label>
           <input
             type="number"
             id="userId"
@@ -161,10 +159,10 @@ const AddOrder = () => {
             className="input-grow input input-bordered text-base font-medium w-full"
             required
           />
-          <button type="button" onClick={handleAddBookToArray} className="btn">
-            add book
-          </button>
         </div>
+        <button type="button" onClick={handleAddBookToArray} className="btn">
+          add book
+        </button>
         <div className="flex gap-x-2">
           <h1>Added books: </h1>
           {booksArray.books.map((book) => (

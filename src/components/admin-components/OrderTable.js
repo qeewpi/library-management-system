@@ -118,7 +118,8 @@ export function OrderTable({ searchValue }) {
                   <div className="grid grid-cols-2 gap-2 2xl:gap-0 xl:grid-cols-4 items h-full">
                     <Link
                       to={`/admin/view/order/${order.id}`}
-                      className="text-blue-900"
+                      className="tooltip tooltip-success"
+                      data-tip="View order"
                     >
                       <svg
                         width="25"
@@ -132,7 +133,11 @@ export function OrderTable({ searchValue }) {
                     </Link>
 
                     <button>
-                      <div onClick={() => deleteOrder(order.id)}>
+                      <div
+                        onClick={() => deleteOrder(order.id)}
+                        className="tooltip tooltip-error"
+                        data-tip="Delete order"
+                      >
                         <svg
                           width="24"
                           height="24"
@@ -145,7 +150,11 @@ export function OrderTable({ searchValue }) {
                       </div>
                     </button>
                     <button>
-                      <div onClick={() => markOrderAsReturned(order.id)}>
+                      <div
+                        onClick={() => markOrderAsReturned(order.id)}
+                        className="tooltip tooltip-success"
+                        data-tip="Returned"
+                      >
                         <svg
                           width="25"
                           height="24"

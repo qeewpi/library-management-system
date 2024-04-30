@@ -20,7 +20,7 @@ function AdminSideNavBar() {
           location.pathname === "/admin/user-list" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 ">
           {location.pathname === "/admin/user-list" ? (
             <svg
               width="24"
