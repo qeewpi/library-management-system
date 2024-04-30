@@ -59,21 +59,11 @@ function Checkout({ books, cart }) {
         </div>
       </div>
 
-      <div>
-<<<<<<< HEAD
-        <button
-          type="submit"
-          className="btn mt-4 w-full  rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue transform transition duration-500 hover:scale-90"
-          onClick={handleOrderCheckout}
-          disabled={isLoading}
-        >
-          {isLoading ? "Processing..." : "Checkout"}
-        </button>
-=======
+      <div className="transform transition duration-500 hover:scale-90">
         {isLoading ? (
           <button
             type="submit"
-            className="btn mt-4 w-full  rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+            className="btn mt-4 w-full  rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue "
             onClick={handleOrderCheckout}
             disabled={isLoading}
           >
@@ -90,7 +80,6 @@ function Checkout({ books, cart }) {
             Checkout
           </button>
         )}
->>>>>>> 78b64dffb7dff2194422c49ce27ac8153b5222b3
       </div>
     </div>
   );
