@@ -1,13 +1,16 @@
 import AddAdmin from "components/pages/admin/AddAdmin";
 import AddBook from "components/pages/admin/AddBook";
 import AddBorrowedBook from "components/pages/admin/AddBorrowedBook";
+import AddOrder from "components/pages/admin/AddOrder";
 import AddUser from "components/pages/admin/AddUser";
 import AdminList from "components/pages/admin/AdminList";
 import BorrowedBooks from "components/pages/admin/BorrowedBooks";
 import DeleteAdmin from "components/pages/admin/DeleteAdmin";
 import DeleteBook from "components/pages/admin/DeleteBook";
 import DeleteBorrowedBook from "components/pages/admin/DeleteBorrowedBook";
+import DeleteOrder from "components/pages/admin/DeleteOrder";
 import DeleteUser from "components/pages/admin/DeleteUser";
+import EditBook from "components/pages/admin/EditBook";
 import EditUser from "components/pages/admin/EditUser";
 import OrderList from "components/pages/admin/OrderList";
 import Profile from "components/pages/admin/Profile";
@@ -17,10 +20,7 @@ import { Route, Routes } from "react-router-dom";
 import LibraryCatalog from "../pages/admin/LibraryCatalog";
 import UserList from "../pages/admin/UserList";
 import ViewBook from "../pages/admin/ViewBook";
-import EditBook from "components/pages/admin/EditBook";
 import ViewOrder from "../pages/admin/ViewOrder";
-import DeleteOrder from "components/pages/admin/DeleteOrder";
-import AddOrder from "components/pages/admin/AddOrder";
 
 function AdminContent() {
   return (

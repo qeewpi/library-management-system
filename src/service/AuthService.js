@@ -80,6 +80,7 @@ const AuthService = {
   logout,
   getCurrentUser,
   updateUserInfo,
+  registerWithRole,
 };
 
 export default AuthService;
