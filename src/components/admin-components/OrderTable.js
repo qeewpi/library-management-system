@@ -65,7 +65,7 @@ export function OrderTable({ searchValue }) {
     <div className="overflow-x-auto border border-b-0 rounded-xl border-gray-200">
       <table className="table table-sm border-gray-500 border-spacing-y-4">
         {/* head */}
-        <thead className="text-sm text-gray-500 bg-gray-100 ">
+        <thead className="text-base text-gray-500 bg-gray-100 ">
           <tr className="border-gray-200 border-b break-words">
             <th className="font-medium border-b p-6">Order ID</th>
             <th className="font-medium border-b p-6">Username</th>
@@ -97,7 +97,7 @@ export function OrderTable({ searchValue }) {
             .map((order, index) => (
               <tr
                 key={index}
-                className="text-sm font-medium text-primaryBlack border-gray-200 break-words"
+                className="text-base font-medium text-primaryBlack border-gray-200 break-words"
               >
                 <td className="border-b p-6">{order.id}</td>
                 <td className="border-b p-6">{order.username}</td>

@@ -64,7 +64,7 @@ const BookSelected = ({ selectedBook }) => {
             <p className="text-[13px] font-light !text-black">...</p>
           </div>
           <div className="flex w-full">
-            <button className="bg-primaryYellow p-3 rounded-xl text-white text-xs">
+            <button className="bg-primaryYellow p-3 rounded-xl text-white text-base">
               Browse Library
             </button>
           </div>
@@ -88,7 +88,7 @@ const BookSelected = ({ selectedBook }) => {
         />
         <div className="absolute z-5 p-4 -mt-[4.5rem]">
           <button
-            className="min-w-[160px] rounded-xl sm:px-5 bg-secondaryBlue text-white px-3 py-3 text-xs font-bold flex justify-center items-center drop-shadow-xl"
+            className="min-w-[160px] rounded-xl sm:px-5 bg-secondaryBlue text-white px-3 py-3 text-base font-bold flex justify-center items-center drop-shadow-xl"
             disabled
             aria-disabled="true"
             title="This book is currently borrowed."
@@ -152,7 +152,7 @@ const sizesText = {
   s: "text-[10px] font-medium",
   "2xl": "text-[15px] font-medium",
   "3xl": "text-base font-medium",
-  xl: "text-sm font-medium",
+  xl: "text-base font-medium",
 };
 
 const sizesHeading = {
@@ -160,7 +160,7 @@ const sizesHeading = {
   "2xl": "text-2xl font-semibold md:text-[22px]",
   "4xl": "text-4xl font-semibold md:text-[34px] sm:text-[32px]",
   s: "text-[13px] font-bold",
-  xs: "text-xs font-semibold",
+  xs: "text-base font-semibold",
   lg: "text-base font-semibold",
 };
 

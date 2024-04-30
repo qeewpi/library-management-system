@@ -14,7 +14,7 @@ export function BooksBorrowedDetails() {
   return (
     <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
       <table className="w-full min-w-max text-left text-primaryBlack ">
-        <thead className="text-sm text-gray-500 bg-gray-100">
+        <thead className="text-base text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             {TABLE_HEAD.map((head) => (
               <th key={head} className="border-b p-6 font-medium">
@@ -27,7 +27,7 @@ export function BooksBorrowedDetails() {
           {borrowedBooks.map((book) => (
             <tr
               key={book.orderId}
-              className="text-sm font-medium text-primaryBlack border-gray-200"
+              className="text-base font-medium text-primaryBlack border-gray-200"
             >
               <td className="border-b p-6">{book.orderId}</td>
               <td className="border-b p-6">{book.userName}</td>

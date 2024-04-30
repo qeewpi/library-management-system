@@ -68,7 +68,7 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
                   value={currentUser.username}
@@ -102,7 +102,7 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
                   value={currentUser.name}
@@ -137,7 +137,7 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
                   value={currentUser.email}
@@ -173,7 +173,7 @@ function Profile() {
           <div className="flex flex-col gap-8">
             <div className="input-box flex flex-grow items-center text-gray-400">
               <div className="input-box flex w-8-16 items-center text-gray-400 ">
-                <div className="flex flex-grow text-sm relative items-center">
+                <div className="flex flex-grow text-base relative items-center">
                   <input
                     type="password"
                     name="newPassword"
@@ -203,7 +203,7 @@ function Profile() {
 
             {/* <div className="input-box flex flex-grow items-center text-gray-400">
               <div className="input-box flex w-8-16 items-center text-gray-400 ">
-                <div className="flex flex-grow text-sm relative items-center">
+                <div className="flex flex-grow text-base relative items-center">
                   <input
                     type="password"
                     name="newPassword"
@@ -240,7 +240,7 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 l-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <textarea
                   name="postContent"
                   rows={6}

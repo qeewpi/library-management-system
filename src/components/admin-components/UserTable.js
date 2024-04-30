@@ -34,7 +34,7 @@ export function UserTable({ searchValue }) {
     <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
       <table className="table table-lg border-gray-500 border-spacing-y-4">
         {/* head */}
-        <thead className="text-sm text-gray-500 bg-gray-100">
+        <thead className="text-base text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             <th className="font-medium border-b p-6">User ID</th>
             <th className="font-medium border-b p-6">Username</th>
@@ -61,7 +61,7 @@ export function UserTable({ searchValue }) {
             })
             .map((user, index) => (
               <tr
-                className="text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
+                className="text-base font-medium text-primaryBlack border-gray-200 h-full w-full"
                 key={user.id}
               >
                 <th
