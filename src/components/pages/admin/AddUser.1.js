@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import AuthService from "service/AuthService";
 
-const AddUser = () => {
+export const AddUser = () => {
   let navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -33,6 +34,17 @@ const AddUser = () => {
     // Handle form submission based on formData
     try {
       await AuthService.registerWithRole(username, name, email, password, role);
+      toast.success(`Added user, "${username}"! 😄`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
       navigate("/admin/user-list");
     } catch (error) {
       console.error("Failed to add user", error);
@@ -168,10 +180,9 @@ const AddUser = () => {
           >
             Cancel
           </button>
+          <ToastContainer />
         </div>
       </div>
     </form>
   );
 };
-
-export default AddUser;

@@ -41,11 +41,11 @@ function BookCardSlider({ books }) {
             <SplideSlide key={book.id}>
               <div className="sliderItem flex flex-col">
                 <Link to={"/book/" + book.id}>
-                  <div>
+                  <div className="overflow-hidden rounded-xl">
                     <img
                       src={BookService.downloadBookImage(book.imagePath)}
                       alt=""
-                      className="aspect-[1/1.6] w-full rounded-xl object-cover"
+                      className="aspect-[1/1.6] w-full rounded-xl object-cover transform transition duration-500 hover:scale-110"
                     />
                   </div>
                   <div className="pt-3 text-sm">
