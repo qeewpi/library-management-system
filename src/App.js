@@ -1,5 +1,6 @@
 import AppContent from "components/AppContent";
 import NavBar from "components/NavBar";
+import ScrollToTop from "components/ScrollToTop";
 import SideNavBar from "components/SideNavBar";
 import LandingPage from "components/pages/LandingPage";
 import LogIn from "components/pages/LogIn";
@@ -34,6 +35,7 @@ function App() {
           </div>
         </div>
         <IndividualContent />
+        <ScrollToTop />
       </BrowserRouter>
     </div>
   );
