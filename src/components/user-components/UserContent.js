@@ -3,6 +3,7 @@ import BrowseLibrary from "components/pages/user/BrowseLibrary";
 import CheckoutPage from "components/pages/user/CheckoutPage";
 import Home from "components/pages/user/Home";
 import OrderSummary from "components/pages/user/OrderSummary";
+import OverdueBooks from "components/pages/user/OverdueBooks";
 import Profile from "components/pages/user/Profile";
 import ReadingList from "components/pages/user/ReadingList";
 import Results from "components/pages/user/Results";
@@ -22,6 +23,7 @@ function UserContent() {
           <Route path="/order-summary/:id" element={<OrderSummary />} />
           <Route path="/checkout-page" element={<CheckoutPage />} />
           <Route path="/browse-library" element={<BrowseLibrary />} />
+          <Route path="/overdue-books" element={<OverdueBooks />} />
         </Routes>
       </div>
     </div>
