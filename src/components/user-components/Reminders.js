@@ -11,18 +11,12 @@ function Reminders() {
       </h1>
       <div className="buttonsDiv flex flex-col lg:flex-row gap-y-4 gap-x-3">
         <Link to="/return">
-          <button
-            className="p-4 px-12 bg-secondaryBlue text-white rounded-xl w-full h-full tooltip tooltip-bottom tooltip-primary"
-            data-tip="View overdue books"
-          >
+          <button className="p-4 px-12 bg-secondaryBlue text-white rounded-xl w-full h-full">
             View overdue books
           </button>
         </Link>
         <Link to="/renew">
-          <button
-            className="p-4 px-12 bg-primaryYellow text-white rounded-xl w-full h-full tooltip tooltip-bottom tooltip-accent"
-            data-tip="View overdue books"
-          >
+          <button className="p-4 px-12 bg-primaryYellow text-white rounded-xl w-full h-full">
             Renew books online
           </button>
         </Link>
