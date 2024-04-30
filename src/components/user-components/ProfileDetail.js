@@ -53,7 +53,7 @@ function ProfileDetail() {
           <span className="text-primaryblack mr-4 text-base w-full">
             Profile
             <p className="text-gray-500 mr-4 text-base w-full font-medium">
-              View and update your personal details here.
+              View your personal details and update your password here.
             </p>
           </span>
         </div>

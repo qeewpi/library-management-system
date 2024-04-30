@@ -11,8 +11,11 @@ function Profile() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleUpdate = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const updatedUser = await AuthService.updateUserInfo(
@@ -28,6 +31,8 @@ function Profile() {
     } catch (error) {
       console.error("Update failed:", error);
       alert("Failed to update user information."); // Or display a more helpful error message
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -53,7 +58,7 @@ function Profile() {
           <span className="text-primaryblack mr-4 text-base w-full">
             Profile
             <p className="text-gray-500 mr-4 text-base w-full font-medium">
-              View and update your personal details here.
+              View your personal details and update your password here.
             </p>
           </span>
         </div>
@@ -255,12 +260,22 @@ function Profile() {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-secondaryBlue"
-        >
-          Update
-        </button>
+        {isLoading ? (
+          <button
+            type="submit"
+            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900"
+          >
+            <span className="loading loading-spinner loading-xs"></span>
+            Loading
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900"
+          >
+            Update
+          </button>
+        )}
       </form>
     </div>
   );
