@@ -24,7 +24,9 @@ function OrderItem({ book }) {
           <h1 className=" text-gray-500">{book.author}</h1>
         </div>
         <div>
-          <h1 className=" text-primaryBlack font-bold">Quantity: 1</h1>
+          <h1 className=" text-primaryBlack font-semibold">
+            Quantity: <span className="font-medium">1</span>
+          </h1>
         </div>
       </div>
     </div>

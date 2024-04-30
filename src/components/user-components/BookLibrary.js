@@ -80,7 +80,7 @@ const sizesText = {
   s: "text-[10px] font-medium",
   "2xl": "text-[15px] font-medium",
   "3xl": "text-base font-medium",
-  xl: "text-sm font-medium",
+  xl: "text-base font-medium",
 };
 
 const sizesHeading = {
@@ -88,7 +88,7 @@ const sizesHeading = {
   "2xl": "text-2xl font-semibold md:text-[22px]",
   "4xl": "text-4xl font-semibold md:text-[34px] sm:text-[32px]",
   s: "text-[13px] font-bold",
-  xs: "text-xs font-semibold",
+  xs: "text-base font-semibold",
   lg: "text-base font-semibold",
 };
 

@@ -16,7 +16,7 @@ function BookDetails() {
 
   useEffect(() => {
     loadBook();
-  }, []);
+  }, [id]);
 
   const loadBook = async () => {
     setIsLoading(true);
@@ -112,11 +112,11 @@ function BookDetails() {
     <div className="flex flex-col gap-y-6">
       <div className="book-details-wrapper text-xl bg-white font-semibold p-6 rounded-xl flex">
         <div className="flex flex-row gap-x-8 flex-grow justify-items-stretch">
-          <div className="imageContainer flex w-4/12">
+          <div className="imageContainer flex w-4/12 rounded-xl relative group overflow-hidden">
             <img
               src={book.imageUrl}
               alt={book.title}
-              className="aspect-[1/1.6] w-full h-full rounded-xl object-cover"
+              className="aspect-[1/1.6] w-full h-full rounded-xl object-cover transform transition duration-500 group-hover:scale-110"
             />
           </div>
           <div className="textDiv flex flex-col gap-y-6 w-full">
@@ -134,7 +134,7 @@ function BookDetails() {
             <div>
               <button
                 onClick={handleAddToCart}
-                className="p-4 px-12 bg-primaryBlue text-white rounded-xl text-sm"
+                className="p-4 px-12 bg-primaryBlue text-white rounded-xl text-base hover:bg-blue-900 transition duration-300 ease-in-out"
               >
                 Add to cart
               </button>

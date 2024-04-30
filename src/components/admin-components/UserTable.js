@@ -34,13 +34,14 @@ export function UserTable({ searchValue }) {
     <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
       <table className="table table-lg border-gray-500 border-spacing-y-4">
         {/* head */}
-        <thead className="text-sm text-gray-500 bg-gray-100">
+        <thead className="text-base text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             <th className="font-medium border-b p-6">User ID</th>
             <th className="font-medium border-b p-6">Username</th>
             <th className="font-medium border-b p-6">Name</th>
             <th className="font-medium border-b p-6">Email</th>
             <th className="font-medium border-b p-6">Password</th>
+            <th className="font-medium border-b p-6">Role</th>
             <th className="font-medium border-b p-6">Actions</th>
           </tr>
         </thead>
@@ -61,7 +62,7 @@ export function UserTable({ searchValue }) {
             })
             .map((user, index) => (
               <tr
-                className="text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
+                className="text-base font-medium text-primaryBlack border-gray-200 h-full w-full"
                 key={user.id}
               >
                 <th
@@ -75,6 +76,9 @@ export function UserTable({ searchValue }) {
                 <td className="border-b p-6">{user.name}</td>
                 <td className="border-b p-6">{user.email}</td>
                 <td className="border-b p-6 break-all">{user.password}</td>
+                <td className="border-b p-6">
+                  {user.roles[0].name === "ROLE_ADMIN" ? "Admin" : "User"}
+                </td>
                 <td className="border-b p-6">
                   <div className="flex gap-x-3 items h-full">
                     <Link

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import AuthService from "service/AuthService";
 
-function Profile() {
+export function Profile() {
   const [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   const [formData, setFormData] = useState({
     newPassword: "",
@@ -275,14 +275,6 @@ function Profile() {
           </div>
         </div>
 
-<<<<<<< HEAD
-        <button
-          type="submit"
-          className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-secondaryBlue transform transition duration-500 hover:scale-110"
-        >
-          Update
-        </button>
-=======
         {isLoading ? (
           <button
             type="submit"
@@ -299,11 +291,8 @@ function Profile() {
             Update
           </button>
         )}
->>>>>>> 78b64dffb7dff2194422c49ce27ac8153b5222b3
       </form>
       <ToastContainer />
     </div>
   );
 }
-
-export default Profile;

@@ -27,10 +27,10 @@ function AdminNavBar() {
       <div className="px-16 p-12 flex justify-between flex-row">
         <div className="flex flex-row gap-2 items-center w-40 lg:w-96">
           <img src={brandSVG} alt="" />
-          <h1 className="text-`xl flex-grow">eLibrary</h1>
+          <h1 className="text-2xl flex-grow">BookMarked</h1>
         </div>
 
-        <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-xs">
+        <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-sm">
           <div className="flex flex-row gap-x-2 items-center">
             <div className="flex flex-grow items-center pr-2">
               <img src={userFilledSVG} alt="" />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import AuthService from "service/AuthService";
 
 function Profile() {
@@ -11,8 +12,21 @@ function Profile() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchUserData = async () => {
+    try {
+      const userData = await AuthService.getCurrentUser();
+      setCurrentUser(userData);
+    } catch (error) {
+      console.error("Failed to fetch user data:", error);
+      // Handle error, e.g., redirect to login
+    }
+  };
+
   const handleUpdate = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const updatedUser = await AuthService.updateUserInfo(
@@ -24,26 +38,32 @@ function Profile() {
       );
       setCurrentUser(updatedUser);
       setFormData({ newPassword: "" }); // Clear form after update
-      alert("User information updated successfully!"); // Or use a more sophisticated notification
+      toast.success(`Successfully changed your password`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      fetchUserData(); // Fetch updated user data
     } catch (error) {
       console.error("Update failed:", error);
       alert("Failed to update user information."); // Or display a more helpful error message
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // Fetch user data on component mount (similar to EditUser's useEffect)
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const userData = await AuthService.getCurrentUser();
-        setCurrentUser(userData);
-      } catch (error) {
-        console.error("Failed to fetch user data:", error);
-        // Handle error, e.g., redirect to login
-      }
-    };
+    setIsLoading(true);
 
     fetchUserData();
+    setIsLoading(false);
   }, []);
 
   return (
@@ -53,7 +73,7 @@ function Profile() {
           <span className="text-primaryblack mr-4 text-base w-full">
             Profile
             <p className="text-gray-500 mr-4 text-base w-full font-medium">
-              View and update your personal details here.
+              View your personal details and update your password here.
             </p>
           </span>
         </div>
@@ -68,10 +88,10 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
-                  value={currentUser.username}
+                  value={isLoading ? "Loading..." : currentUser.username}
                   required
                   readOnly
                   className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -102,10 +122,10 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
-                  value={currentUser.name}
+                  value={isLoading ? "Loading..." : currentUser.name}
                   required
                   readOnly
                   className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -137,10 +157,10 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <input
                   type="text"
-                  value={currentUser.email}
+                  value={isLoading ? "Loading..." : currentUser.email}
                   required
                   readOnly
                   className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -173,13 +193,13 @@ function Profile() {
           <div className="flex flex-col gap-8">
             <div className="input-box flex flex-grow items-center text-gray-400">
               <div className="input-box flex w-8-16 items-center text-gray-400 ">
-                <div className="flex flex-grow text-sm relative items-center">
+                <div className="flex flex-grow text-base relative items-center">
                   <input
                     type="password"
                     name="newPassword"
                     placeholder="Enter New Password"
                     required
-                    value={formData.newPassword}
+                    value={isLoading ? "Loading..." : formData.newPassword}
                     onChange={handleChange}
                     className="w-full pl-12 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
                   />
@@ -203,7 +223,7 @@ function Profile() {
 
             {/* <div className="input-box flex flex-grow items-center text-gray-400">
               <div className="input-box flex w-8-16 items-center text-gray-400 ">
-                <div className="flex flex-grow text-sm relative items-center">
+                <div className="flex flex-grow text-base relative items-center">
                   <input
                     type="password"
                     name="newPassword"
@@ -240,12 +260,12 @@ function Profile() {
           </div>
           <div className="input-box flex flex-grow items-center text-gray-400">
             <div className="input-box flex w-8-16 l-8-16 items-center text-gray-400 ">
-              <div className="flex flex-grow text-sm relative items-center">
+              <div className="flex flex-grow text-base relative items-center">
                 <textarea
                   name="postContent"
                   rows={6}
                   cols={40}
-                  value={currentUser.accessToken}
+                  value={isLoading ? "Loading..." : currentUser.accessToken}
                   required
                   readOnly
                   className="w-full p-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-blue-600 bg-customGrey text-gray-500 focus:text-primaryBlack text-primaryBlack"
@@ -255,13 +275,33 @@ function Profile() {
           </div>
         </div>
 
+<<<<<<< HEAD
         <button
           type="submit"
           className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-secondaryBlue transform transition duration-500 hover:scale-110"
         >
           Update
         </button>
+=======
+        {isLoading ? (
+          <button
+            type="submit"
+            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900"
+          >
+            <span className="loading loading-spinner loading-xs"></span>
+            Loading
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="btn w-40 py-4 rounded-xl bg-secondaryBlue text-white hover:bg-blue-900"
+          >
+            Update
+          </button>
+        )}
+>>>>>>> 78b64dffb7dff2194422c49ce27ac8153b5222b3
       </form>
+      <ToastContainer />
     </div>
   );
 }

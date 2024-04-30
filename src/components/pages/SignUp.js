@@ -14,6 +14,7 @@ function SignUp() {
   const [emailInput, setEmailInput] = useState("");
   const [fullnameInput, setFullnameInput] = useState("");
   const [registerFailed, setRegisterFailed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleUsernameChange = (e) => {
     setUsernameInput(e.target.value);
@@ -32,6 +33,7 @@ function SignUp() {
   };
 
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     try {
       await AuthService.register(
@@ -44,6 +46,8 @@ function SignUp() {
     } catch (error) {
       console.error(error);
       setRegisterFailed(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -153,12 +157,22 @@ function SignUp() {
               />
             </div>
           </div>
-          <button
-            type="submit"
-            className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
-          >
-            Sign Up
-          </button>
+          {isLoading ? (
+            <button
+              type="submit"
+              className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+            >
+              <span className="loading loading-spinner loading-xs"></span>
+              Creating your account...
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="btn mt-8 w-full py-4 rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+            >
+              Sign Up
+            </button>
+          )}
         </form>
 
         <div className="register-link flex justify-center mt-6 text-gray-500">

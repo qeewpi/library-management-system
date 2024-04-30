@@ -31,7 +31,7 @@ function OrderSummary() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl pb-10">
+    <div className="bg-white p-6 rounded-xl py-16">
       <div className="text-center text-3xl text-primaryBlack font-semibold px-4 py-2">
         <span>ORDER</span>{" "}
         <span className="text-gray-600 font-medium">#{orderId}</span>
