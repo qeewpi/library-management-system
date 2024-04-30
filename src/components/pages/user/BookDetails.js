@@ -16,7 +16,7 @@ function BookDetails() {
 
   useEffect(() => {
     loadBook();
-  }, []);
+  }, [id]);
 
   const loadBook = async () => {
     setIsLoading(true);
