@@ -43,7 +43,7 @@ function BookCardSlider({ books }) {
                 <Link to={"/book/" + book.id}>
                   <div className="overflow-hidden rounded-xl">
                     <img
-                      src={BookService.downloadBookImage(book.imagePath)}
+                      src={BookService.downloadBookImage(book.imagePath)} //
                       alt=""
                       className="aspect-[1/1.6] w-full rounded-xl object-cover transform transition duration-500 hover:scale-110"
                     />

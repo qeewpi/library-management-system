@@ -20,7 +20,7 @@ function SideNavBar() {
           location.pathname === "/home" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/home" ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ function SideNavBar() {
           location.pathname === "/reading-list" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/reading-list" ? (
             <svg
               width="24"
@@ -81,7 +81,7 @@ function SideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/browse-library" ||
           location.pathname.startsWith("/book/") ? (
             <svg
@@ -111,7 +111,7 @@ function SideNavBar() {
           location.pathname === "/profile" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/profile" ? (
             <svg
               width="20"
@@ -140,7 +140,7 @@ function SideNavBar() {
           location.pathname === "/checkout-page" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/checkout-page" ? (
             <svg
               width="24"

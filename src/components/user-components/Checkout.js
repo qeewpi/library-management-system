@@ -62,7 +62,7 @@ function Checkout({ books, cart }) {
       <div>
         <button
           type="submit"
-          className="btn mt-4 w-full  rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue"
+          className="btn mt-4 w-full  rounded-xl bg-primaryBlue text-white hover:bg-secondaryBlue transform transition duration-500 hover:scale-90"
           onClick={handleOrderCheckout}
           disabled={isLoading}
         >

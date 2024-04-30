@@ -20,7 +20,7 @@ function AdminSideNavBar() {
           location.pathname === "/admin/user-list" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6 ">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/user-list" ? (
             <svg
               width="24"
@@ -57,7 +57,7 @@ function AdminSideNavBar() {
           location.pathname === "/admin/admin-list" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/admin-list" ? (
             <svg
               width="24"
@@ -97,7 +97,7 @@ function AdminSideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/library-catalog" ||
           location.pathname.startsWith("/admin/library-catalog/") ? (
             <svg
@@ -140,7 +140,7 @@ function AdminSideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/borrowed-books" ||
           location.pathname.startsWith("/admin/borrowed-books/") ? (
             <svg
@@ -183,7 +183,7 @@ function AdminSideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/orders" ||
           location.pathname.startsWith("/admin/orders") ? (
             <svg
@@ -224,7 +224,7 @@ function AdminSideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/library-logs" ||
           location.pathname.startsWith("/admin/library-logs/") ? (
             <svg
@@ -262,7 +262,7 @@ function AdminSideNavBar() {
           location.pathname === "/admin/profile" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/profile" ? (
             <svg
               width="20"

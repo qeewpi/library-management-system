@@ -153,7 +153,7 @@ export function OrderTable({ searchValue }) {
                       <div
                         onClick={() => markOrderAsReturned(order.id)}
                         className="tooltip tooltip-success"
-                        data-tip="Returned"
+                        data-tip="Marked as returned"
                       >
                         <svg
                           width="25"
