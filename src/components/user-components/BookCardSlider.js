@@ -46,7 +46,7 @@ function BookCardSlider({ books }) {
                 >
                   <div className="overflow-hidden rounded-xl relative group ">
                     <img
-                      src={BookService.downloadBookImage(book.imagePath)}
+                      src={BookService.downloadBookImage(book.imagePath)} //
                       alt=""
                       className="aspect-[1/1.6] w-full rounded-xl object-cover transform transition duration-500 group-hover:scale-110"
                     />

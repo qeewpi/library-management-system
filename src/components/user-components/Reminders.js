@@ -9,14 +9,14 @@ function Reminders() {
         <span className="text-primaryYellow">1 book due tomorrow</span>. Please
         return or renew to avoid late fees.
       </h1>
-      <div className="buttonsDiv flex flex-col lg:flex-row gap-y-4 gap-x-3">
+      <div className="buttonsDiv flex flex-col lg:flex-row gap-y-4 gap-x-3 ">
         <Link to="/return">
-          <button className="p-4 px-12 bg-secondaryBlue text-white rounded-xl w-full h-full">
+          <button className="p-4 px-12 bg-secondaryBlue text-white rounded-xl w-full h-full transform transition duration-500 hover:scale-90">
             View overdue books
           </button>
         </Link>
         <Link to="/renew">
-          <button className="p-4 px-12 bg-primaryYellow text-white rounded-xl w-full h-full">
+          <button className="p-4 px-12 bg-primaryYellow text-white rounded-xl w-full h-full transform transition duration-500 hover:scale-90">
             Renew books online
           </button>
         </Link>

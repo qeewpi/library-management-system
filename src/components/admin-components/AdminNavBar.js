@@ -39,7 +39,10 @@ function AdminNavBar() {
               <h1>{currentUser.name}</h1>
               <h1 className="text-gray-500">Admin</h1>
             </div>
-            <button className="p-2 items-start" onClick={handleLogout}>
+            <button
+              className="p-2 items-start transform transition duration-500 hover:scale-110"
+              onClick={handleLogout}
+            >
               <svg
                 width="24"
                 height="24"

@@ -20,7 +20,7 @@ function AdminSideNavBar() {
           location.pathname === "/admin/user-list" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6 ">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/user-list" ? (
             <svg
               width="24"
@@ -51,7 +51,43 @@ function AdminSideNavBar() {
           </h1>
         </div>
       </NavLink>
-
+      <NavLink
+        to={"/admin/admin-list"}
+        className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
+          location.pathname === "/admin/admin-list" ? "text-primaryYellow" : ""
+        }`}
+      >
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
+          {location.pathname === "/admin/admin-list" ? (
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="fill-primaryYellow -ml-1"
+            >
+              <path d="M12.3329 2.50076C12.1313 2.36641 11.8687 2.36641 11.6672 2.50076C9.34133 4.05131 6.82597 5.01875 4.11512 5.40603C3.81953 5.44825 3.59998 5.7014 3.59998 5.99999V11.4C3.59998 16.0696 6.36836 19.4768 11.7846 21.56C11.9232 21.6133 12.0768 21.6133 12.2154 21.56C17.6316 19.4768 20.4 16.0696 20.4 11.4V5.99999C20.4 5.7014 20.1804 5.44825 19.8848 5.40603C17.174 5.01875 14.6586 4.05131 12.3329 2.50076ZM12 11.3994C10.6745 11.3994 9.59998 10.3249 9.59998 8.99941C9.59998 7.67392 10.6745 6.59941 12 6.59941C13.3255 6.59941 14.4 7.67392 14.4 8.99941C14.4 10.3249 13.3255 11.3994 12 11.3994ZM12 17.3994C8.99998 17.3994 7.79998 15.8993 7.79998 14.3994C7.79998 13.4053 8.60586 12.5994 9.59998 12.5994H14.4C15.3941 12.5994 16.2 13.4053 16.2 14.3994C16.2 15.8936 15 17.3994 12 17.3994Z" />
+            </svg>
+          ) : (
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="fill-white -ml-1"
+            >
+              <path d="M12 11.3994C13.3255 11.3994 14.4 10.3249 14.4 8.99941C14.4 7.67392 13.3255 6.59941 12 6.59941C10.6745 6.59941 9.59998 7.67392 9.59998 8.99941C9.59998 10.3249 10.6745 11.3994 12 11.3994ZM12 17.3994C15 17.3994 16.2 15.8936 16.2 14.3994C16.2 13.4053 15.3941 12.5994 14.4 12.5994H9.59998C8.60586 12.5994 7.79998 13.4053 7.79998 14.3994C7.79998 15.8993 8.99998 17.3994 12 17.3994ZM12.3329 2.50076C12.1313 2.36641 11.8687 2.36641 11.6672 2.50076C9.34133 4.05131 6.82597 5.01875 4.11512 5.40603C3.81953 5.44825 3.59998 5.7014 3.59998 5.99999V11.4C3.59998 16.0696 6.36836 19.4768 11.7846 21.56C11.9232 21.6133 12.0768 21.6133 12.2154 21.56C17.6316 19.4768 20.4 16.0696 20.4 11.4V5.99999C20.4 5.7014 20.1804 5.44825 19.8848 5.40603C17.174 5.01875 14.6586 4.05131 12.3329 2.50076ZM4.79998 6.51344C7.18247 6.10865 9.42328 5.27527 11.5189 4.01499L12 3.71657L12.4811 4.01499C14.5767 5.27527 16.8175 6.10865 19.2 6.51344V11.4C19.2 15.4704 16.8385 18.4361 12 20.3558C7.16152 18.4361 4.79998 15.4704 4.79998 11.4V6.51344Z" />
+            </svg>
+          )}
+          <h1
+            className={`font-normal ${
+              location.pathname === "/admin/admin-list" ? "font-semibold" : ""
+            }`}
+          >
+            Admin List
+          </h1>
+        </div>
+      </NavLink>
       <NavLink
         to={"/admin/library-catalog"}
         className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
@@ -61,7 +97,7 @@ function AdminSideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/library-catalog" ||
           location.pathname.startsWith("/admin/library-catalog/") ? (
             <svg
@@ -95,7 +131,49 @@ function AdminSideNavBar() {
           </h1>
         </div>
       </NavLink>
-
+      <NavLink
+        to={"/admin/borrowed-books"}
+        className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
+          location.pathname === "/admin/borrowed-books" ||
+          location.pathname.startsWith("/admin/borrowed-books/")
+            ? "text-primaryYellow"
+            : ""
+        }`}
+      >
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
+          {location.pathname === "/admin/borrowed-books" ||
+          location.pathname.startsWith("/admin/borrowed-books/") ? (
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="fill-primaryYellow -ml-1"
+            >
+              <path d="M6.5 2C5.11929 2 4 3.11929 4 4.5V19.5C4 20.8807 5.11929 22 6.5 22H19.75C20.1642 22 20.5 21.6642 20.5 21.25C20.5 20.8358 20.1642 20.5 19.75 20.5H6.5C5.94772 20.5 5.5 20.0523 5.5 19.5H19.75C20.1642 19.5 20.5 19.1642 20.5 18.75V4.5C20.5 3.11929 19.3807 2 18 2H6.5ZM15.5 12.25V12.7495C15.5 13.75 14.1168 14.5 12.25 14.5C10.3831 14.5 9 13.75 9 12.7495V12.25C9 11.8358 9.33579 11.5 9.75 11.5H14.75C15.1642 11.5 15.5 11.8358 15.5 12.25ZM14 8.74547C14 9.71231 13.2168 10.4961 12.25 10.4961C11.2832 10.4961 10.5 9.71231 10.5 8.74547C10.5 7.77863 11.2832 7 12.25 7C13.2168 7 14 7.77863 14 8.74547Z" />
+            </svg>
+          ) : (
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="fill-white -ml-1"
+            >
+              <path d="M15.5 12.25C15.5 11.8358 15.1642 11.5 14.75 11.5H9.75C9.33579 11.5 9 11.8358 9 12.25V12.7495C9 13.75 10.3831 14.5 12.25 14.5C14.1168 14.5 15.5 13.75 15.5 12.7495V12.25ZM14 8.74547C14 7.77863 13.2168 7 12.25 7C11.2832 7 10.5 7.77863 10.5 8.74547C10.5 9.71231 11.2832 10.4961 12.25 10.4961C13.2168 10.4961 14 9.71231 14 8.74547ZM4 4.5C4 3.11929 5.11929 2 6.5 2H18C19.3807 2 20.5 3.11929 20.5 4.5V18.75C20.5 19.1642 20.1642 19.5 19.75 19.5H5.5C5.5 20.0523 5.94772 20.5 6.5 20.5H19.75C20.1642 20.5 20.5 20.8358 20.5 21.25C20.5 21.6642 20.1642 22 19.75 22H6.5C5.11929 22 4 20.8807 4 19.5V4.5ZM5.5 4.5V18H19V4.5C19 3.94772 18.5523 3.5 18 3.5H6.5C5.94772 3.5 5.5 3.94772 5.5 4.5Z" />
+            </svg>
+          )}
+          <h1
+            className={`font-normal ${
+              location.pathname === "/admin/borrowed-books"
+                ? "font-semibold"
+                : ""
+            }`}
+          >
+            Borrowed Books
+          </h1>
+        </div>
+      </NavLink>
       <NavLink
         to={"/admin/orders"}
         className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
@@ -105,7 +183,7 @@ function AdminSideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/orders" ||
           location.pathname.startsWith("/admin/orders") ? (
             <svg
@@ -146,7 +224,7 @@ function AdminSideNavBar() {
             : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/library-logs" ||
           location.pathname.startsWith("/admin/library-logs/") ? (
             <svg
@@ -184,7 +262,7 @@ function AdminSideNavBar() {
           location.pathname === "/admin/profile" ? "text-primaryYellow" : ""
         }`}
       >
-        <div className="flex flex-row items-center gap-x-6">
+        <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/profile" ? (
             <svg
               width="20"

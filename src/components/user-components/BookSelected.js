@@ -19,12 +19,12 @@ const BookSelected = ({ selectedBook }) => {
 
   if (!selectedBook) {
     return (
-      <div className="flex w-[45%] flex-col gap-[26px] bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl">
+      <div className="flex w-[45%] flex-col gap-[26px] bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl ">
         <div className="relative h-[471px] md:h-auto">
           <img
             src={cardItemPlaceholder}
             alt="Book Placeholder"
-            className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white"
+            className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white "
           />
           <img
             src={cardItemPlaceholder}
@@ -41,8 +41,8 @@ const BookSelected = ({ selectedBook }) => {
               Select a book to display its details
             </p>
           </div>
-          <div className="flex w-[91%] items-center justify-between gap-4 pr-[5px] md:w-full">
-            <div className="flex flex-col items-start">
+          <div className="flex w-[91%] items-center justify-between gap-4 pr-[5px] md:w-full ">
+            <div className="flex flex-col items-start ">
               <p className={`${sizesText.s}`}>Status</p>
               <h3 className={`${sizesHeading.s} !text-black`}>...</h3>
             </div>
@@ -74,8 +74,8 @@ const BookSelected = ({ selectedBook }) => {
   }
 
   return (
-    <div className="flex w-[45%] flex-col gap-4 bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl h-full">
-      <div className="relative h-[471px] md:h-auto">
+    <div className="flex w-[45%] flex-col gap-4 bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl h-full ">
+      <div className="relative h-[471px] md:h-auto ">
         <img
           src={BookService.downloadBookImage(selectedBook.imagePath)}
           alt={selectedBook.title}
@@ -84,7 +84,7 @@ const BookSelected = ({ selectedBook }) => {
         <img
           src={BookService.downloadBookImage(selectedBook.imagePath)}
           alt={selectedBook.title}
-          className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover drop-shadow-xl"
+          className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover drop-shadow-xl transform transition duration-500 hover:scale-50"
         />
         <div className="absolute z-5 p-4 -mt-[4.5rem]">
           <button

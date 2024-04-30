@@ -18,7 +18,7 @@ const BookLibrary = ({ setSelectedBook }) => {
 
   if (!orders.some((order) => order.status === "BORROWED")) {
     return (
-      <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-5 min-h-full">
+      <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-5 min-h-full ">
         <div className="containerDiv flex-grow flex flex-col w-full">
           <p className={`${sizesText.lg} ml-[5px] italic md:ml-0`}>Welcome!</p>
           <h1
@@ -27,7 +27,7 @@ const BookLibrary = ({ setSelectedBook }) => {
           >
             Your Book Library
           </h1>
-          <div className="overflow-auto mb-[42px] ml-[5px]  md:ml-0 min-h-full w-full flex">
+          <div className="overflow-auto mb-[42px] ml-[5px]  md:ml-0 min-h-full w-full flex ">
             <p className="text-gray-600 font-medium">
               Your reading list is empty. Start exploring the library to find
               books to borrow! 📚🔍
@@ -57,7 +57,7 @@ const BookLibrary = ({ setSelectedBook }) => {
               .flatMap((order) =>
                 order.books.map((book) => (
                   <button onClick={() => setSelectedBook({ ...book, order })}>
-                    <div className="flex flex-col items-center ">
+                    <div className="flex flex-col items-center transform transition duration-500 hover:scale-90">
                       <img
                         src={BookService.downloadBookImage(book.imagePath)}
                         alt={book.title}
