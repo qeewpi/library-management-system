@@ -29,7 +29,7 @@ function UserNavBar() {
 
   return (
     <div className="bg-white">
-      <div className="px-16 p-12 grid justify-between grid-cols-3 ">
+      <div className="px-16 p-12 grid gap-x-80 justify-between grid-cols-3 ">
         <NavLink
           to={"/home"}
           className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-1/4 ${
@@ -62,7 +62,6 @@ function UserNavBar() {
             />
           </div>
         </div>
-
         <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-sm">
           <div className="flex flex-row gap-x-2 items-center">
             <div className="flex flex-grow items-center pr-2">
