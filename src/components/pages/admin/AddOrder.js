@@ -161,7 +161,7 @@ const AddOrder = () => {
           />
         </div>
         <button type="button" onClick={handleAddBookToArray} className="btn">
-          add book
+          Add Book
         </button>
         <div className="flex gap-x-2">
           <h1>Added books: </h1>
