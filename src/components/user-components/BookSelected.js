@@ -37,25 +37,23 @@ const BookSelected = ({ selectedBook }) => {
             <h2 className={`${sizesHeading["3xl"]} !text-black`}>
               Ready to Dive In?
             </h2>
-            <p className={`${sizesText["2xl"]}`}>
-              Select a book to display its details
-            </p>
+            <p className="text-base">Select a book to display its details</p>
           </div>
           <div className="flex w-[91%] items-center justify-between gap-4 pr-[5px] md:w-full ">
             <div className="flex flex-col items-start ">
-              <p className={`${sizesText.s}`}>Status</p>
+              <p className="text-base">Status</p>
               <h3 className={`${sizesHeading.s} !text-black`}>...</h3>
             </div>
             <div className="flex flex-col items-start">
-              <p className={`${sizesText.s}`}>Borrowed On</p>
+              <p className="text-base">Borrowed On</p>
               <h4 className={`${sizesHeading.s} !text-black`}>...</h4>
             </div>
             <div className="flex flex-col gap-0.5">
-              <p className={`${sizesText.s}`}>Deadline</p>
+              <p className="text-base">Deadline</p>
               <h5 className={`${sizesHeading.s} !text-black`}>...</h5>
             </div>
             <div className="flex flex-col items-start gap-0.5">
-              <p className={`${sizesText.s}`}>Days Remaining</p>
+              <p className="text-base">Days Remaining</p>
               <h6 className={`${sizesHeading.s} !text-black`}>...</h6>
             </div>
           </div>
@@ -64,7 +62,7 @@ const BookSelected = ({ selectedBook }) => {
             <p className="text-[13px] font-light !text-black">...</p>
           </div>
           <div className="flex w-full">
-            <button className="bg-primaryYellow p-3 rounded-xl text-white text-base">
+            <button className="bg-primaryYellow p-3 rounded-xl text-white text-sm">
               Browse Library
             </button>
           </div>
@@ -109,25 +107,25 @@ const BookSelected = ({ selectedBook }) => {
           </div>
           <div className="flex w-[91%] items-center justify-between gap-5 pr-[5px] md:w-full">
             <div className="flex flex-col items-start">
-              <p className={`${sizesText.s}`}>Status</p>
+              <p className="text-base">Status</p>
               <h3 className={`${sizesHeading.s} !text-black`}>
                 {selectedBook.order.status ? "Borrowed" : "Available"}
               </h3>
             </div>
             <div className="flex flex-col items-start">
-              <p className={`${sizesText.s}`}>Borrowed On</p>
+              <p className="text-base">Borrowed On</p>
               <h4 className={`${sizesHeading.s} !text-black`}>
                 {formatDate(selectedBook.order.borrowed_at)}
               </h4>
             </div>
             <div className="flex flex-col gap-0.5">
-              <p className={`${sizesText.s}`}>Deadline</p>
+              <p className="text-base">Deadline</p>
               <h5 className={`${sizesHeading.s} !text-black`}>
                 {formatDate(selectedBook.order.due_date)}
               </h5>
             </div>
             <div className="flex flex-col items-start gap-0.5">
-              <p className={`${sizesText.s}`}>Days Remaining</p>
+              <p className="text-base">Days Remaining</p>
               <h6 className={`${sizesHeading.s} !text-black`}>
                 {calculateDaysRemaining(selectedBook.order.due_date)}
               </h6>
