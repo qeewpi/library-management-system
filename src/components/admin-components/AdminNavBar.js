@@ -27,17 +27,16 @@ function AdminNavBar() {
     <div className="bg-white">
       <div className="px-16 p-12 flex justify-between flex-row">
         <NavLink
-          to={"/admin/profile"}
-          className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-1/4 ${
+          to={"/admin/user-list"}
+          className={`navItems font-semibold flex flex-row items-center justify-start gap-x-6 w-1/4 ${
             location.pathname === "/home" ? "" : ""
           }`}
         >
-          <div className="flex flex-row gap-2 items-center w-40 lg:w-96 transform transition duration-500 hover:scale-110">
+          <div className="flex flex-row gap-2 items-center justify-start w-4  ```````````````````````1`0 lg:w-96 transform transition duration-500 hover:scale-110">
             <img src={brandSVG} alt="" />
             <h1 className="text-2xl flex-grow ">BookMarked</h1>
           </div>
         </NavLink>
-
         <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-sm">
           <div className="flex flex-row gap-x-2 items-center">
             <div className="flex flex-grow items-center pr-2">
@@ -47,6 +46,7 @@ function AdminNavBar() {
               <h1>{currentUser.name}</h1>
               <h1 className="text-gray-500">Admin</h1>
             </div>
+
             <button
               className="p-2 items-start transform transition duration-500 hover:scale-110"
               onClick={handleLogout}
