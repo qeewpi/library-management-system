@@ -256,7 +256,7 @@ export function OrderTable({ searchValue }) {
                     <button>
                       <Link
                         to={`/admin/renew-order/${order.id}`}
-                        className="tooltip tooltip-left tooltip-success"
+                        className="tooltip tooltip-left tooltip-primary"
                         data-tip="Renew Order"
                       >
                         <svg

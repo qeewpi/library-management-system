@@ -161,7 +161,7 @@ const AddOrder = () => {
           />
         </div>
         <button type="button" onClick={handleAddBookToArray} className="btn">
-          add book
+          Add Book
         </button>
         <div className="flex gap-x-2">
           <h1>Added books: </h1>
@@ -177,7 +177,7 @@ const AddOrder = () => {
                   setBooksArray({ books: newBooksArray });
                 }}
               >
-                <span className="indicator-item badge badge-secondary">x</span>
+                <span className="indicator-item badge badge-dark">x</span>
               </button>
             </div>
           ))}
