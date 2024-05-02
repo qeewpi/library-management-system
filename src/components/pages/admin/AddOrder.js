@@ -177,7 +177,7 @@ const AddOrder = () => {
                   setBooksArray({ books: newBooksArray });
                 }}
               >
-                <span className="indicator-item badge badge-secondary">x</span>
+                <span className="indicator-item badge badge-dark">x</span>
               </button>
             </div>
           ))}
