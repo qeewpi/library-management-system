@@ -1,9 +1,8 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import AuthService from "service/AuthService";
 import brandSVG from "../../icons/brand.svg";
 import userFilledSVG from "../../icons/user-filled.svg";
-import { NavLink } from "react-router-dom";
 
 function AdminNavBar() {
   let navigate = useNavigate();
@@ -28,7 +27,7 @@ function AdminNavBar() {
       <div className="px-16 p-12 flex justify-between flex-row">
         <NavLink
           to={"/admin/profile"}
-          className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-1/4 ${
+          className={`navItems font-semibold flex flex-row items-center gap-x-6 w-1/4 ${
             location.pathname === "/home" ? "" : ""
           }`}
         >

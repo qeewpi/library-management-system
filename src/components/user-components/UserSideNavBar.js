@@ -12,7 +12,7 @@ function SideNavBar() {
     return null;
   }
 
-  return (
+return (
     <div className="flex flex-col py-16 gap-y-2 h-screen bg-primaryBlue text-white items-start">
       <NavLink
         to={"/home"}
