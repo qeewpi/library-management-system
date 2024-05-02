@@ -165,10 +165,21 @@ const AddOrder = () => {
         </button>
         <div className="flex gap-x-2">
           <h1>Added books: </h1>
-          {booksArray.books.map((book) => (
-            <button className="btn disabled" key={book.id}>
+
+          {booksArray.books.map((book, index) => (
+            <div className="btn disabled relative" key={book.id}>
               <h1>{book.id}</h1>
-            </button>
+              <button
+                className="indicator absolute top-0 right-0"
+                onClick={() => {
+                  const newBooksArray = [...booksArray.books];
+                  newBooksArray.splice(index, 1);
+                  setBooksArray({ books: newBooksArray });
+                }}
+              >
+                <span className="indicator-item badge badge-secondary">x</span>
+              </button>
+            </div>
           ))}
         </div>
 
