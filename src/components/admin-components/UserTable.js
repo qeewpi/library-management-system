@@ -83,8 +83,8 @@ export function UserTable({ searchValue }) {
                   <div className="flex gap-x-3 items h-full">
                     <Link
                       to={`/admin/view/user/${user.id}`}
-                      className="tooltip tooltip-success"
-                      data-tip="View book"
+                      className="tooltip tooltip-success tooltip-right"
+                      data-tip="View user"
                     >
                       <svg
                         width="25"
@@ -99,7 +99,7 @@ export function UserTable({ searchValue }) {
                     <Link
                       to={`/admin/edit/user/${user.id}`}
                       className="tooltip tooltip-primary"
-                      data-tip="Edit book"
+                      data-tip="Edit user"
                     >
                       <svg
                         width="24"
@@ -113,8 +113,10 @@ export function UserTable({ searchValue }) {
                     </Link>
                     <button
                       onClick={() => deleteUser(user.id)}
-                      className="tooltip tooltip-error"
-                      data-tip="Delete book"
+                      className="tooltip tooltip-error tooltip-left"
+                      data-tip={`Delete ${
+                        user.roles[0].name === "ROLE_ADMIN" ? "Admin" : "User"
+                      }`}
                     >
                       <svg
                         width="24"

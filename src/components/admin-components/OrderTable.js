@@ -180,7 +180,7 @@ export function OrderTable({ searchValue }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-6 gap-4  h-full ">
                     <Link
                       to={`/admin/view/order/${order.id}`}
-                      className="tooltip tooltip-left tooltip-success"
+                      className="tooltip tooltip-right tooltip-success"
                       data-tip="View order"
                     >
                       <svg
@@ -197,7 +197,7 @@ export function OrderTable({ searchValue }) {
                     <button>
                       <div
                         onClick={() => deleteOrder(order.id)}
-                        className="tooltip tooltip-left tooltip-error"
+                        className="tooltip tooltip-right tooltip-error"
                         data-tip="Delete order"
                       >
                         <svg
@@ -214,7 +214,7 @@ export function OrderTable({ searchValue }) {
                     <button>
                       <div
                         onClick={() => markOrderAsPickedUp(order.id)}
-                        className="tooltip tooltip-left tooltip-success"
+                        className="tooltip tooltip-up tooltip-accent"
                         data-tip="Mark as Picked Up"
                       >
                         <svg
@@ -225,7 +225,7 @@ export function OrderTable({ searchValue }) {
                         >
                           <g
                             fill="none"
-                            className="stroke-green-900"
+                            className="stroke-yellow-900"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={3}
