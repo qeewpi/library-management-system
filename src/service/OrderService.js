@@ -121,6 +121,34 @@ const OrderService = {
       throw new Error("Failed to mark order as picked up.");
     }
   },
+
+  renewOrderWithBooks: async (orderId, books) => {
+    try {
+      await axios.post(
+        `${API_BASE_URL}/order/renew-books/${orderId}`,
+        books.map((book) => book.id),
+        {
+          headers: getAuthHeader(),
+        }
+      );
+    } catch (error) {
+      throw new Error("Failed to renew order with books");
+    }
+  },
+
+  renewEntireOrder: async (orderId) => {
+    try {
+      await axios.put(
+        `${API_BASE_URL}/order/renew/${orderId}`,
+        {},
+        {
+          headers: getAuthHeader(),
+        }
+      );
+    } catch (error) {
+      throw new Error("Failed to renew order");
+    }
+  },
 };
 
 export default OrderService;

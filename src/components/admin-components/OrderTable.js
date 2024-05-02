@@ -125,18 +125,18 @@ export function OrderTable({ searchValue }) {
 
   return (
     <div className="overflow-x-auto border border-b-0 rounded-xl border-gray-200">
-      <table className="table table-sm border-gray-500 border-spacing-y-4">
+      <table className="table table-xs border-gray-500 border-spacing-y-4">
         {/* head */}
-        <thead className="text-base text-gray-500 bg-gray-100 ">
+        <thead className="text-sm text-gray-500 bg-gray-100 ">
           <tr className="border-gray-200 border-b break-words">
-            <th className="font-medium border-b p-6">Order ID</th>
-            <th className="font-medium border-b p-6">Username</th>
-            <th className="font-medium border-b p-6">Books Borrowed</th>
-            <th className="font-medium border-b p-6">Status</th>
-            <th className="font-medium border-b p-6">Borrowed At</th>
-            <th className="font-medium border-b p-6">Due Date</th>
-            <th className="font-medium border-b p-6">Returned At</th>
-            <th className="font-medium border-b p-6">Actions</th>
+            <th className="font-medium border-b p-4">Order ID</th>
+            <th className="font-medium border-b p-4">Username</th>
+            <th className="font-medium border-b p-4">Books Borrowed</th>
+            <th className="font-medium border-b p-4">Status</th>
+            <th className="font-medium border-b p-4">Borrowed At</th>
+            <th className="font-medium border-b p-4">Due Date</th>
+            <th className="font-medium border-b p-4">Returned At</th>
+            <th className="font-medium border-b p-4">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -159,25 +159,25 @@ export function OrderTable({ searchValue }) {
             .map((order, index) => (
               <tr
                 key={index}
-                className="text-base font-medium text-primaryBlack border-gray-200 break-words"
+                className="text-sm font-medium text-primaryBlack border-gray-200 break-words"
               >
-                <td className="border-b p-6">{order.id}</td>
-                <td className="border-b p-6">{order.username}</td>
-                <td className="border-b p-6 break-words">
+                <td className="border-b p-4">{order.id}</td>
+                <td className="border-b p-4">{order.username}</td>
+                <td className="border-b p-4 break-words">
                   {order.books.map((book) => book.id).join(", ")}
                 </td>
-                <td className="border-b p-6">{order.status}</td>
-                <td className="border-b p-6">
+                <td className="border-b p-4">{order.status}</td>
+                <td className="border-b p-4">
                   {formatDate(order.borrowed_at)}
                 </td>
-                <td className="border-b p-6">{formatDate(order.due_date)}</td>
-                <td className="border-b p-6">
+                <td className="border-b p-4">{formatDate(order.due_date)}</td>
+                <td className="border-b p-4">
                   {order.returned_at
                     ? formatDate(order.returned_at)
                     : "To be returned"}
                 </td>
-                <td className="border-b p-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-2 items-center h-full ">
+                <td className="border-b p-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-6 gap-4  h-full ">
                     <Link
                       to={`/admin/view/order/${order.id}`}
                       className="tooltip tooltip-right tooltip-success"
@@ -252,6 +252,25 @@ export function OrderTable({ searchValue }) {
                           <path d="M12.9283 2C18.4511 2 22.9283 6.47715 22.9283 12C22.9283 17.5228 18.4511 22 12.9283 22C7.40549 22 2.92834 17.5228 2.92834 12C2.92834 6.47715 7.40549 2 12.9283 2ZM12.9283 3.5C8.23392 3.5 4.42834 7.30558 4.42834 12C4.42834 16.6944 8.23392 20.5 12.9283 20.5C17.6227 20.5 21.4283 16.6944 21.4283 12C21.4283 7.30558 17.6227 3.5 12.9283 3.5ZM11.6783 13.4393L16.148 8.96967C16.4409 8.67678 16.9157 8.67678 17.2086 8.96967C17.4749 9.23594 17.4991 9.6526 17.2812 9.94621L17.2086 10.0303L12.2086 15.0303C11.9424 15.2966 11.5257 15.3208 11.2321 15.1029L11.148 15.0303L8.64801 12.5303C8.35512 12.2374 8.35512 11.7626 8.64801 11.4697C8.91428 11.2034 9.33094 11.1792 9.62455 11.3971L9.70867 11.4697L11.6783 13.4393Z" />
                         </svg>
                       </div>
+                    </button>
+                    <button>
+                      <Link
+                        to={`/admin/renew-order/${order.id}`}
+                        className="tooltip tooltip-left tooltip-success"
+                        data-tip="Renew Order"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="25"
+                          height="24"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M12 6v3l4-4l-4-4v3c-4.42 0-8 3.58-8 8c0 1.57.46 3.03 1.24 4.26L6.7 14.8A5.87 5.87 0 0 1 6 12c0-3.31 2.69-6 6-6m6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8c0 3.31-2.69 6-6 6v-3l-4 4l4 4v-3c4.42 0 8-3.58 8-8c0-1.57-.46-3.03-1.24-4.26"
+                          ></path>
+                        </svg>
+                      </Link>
                     </button>
                   </div>
                 </td>

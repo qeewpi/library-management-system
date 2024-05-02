@@ -21,6 +21,7 @@ import LibraryCatalog from "../pages/admin/LibraryCatalog";
 import UserList from "../pages/admin/UserList";
 import ViewBook from "../pages/admin/ViewBook";
 import ViewOrder from "../pages/admin/ViewOrder";
+import RenewOrder from "components/pages/admin/RenewOrder";
 
 function AdminContent() {
   return (
@@ -54,6 +55,7 @@ function AdminContent() {
           />
 
           <Route path="admin/orders" element={<OrderList />} />
+          <Route path="admin/renew-order/:id" element={<RenewOrder />} />
         </Routes>
       </div>
     </div>

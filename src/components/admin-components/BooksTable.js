@@ -39,16 +39,16 @@ function BooksTable({ searchValue }) {
   return (
     <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
       <table className="table table-lg border-gray-500 border-spacing-y-4">
-        <thead className="text-base text-gray-500 bg-gray-100">
+        <thead className="text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
-            <th className="font-medium border-b p-6">Book ID</th>
-            <th className="font-medium border-b p-6 hidden xl:block">Image</th>
-            <th className="font-medium border-b p-6">Title</th>
-            <th className="font-medium border-b p-6">Author</th>
-            <th className="font-medium border-b p-6">Genre</th>
-            <th className="font-medium border-b p-6">Description</th>
-            <th className="font-medium border-b p-6">Image Path</th>
-            <th className="font-medium border-b p-6">Actions</th>
+            <th className="font-medium border-b p-4">Book ID</th>
+            <th className="font-medium border-b p-4 hidden xl:block">Image</th>
+            <th className="font-medium border-b p-4">Title</th>
+            <th className="font-medium border-b p-4">Author</th>
+            <th className="font-medium border-b p-4">Genre</th>
+            <th className="font-medium border-b p-4">Description</th>
+            <th className="font-medium border-b p-4">Image Path</th>
+            <th className="font-medium border-b p-4">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -67,32 +67,32 @@ function BooksTable({ searchValue }) {
             })
             .map((book, index) => (
               <tr
-                className="text-base font-medium text-primaryBlack border-gray-200 h-full w-full"
+                className="text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
                 key={book.id}
               >
                 <th
                   scope="row"
                   key={index}
-                  className="border-b p-6 font-medium"
+                  className="border-b p-4 font-medium"
                 >
                   {book.id}
                 </th>
-                <td className="border-b p-6 hidden xl:block">
+                <td className="border-b p-4 hidden xl:block">
                   <img
                     src={book.imageUrl}
                     alt=""
                     className="hidden xl:block aspect-[1/1.6] rounded-xl object-cover 
-                    min-h-48 2xl:max-h-60"
+                    max-h-svh 2xl:max-h-60"
                   />
                 </td>
-                <td className="border-b p-6">{book.title}</td>
-                <td className="border-b p-6">{book.author}</td>
-                <td className="border-b p-6">{book.genre}</td>
-                <td className="border-b p-6 break-all">
+                <td className="border-b p-4">{book.title}</td>
+                <td className="border-b p-4">{book.author}</td>
+                <td className="border-b p-4">{book.genre}</td>
+                <td className="border-b p-4 break-all">
                   {book.description.substring(0, 30) + "..."}
                 </td>
-                <td className="border-b p-6 break-all">{book.imagePath}</td>
-                <td className="border-b p-6">
+                <td className="border-b p-4 break-all">{book.imagePath}</td>
+                <td className="border-b p-4">
                   <div className="flex gap-x-3 items h-full">
                     <Link
                       to={`/admin/view/book/${book.id}`}
