@@ -88,21 +88,35 @@ const RenewOrder = () => {
   const handleRenewWithBooks = async (e) => {
     setIsLoading(true);
     e.preventDefault();
-    console.log(booksArray.books);
     try {
-      await OrderService.renewOrderWithBooks(id, booksArray.books);
-      toast.success(`Order renewed successfully with selected books! 😄`, {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-      navigate("/admin/orders");
+      const order = await OrderService.getOrder(id);
+      if (order.returned_at) {
+        toast.error(`Order #${id} is already marked as returned`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      } else {
+        await OrderService.renewOrderWithBooks(id, booksArray.books);
+        toast.success(`Order renewed successfully with selected books! 😄`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        navigate("/admin/orders");
+      }
     } catch (error) {
       console.error("Failed to renew order with books", error);
       toast.error(`Failed to renew order with books! 😟`, {
@@ -124,19 +138,34 @@ const RenewOrder = () => {
   const handleRenewEntireOrder = async () => {
     setIsLoading(true);
     try {
-      await OrderService.renewEntireOrder(id);
-      toast.success(`Entire order renewed successfully! 😄`, {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-      navigate("/admin/orders");
+      const order = await OrderService.getOrder(id);
+      if (order.returned_at) {
+        // toast.error(`Order #${id} is already marked as returned`, {
+        //   position: "bottom-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "light",
+        //   transition: Bounce,
+        // });
+      } else {
+        await OrderService.renewEntireOrder(id);
+        toast.success(`Entire order renewed successfully! 😄`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        navigate("/admin/orders");
+      }
     } catch (error) {
       console.error("Failed to renew entire order", error);
       toast.error(`Failed to renew entire order! 😟`, {
