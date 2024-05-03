@@ -105,9 +105,9 @@ function UserNavBar() {
 
   return (
     <div className="bg-white flex flex-row">
-      <div className="p-8 lg:pl-16 pr-8 py-12 md:justify-between flex flex-row w-full">
+      <div className="p-8 lg:pl-16 pr-8 py-12 lg:justify-between flex flex-row w-full">
         <button
-          className="hamburger-menu flex md:hidden items-center"
+          className="hamburger-menu flex lg:hidden items-center"
           onClick={() => handleOpenClose()}
         >
           <svg
@@ -124,26 +124,26 @@ function UserNavBar() {
         </button>
         <NavLink
           to={"/home"}
-          className={`justify-center md:justify-normal navItems font-semibold flex flex-row items-center gap-x-6 w-full md:w-1/3 ${
+          className={`justify-center lg:justify-normal navItems font-semibold flex flex-row items-center gap-x-6 w-full lg:w-1/3 ${
             location.pathname === "/home" ? "" : ""
           }`}
         >
-          <div className="flex flex-row gap-2 items-center -ml-4 md:ml-0 md:w-40 lg:w-96 transform transition duration-500 hover:scale-110">
+          <div className="flex flex-row gap-2 items-center -ml-4 lg:ml-0 lg:w-40 lg:w-96 transform transition duration-500 hover:scale-110">
             <img src={brandSVG} alt="" />
             <h1 className="text-2xl flex-grow">BookMarked</h1>
           </div>
         </NavLink>
 
-        <div className="hidden md:block flex flex-grow justify-center items-center w-1/3">
+        <div className="hidden lg:block flex flex-grow justify-center items-center w-1/3">
           <form onSubmit={handleSearchSubmit}>
-            <div className="searchBar hidden md:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
+            <div className="searchBar hidden lg:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
               <button type="submit">
                 <img src={searchSVG} alt="" />
               </button>
               <input
                 type="text"
                 placeholder="Search titles..."
-                className="text-gray-500 bg-transparent outline-none flex-grow md:hidden focus:text-primaryBlack text-primaryBlack"
+                className="text-gray-500 bg-transparent outline-none flex-grow lg:hidden focus:text-primaryBlack text-primaryBlack"
                 value={searchInput}
                 onChange={handleSearchChange}
               />
@@ -164,17 +164,17 @@ function UserNavBar() {
             </div>
           </form>
         </div>
-        <div className="flex flex-row-reverse gap-x-8 md:w-1/3 items-center text-sm">
+        <div className="flex flex-row-reverse gap-x-8 lg:w-1/3 items-center text-sm">
           <div className="flex flex-row gap-x-2 items-center">
-            <div className="flex flex-grow items-center md:pr-2">
+            <div className="flex flex-grow items-center lg:pr-2">
               <img src={userFilledSVG} alt="" />
             </div>
-            <div className="hidden md:block nameDiv flex flex-col">
+            <div className="hidden lg:block nameDiv flex flex-col">
               <h1>{currentUser ? currentUser.name : "Guest"}</h1>
               <h1 className="text-gray-500">Student</h1>
             </div>
             <button
-              className="p-2 hidden md:block items-start transform transition duration-500 hover:scale-110"
+              className="p-2 hidden lg:block items-start transform transition duration-500 hover:scale-110"
               data-tip="Log Out"
               onClick={handleLogout}
             >

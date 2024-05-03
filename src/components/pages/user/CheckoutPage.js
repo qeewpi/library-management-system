@@ -60,14 +60,14 @@ function CheckoutPage() {
     return (
       <div className="flex flex-grow flex-row">
         <ToastContainer />
-        <div className="flex flex-grow flex-row gap-4 w-full">
-          <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
+        <div className="flex flex-grow flex-col lg:flex-row gap-4 w-full">
+          <div className="flex flex-col bg-white p-6 rounded-xl lg:w-3/4">
             <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
             <div className="text-gray-400 mt-2 font-medium">
               Cart is currently empty. Please browse the library to add books.
             </div>
           </div>
-          <div className="flex flex-col bg-white p-6 rounded-xl h-max w-1/4">
+          <div className="flex flex-col bg-white p-6 rounded-xl h-max lg:w-1/4">
             <Checkout books={books} cart={cart} />
           </div>
         </div>
@@ -95,8 +95,8 @@ function CheckoutPage() {
   return (
     <div className="flex flex-grow flex-row">
       <ToastContainer />
-      <div className="flex flex-grow flex-row gap-4 w-full">
-        <div className="flex flex-col bg-white p-6 rounded-xl w-3/4">
+      <div className="flex flex-grow flex-col lg:flex-row gap-4 w-full">
+        <div className="flex flex-col bg-white p-6 rounded-xl lg:w-3/4">
           <div>
             <h1 className="font-semibold text-primaryBlack text-xl">Cart</h1>
 
@@ -120,7 +120,7 @@ function CheckoutPage() {
           ))}
         </div>
 
-        <div className="flex flex-col bg-white p-6 rounded-xl w-1/4 h-max">
+        <div className="flex flex-col bg-white p-6 rounded-xl h-max lg:w-1/4">
           <Checkout books={books} cart={cart} />
         </div>
       </div>

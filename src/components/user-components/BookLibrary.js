@@ -39,16 +39,14 @@ const BookLibrary = ({ setSelectedBook }) => {
   }
 
   return (
-    <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-6 min-h-full">
-      <div className="containerDiv flex-grow flex flex-col">
-        <h1
-          className={`${sizesHeading["4xl"]} ml-[5px] !text-black-900 md:ml-0`}
-        >
+    <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-6 min-h-full max-w-screen">
+      <div className="containerDiv flex-grow flex flex-col px-2 pt-2">
+        <h1 className={`text-3xl ml-1 !text-black-900 md:ml-0 pb-1`}>
           Your Book Library
         </h1>
-        <div className="overflow-auto mb-[42px] ml-[5px]  md:ml-0 min-h-full">
+        <div className="overflow-auto mb-11 ml-1 md:ml-0 min-h-full">
           <div
-            className={`grid gap-4 mt-4 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 min-h-full`}
+            className={`grid gap-4 mt-4 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-4 grid-cols-4 min-h-full`}
           >
             {orders
               .filter((order) => order.status === "BORROWED")

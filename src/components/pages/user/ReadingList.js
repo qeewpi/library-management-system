@@ -13,8 +13,8 @@ function ReadingList() {
   };
   return (
     <div>
-      <div className="flex flex-1 items-center gap-4 md:flex-col md:self-stretch">
-        <div className="flex flex-1 md:flex-row space-x-4 ">
+      <div className="flex flex-1 items-center gap-4 flex-col md:self-stretch max-w-screen">
+        <div className="flex flex-col lg:flex-row space-x-4 max-w-screen">
           <div className="flex-1">
             <BookLibrary setSelectedBook={setSelectedBook} />
           </div>

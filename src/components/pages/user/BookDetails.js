@@ -127,8 +127,8 @@ function BookDetails() {
       </div>
 
       <div className="book-details-wrapper text-xl bg-white font-semibold p-6 rounded-xl flex">
-        <div className="flex flex-row gap-x-8 flex-grow justify-items-stretch">
-          <div className="imageContainer flex w-4/12 rounded-xl relative group overflow-hidden">
+        <div className="flex flex-col md:flex-row gap-x-8 flex-grow justify-items-stretch">
+          <div className="imageContainer flex w-full mb-4 md:mb-0 md:w-4/12 rounded-xl relative group overflow-hidden">
             <img
               src={book.imageUrl}
               alt={book.title}
@@ -150,7 +150,7 @@ function BookDetails() {
             <div>
               <button
                 onClick={handleAddToCart}
-                className="p-4 px-12 bg-primaryBlue text-white rounded-xl text-base hover:bg-blue-900 transition duration-300 ease-in-out"
+                className="p-4 px-12 bg-primaryBlue text-white rounded-xl text-base hover:bg-blue-900 transition duration-300 ease-in-out w-full md:w-auto"
               >
                 Add to cart
               </button>
