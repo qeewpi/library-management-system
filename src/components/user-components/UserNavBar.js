@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import AuthService from "service/AuthService";
 import CartService from "service/CartService";
@@ -10,6 +10,17 @@ function UserNavBar() {
   let navigate = useNavigate();
   const location = useLocation();
   const currentUser = AuthService.getCurrentUser();
+
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search-results/${searchInput}`);
+  };
 
   if (
     location.pathname === "/" ||
@@ -42,24 +53,34 @@ function UserNavBar() {
         </NavLink>
 
         <div className=" flex flex-grow justify-center items-center w-1/3">
-          <div className="searchBar hidden md:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
-            <img src={searchSVG} alt="" />
-            <input
-              type="text"
-              placeholder="Search titles..."
-              className="text-gray-500 bg-transparent outline-none flex-grow md:hidden focus:text-primaryBlack text-primaryBlack"
-            />
-            <input
-              type="text"
-              placeholder="Search titles, authors..."
-              className="text-gray-500 bg-transparent outline-none flex-grow hidden lg:block xl:hidden focus:text-primaryBlack text-primaryBlack"
-            />
-            <input
-              type="text"
-              placeholder="Search book titles, authors, publishers..."
-              className="text-gray-500 bg-transparent outline-none flex-grow hidden xl:block focus:text-primaryBlack text-primaryBlack"
-            />
-          </div>
+          <form onSubmit={handleSearchSubmit}>
+            <div className="searchBar hidden md:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
+              <button type="submit">
+                <img src={searchSVG} alt="" />
+              </button>
+              <input
+                type="text"
+                placeholder="Search titles..."
+                className="text-gray-500 bg-transparent outline-none flex-grow md:hidden focus:text-primaryBlack text-primaryBlack"
+                value={searchInput}
+                onChange={handleSearchChange}
+              />
+              <input
+                type="text"
+                placeholder="Search titles, authors..."
+                className="text-gray-500 bg-transparent outline-none flex-grow hidden lg:block xl:hidden focus:text-primaryBlack text-primaryBlack"
+                value={searchInput}
+                onChange={handleSearchChange}
+              />
+              <input
+                type="text"
+                placeholder="Search book titles, authors, publishers..."
+                className="text-gray-500 bg-transparent outline-none flex-grow hidden xl:block focus:text-primaryBlack text-primaryBlack"
+                value={searchInput}
+                onChange={handleSearchChange}
+              />
+            </div>
+          </form>
         </div>
         <div className="flex flex-row-reverse gap-x-8 w-1/3 items-center text-sm">
           <div className="flex flex-row gap-x-2 items-center">

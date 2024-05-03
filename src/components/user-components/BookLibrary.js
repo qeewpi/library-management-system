@@ -61,7 +61,10 @@ const BookLibrary = ({ setSelectedBook }) => {
               )
               .flatMap((order) =>
                 order.books.map((book) => (
-                  <button onClick={() => setSelectedBook({ ...book, order })}>
+                  <button
+                    onClick={() => setSelectedBook({ ...book, order })}
+                    key={order.id}
+                  >
                     <div className="flex flex-col items-center transform transition duration-500 hover:scale-90">
                       {order.status === "BORROWED" ? (
                         <img

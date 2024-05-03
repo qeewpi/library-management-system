@@ -1,4 +1,4 @@
-import GenreBookSlider from "components/user-components/GenreBookSlider";
+import SimilarBookSlider from "components/user-components/SimilarBookSlider";
 import { default as React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Bounce, ToastContainer, toast } from "react-toastify";
@@ -143,7 +143,7 @@ function BookDetails() {
           </div>
         </div>
       </div>
-      <GenreBookSlider genre={book.genre} excludeBookId={book.id} />
+      <SimilarBookSlider genre={book.genre} excludeBookId={book.id} />
     </div>
   );
 }

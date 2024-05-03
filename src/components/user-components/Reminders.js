@@ -39,7 +39,7 @@ function Reminders() {
   };
 
   return (
-    <div className="flex flex-col bg-white p-6 rounded-xl text-gray-500 gap-y-4 font-medium">
+    <div className="flex flex-col bg-white px-6 pt-6 pb-2 rounded-xl text-gray-500 gap-y-4 font-medium text-lg">
       {overdueOrders.length > 0 && loadOrdersDueTomorrow.length > 0 ? (
         <h1>
           You have{" "}
