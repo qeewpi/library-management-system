@@ -146,14 +146,30 @@ export function OrderTable({ searchValue }) {
               if (searchValue.toLowerCase() === "") {
                 return true;
               } else {
-                return Object.values(item).some(
-                  (value) =>
-                    value &&
-                    value
-                      .toString()
-                      .toLowerCase()
-                      .includes(searchValue.toLowerCase())
-                );
+                return Object.values(item).some((value) => {
+                  if (Array.isArray(value)) {
+                    // If the value is an array, search its elements
+                    return value.some((element) =>
+                      Object.values(element).some(
+                        (nestedValue) =>
+                          nestedValue &&
+                          nestedValue
+                            .toString()
+                            .toLowerCase()
+                            .includes(searchValue.toLowerCase())
+                      )
+                    );
+                  } else {
+                    // If the value is not an array, search it directly
+                    return (
+                      value &&
+                      value
+                        .toString()
+                        .toLowerCase()
+                        .includes(searchValue.toLowerCase())
+                    );
+                  }
+                });
               }
             })
             .map((order, index) => (

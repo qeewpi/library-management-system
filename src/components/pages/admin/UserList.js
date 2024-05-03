@@ -6,10 +6,24 @@ import { UserTable } from "../../admin-components/UserTable";
 
 function UserList() {
   const [searchValue, setSearchValue] = useState("");
+  const [filterValue, setFilterValue] = useState("");
 
   const handleSearchChange = (searchValue) => {
     setSearchValue(searchValue);
   };
+
+  const handleFilterChange = (filterValue) => {
+    setFilterValue(filterValue);
+  };
+
+  const filters = [
+    { value: "Admin", label: "Admin" },
+    { value: "User", label: "User" },
+    { value: "", label: "All Users" },
+  ];
+
+  // Use filterValue if it's not an empty string, otherwise use searchValue
+  const valueToUse = filterValue !== "" ? filterValue : searchValue;
 
   return (
     <div className="flex flex-col gap-y-6 max-w-screen">
@@ -19,7 +33,11 @@ function UserList() {
           <h1 className="text-xl">User Table</h1>
         </div>
         <div className="flex gap-y-4 flex-col lg:flex-row justify-between">
-          <SearchBar onSearchChange={handleSearchChange} />
+          <SearchBar
+            onSearchChange={handleSearchChange}
+            onFilterChange={handleFilterChange}
+            filters={filters}
+          />
           <div className="w-2/4">
             <ButtonGroup
               button1={"Add User"}
@@ -29,7 +47,7 @@ function UserList() {
             />
           </div>
         </div>
-        <UserTable searchValue={searchValue} />
+        <UserTable searchValue={valueToUse} />
       </div>
     </div>
   );

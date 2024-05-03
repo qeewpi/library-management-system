@@ -5,10 +5,29 @@ import { ButtonGroup } from "./../../admin-components/ButtonGroup";
 
 function LibraryCatalog() {
   const [searchValue, setSearchValue] = useState("");
+  const [filterValue, setFilterValue] = useState("");
 
   const handleSearchChange = (searchValue) => {
     setSearchValue(searchValue);
   };
+
+  const handleFilterChange = (filterValue) => {
+    setFilterValue(filterValue);
+  };
+
+  const genres = ["FICTION", "NON_FICTION", "MYSTERY", "FANTASY", "BIOGRAPHY"];
+
+  const filters = [
+    { value: "FICTION", label: "Fiction" },
+    { value: "NON_FICTION", label: "Non-fiction" },
+    { value: "MYSTERY", label: "Mystery" },
+    { value: "FANTASY", label: "Fantasy" },
+    { value: "BIOGRAPHY", label: "Biography" },
+    { value: "", label: "All Genres" },
+  ];
+
+  // Use filterValue if it's not an empty string, otherwise use searchValue
+  const valueToUse = filterValue !== "" ? filterValue : searchValue;
 
   return (
     <div className="flex flex-col gap-y-6 max-w-screen">
@@ -16,7 +35,11 @@ function LibraryCatalog() {
         <div className="flex flex-col gap-y-4">
           <h1 className="text-xl">Library Catalog</h1>
           <div className="flex flex-row justify-between">
-            <SearchBar onSearchChange={handleSearchChange} />
+            <SearchBar
+              onSearchChange={handleSearchChange}
+              onFilterChange={handleFilterChange}
+              filters={filters}
+            />
             <ButtonGroup
               button1={"Add Book"}
               button2={"Delete Book"}
@@ -25,7 +48,7 @@ function LibraryCatalog() {
             />
           </div>
         </div>
-        <BooksTable searchValue={searchValue} />
+        <BooksTable searchValue={valueToUse} />
       </div>
     </div>
   );
