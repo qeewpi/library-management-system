@@ -64,13 +64,11 @@ function LogIn() {
           >
             <div className="flex flex-row gap-2 items-center justify-center">
               <img src={brandSVG} alt="" />
-              <h1 className="text-xl">eLibrary</h1>
+              <h1 className="text-xl">BookMarked</h1>
             </div>
             <div>
               <h2 className="text-xl mt-2">Welcome Back!</h2>
-              <p className="mt-2 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
+
               {loginFailed && (
                 <p className="mt-2 text-red-900">
                   Login failed, please try again.
