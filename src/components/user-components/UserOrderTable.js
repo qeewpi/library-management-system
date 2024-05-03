@@ -144,7 +144,7 @@ export function UserOrderTable({ searchValue }) {
                       </Link>
                     </button>
                     <button
-                      className="tooltip tooltip-left tooltip-primary"
+                      className="tooltip tooltip-left tooltip-success"
                       data-tip="Renew Order"
                       onClick={() => renewOrder(order.id)}
                     >
