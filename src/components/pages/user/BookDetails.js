@@ -1,6 +1,6 @@
 import SimilarBookSlider from "components/user-components/SimilarBookSlider";
 import { default as React, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BookService from "service/BookService";
@@ -110,6 +110,22 @@ function BookDetails() {
   // Display the book details
   return (
     <div className="flex flex-col gap-y-6">
+      <div className="text-sm breadcrumbs -mb-4">
+        <ul>
+          <li>
+            <Link to="/browse-library">Browse Library</Link>
+          </li>
+          <li>
+            <a>
+              {" "}
+              {book.genre.charAt(0).toUpperCase() +
+                book.genre.slice(1).toLowerCase()}
+            </a>
+          </li>
+          <li className="font-bold">{book.title}</li>
+        </ul>
+      </div>
+
       <div className="book-details-wrapper text-xl bg-white font-semibold p-6 rounded-xl flex">
         <div className="flex flex-row gap-x-8 flex-grow justify-items-stretch">
           <div className="imageContainer flex w-4/12 rounded-xl relative group overflow-hidden">
