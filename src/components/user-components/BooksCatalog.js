@@ -8,7 +8,14 @@ function BooksCatalog() {
   useEffect(() => {
     BookService.getAllBooks()
       .then((data) => {
-        setBooks(data);
+        // Shuffle the array
+        for (let i = data.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [data[i], data[j]] = [data[j], data[i]];
+        }
+
+        // Take the first 10 books
+        setBooks(data.slice(0, 10));
       })
       .catch((error) => {
         console.error(error);
@@ -17,7 +24,7 @@ function BooksCatalog() {
 
   return (
     <div className="bg-white font-semibold p-6 rounded-xl flex flex-col gap-y-4">
-      <h1 className="text-xl">Library Catalog</h1>
+      <h1 className="text-xl">Reccommended for you</h1>
       <BookCardSlider books={books} />
     </div>
   );
