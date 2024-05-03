@@ -1,11 +1,10 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import AuthService from "service/AuthService";
 import CartService from "service/CartService";
 import brandSVG from "../../icons/brand.svg";
 import searchSVG from "../../icons/search.svg";
 import userFilledSVG from "../../icons/user-filled.svg";
-import { NavLink } from "react-router-dom";
 
 function UserNavBar() {
   let navigate = useNavigate();
@@ -29,10 +28,10 @@ function UserNavBar() {
 
   return (
     <div className="bg-white">
-      <div className="px-16 p-12 grid gap-x-80 justify-between grid-cols-3 ">
+      <div className="pl-16 pr-8 py-12  justify-between flex flex-row w-full">
         <NavLink
           to={"/home"}
-          className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-1/4 ${
+          className={`navItems font-semibold flex flex-row items-center gap-x-6 w-1/3 ${
             location.pathname === "/home" ? "" : ""
           }`}
         >
@@ -42,7 +41,7 @@ function UserNavBar() {
           </div>
         </NavLink>
 
-        <div className=" flex flex-grow justify-center items-center max-w-sm lg:max-w-lg">
+        <div className=" flex flex-grow justify-center items-center w-1/3">
           <div className="searchBar hidden md:flex flex-row mx-2 lg:mx-0 px-4 py-4 lg:w-96 rounded-xl gap-x-4 bg-customGrey items-center flex-grow ">
             <img src={searchSVG} alt="" />
             <input
@@ -53,16 +52,16 @@ function UserNavBar() {
             <input
               type="text"
               placeholder="Search titles, authors..."
-              className="text-gray-500 bg-transparent outline-none flex-grow hidden md:block lg:hidden focus:text-primaryBlack text-primaryBlack"
+              className="text-gray-500 bg-transparent outline-none flex-grow hidden lg:block xl:hidden focus:text-primaryBlack text-primaryBlack"
             />
             <input
               type="text"
               placeholder="Search book titles, authors, publishers..."
-              className="text-gray-500 bg-transparent outline-none flex-grow hidden lg:block focus:text-primaryBlack text-primaryBlack"
+              className="text-gray-500 bg-transparent outline-none flex-grow hidden xl:block focus:text-primaryBlack text-primaryBlack"
             />
           </div>
         </div>
-        <div className="flex flex-row-reverse gap-x-8 w-40 lg:w-96 items-center text-sm">
+        <div className="flex flex-row-reverse gap-x-8 w-1/3 items-center text-sm">
           <div className="flex flex-row gap-x-2 items-center">
             <div className="flex flex-grow items-center pr-2">
               <img src={userFilledSVG} alt="" />

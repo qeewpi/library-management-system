@@ -24,7 +24,7 @@ function AdminNavBar() {
 
   return (
     <div className="bg-white">
-      <div className="px-16 p-12 flex justify-between flex-row">
+      <div className="pl-16 py-12 pr-8 flex justify-between flex-row">
         <NavLink
           to={"/admin/user-list"}
           className={`navItems font-semibold flex flex-row items-center justify-start gap-x-6 w-1/4 ${
