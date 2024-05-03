@@ -24,11 +24,8 @@ function BookCardSlider({ books }) {
               768: {
                 perPage: 3,
               },
-              640: {
+              320: {
                 perPage: 2,
-              },
-              480: {
-                perPage: 1,
               },
             },
             gap: "1rem",

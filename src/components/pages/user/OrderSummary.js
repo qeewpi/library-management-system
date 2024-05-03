@@ -58,10 +58,10 @@ function OrderSummary() {
             : "Loading..."}
         </span>
       </div>
-      <div className="grid grid-cols-3 gap-4 pt-3">
+      <div className="md:grid justify-center lg:grid-cols-2 xl:grid-cols-3 gap-4 pt-3">
         <div className="flex justify-center gap-x-1">
           <span className="text-primaryBlack font-bold">Order Status: </span>
-          <span className="mr-8 font-medium">
+          <span className="font-medium">
             {order
               ? order.status === "BORROWED"
                 ? "Borrowed"
@@ -77,7 +77,7 @@ function OrderSummary() {
             {order ? formatDate(order.borrowed_at) : "Loading..."}
           </span>
         </div>
-        <div className="flex justify-center gap-x-1">
+        <div className="flex justify-center gap-x-1 col-span-2 xl:col-span-1">
           <span className="text-primaryBlack font-bold">Due Date: </span>
           <span className="font-medium">
             {order ? formatDate(order.due_date) : "Loading..."}

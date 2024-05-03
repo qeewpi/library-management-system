@@ -10,8 +10,8 @@ function OrderItem({ book }) {
 
   // Display the book details
   return (
-    <div className="flex flex-row gap-x-8">
-      <div className="flex w-1/12">
+    <div className="flex flex-col md:flex-row gap-x-8">
+      <div className="flex md:w-2/12 lg:w-1/12 mb-2 md:mb-0">
         <img
           src={BookService.downloadBookImage(book.imagePath)}
           alt={book.title}

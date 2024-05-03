@@ -47,8 +47,8 @@ function LogIn() {
   };
 
   return (
-    <div className="login-page flex justify-center items-center h-screen font-semibold">
-      <div className="image w-1/2 h-full bg-cover bg-no-repeat bg-center relative overflow-hidden">
+    <div className="login-page md:flex justify-center items-center h-screen font-semibold">
+      <div className="image md:w-1/2 h-full bg-cover bg-no-repeat bg-center relative overflow-hidden hidden md:block">
         <img
           src={library}
           alt="Library"
@@ -56,7 +56,7 @@ function LogIn() {
         />
       </div>
 
-      <div className="form w-1/2 max-w-screen px-24 lg:p-32 py-10 overflow-hidden">
+      <div className="form mx-auto px-8 pt-40 md:pt-0 md:w-1/2 max-w-screen md:px-16 lg:px-24 lg:p-32 py-10 overflow-hidden">
         <form action="" onSubmit={handleSubmit}>
           <div
             className="header flex flex-col gap-y-6
