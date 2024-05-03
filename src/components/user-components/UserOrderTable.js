@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { default as React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import AuthService from "service/AuthService";
 import OrderService from "service/OrderService";
 
@@ -15,36 +16,54 @@ export function UserOrderTable({ searchValue }) {
     try {
       let orders = await OrderService.getOrdersByUserId(currentUser.id);
       setOrders(orders);
-      console.log(orders);
     } catch (error) {
       console.error("Failed to fetch orders", error);
     }
   };
 
-  const deleteOrder = async (id) => {
+  const renewOrder = async (orderId) => {
     try {
-      await OrderService.deleteOrder(id);
-      loadOrders();
+      const orderData = await OrderService.getOrder(orderId);
+      if (orderData.returned_at) {
+        toast.error(
+          `Order #${orderId} is already marked as returned. Please submit a new order instead.`,
+          {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          }
+        );
+        return;
+      } else {
+        const response = await toast.promise(
+          OrderService.renewEntireOrder(orderId),
+          {
+            pending: "Renewing order...",
+            success: `Order #${orderId} renewed successfully!`,
+            error: `Failed to renew order #${orderId}.`,
+          },
+          {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          }
+        );
+        loadOrders();
+      }
     } catch (error) {
-      console.error("Failed to delete order", error);
-    }
-  };
-
-  const markOrderAsReturned = async (id) => {
-    try {
-      await OrderService.markOrderAsReturned(id);
-      loadOrders();
-    } catch (error) {
-      console.error("Failed to mark order as returned", error);
-    }
-  };
-
-  const fetchUserName = async (orderId) => {
-    try {
-      const order = await OrderService.getUserByOrderId(orderId);
-      return order.username;
-    } catch (error) {
-      console.error("Failed to fetch order", error);
+      console.error("Failed to renew order", error);
     }
   };
 
@@ -106,28 +125,48 @@ export function UserOrderTable({ searchValue }) {
                     : "To Be Returned"}
                 </td>
                 <td className="border-b p-4">
-                  <div className="flex gap-x-3 items h-full">
-                    <Link
-                      to={`/order-summary/${order.id}`}
-                      className="text-green-900 flex items-center gap-x-1"
+                  <div className="container flex flex-row">
+                    <button>
+                      <Link
+                        to={`/order-summary/${order.id}`}
+                        className="text-green-900 flex items-center gap-x-1 tooltip tooltip-left tooltip-primary"
+                        data-tip="View Order Details"
+                      >
+                        <svg
+                          width="25"
+                          height="24"
+                          viewBox="0 0 25 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="fill-green-900"
+                        >
+                          <path d="M12.3568 9.00462C14.5659 9.00462 16.3568 10.7955 16.3568 13.0046C16.3568 15.2138 14.5659 17.0046 12.3568 17.0046C10.1477 17.0046 8.3568 15.2138 8.3568 13.0046C8.3568 10.7955 10.1477 9.00462 12.3568 9.00462ZM12.3568 10.5046C10.9761 10.5046 9.8568 11.6239 9.8568 13.0046C9.8568 14.3853 10.9761 15.5046 12.3568 15.5046C13.7375 15.5046 14.8568 14.3853 14.8568 13.0046C14.8568 11.6239 13.7375 10.5046 12.3568 10.5046ZM12.3568 5.5C16.9703 5.5 20.9529 8.65001 22.0579 13.0644C22.1585 13.4662 21.9143 13.8735 21.5125 13.9741C21.1106 14.0746 20.7034 13.8305 20.6028 13.4286C19.6639 9.67796 16.2781 7 12.3568 7C8.43374 7 5.0469 9.68026 4.10966 13.4332C4.0093 13.835 3.60216 14.0794 3.20029 13.9791C2.79842 13.8787 2.554 13.4716 2.65436 13.0697C3.75745 8.65272 7.74129 5.5 12.3568 5.5Z" />
+                        </svg>
+                      </Link>
+                    </button>
+                    <button
+                      className="tooltip tooltip-left tooltip-primary"
+                      data-tip="Renew Order"
+                      onClick={() => renewOrder(order.id)}
                     >
                       <svg
+                        xmlns="http://www.w3.org/2000/svg"
                         width="25"
                         height="24"
-                        viewBox="0 0 25 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="fill-green-900"
+                        viewBox="0 0 24 24"
                       >
-                        <path d="M12.3568 9.00462C14.5659 9.00462 16.3568 10.7955 16.3568 13.0046C16.3568 15.2138 14.5659 17.0046 12.3568 17.0046C10.1477 17.0046 8.3568 15.2138 8.3568 13.0046C8.3568 10.7955 10.1477 9.00462 12.3568 9.00462ZM12.3568 10.5046C10.9761 10.5046 9.8568 11.6239 9.8568 13.0046C9.8568 14.3853 10.9761 15.5046 12.3568 15.5046C13.7375 15.5046 14.8568 14.3853 14.8568 13.0046C14.8568 11.6239 13.7375 10.5046 12.3568 10.5046ZM12.3568 5.5C16.9703 5.5 20.9529 8.65001 22.0579 13.0644C22.1585 13.4662 21.9143 13.8735 21.5125 13.9741C21.1106 14.0746 20.7034 13.8305 20.6028 13.4286C19.6639 9.67796 16.2781 7 12.3568 7C8.43374 7 5.0469 9.68026 4.10966 13.4332C4.0093 13.835 3.60216 14.0794 3.20029 13.9791C2.79842 13.8787 2.554 13.4716 2.65436 13.0697C3.75745 8.65272 7.74129 5.5 12.3568 5.5Z" />
+                        <path
+                          fill="currentColor"
+                          d="M12 6v3l4-4l-4-4v3c-4.42 0-8 3.58-8 8c0 1.57.46 3.03 1.24 4.26L6.7 14.8A5.87 5.87 0 0 1 6 12c0-3.31 2.69-6 6-6m6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8c0 3.31-2.69 6-6 6v-3l-4 4l4 4v-3c4.42 0 8-3.58 8-8c0-1.57-.46-3.03-1.24-4.26"
+                        ></path>
                       </svg>
-                      View Order
-                    </Link>
+                    </button>
                   </div>
                 </td>
               </tr>
             ))}
         </tbody>
       </table>
+      <ToastContainer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BookService from "service/BookService";
 import cardItemPlaceholder from "../../img/cardItemPlaceholder.png";
 
@@ -16,6 +16,10 @@ const BookSelected = ({ selectedBook }) => {
     const daysRemaining = Math.ceil(timeDifference / (1000 * 3600 * 24));
     return daysRemaining;
   };
+
+  useEffect(() => {
+    console.log(selectedBook);
+  }, [selectedBook]);
 
   if (!selectedBook) {
     return (
@@ -85,20 +89,31 @@ const BookSelected = ({ selectedBook }) => {
           className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover drop-shadow-xl transform transition duration-500 hover:scale-50"
         />
         <div className="absolute z-5 p-4 -mt-[4.5rem]">
-          <button
-            className="min-w-[160px] rounded-xl sm:px-5 bg-secondaryBlue text-white px-3 py-3 text-base font-bold flex justify-center items-center drop-shadow-xl"
-            disabled
-            aria-disabled="true"
-            title="This book is currently borrowed."
-          >
-            Currently Borrowed
-          </button>
+          {selectedBook.order.status === "OVERDUE" ? (
+            <button
+              className="min-w-[160px] rounded-xl sm:px-5 bg-red-900 text-white px-3 py-3 text-sm font-bold flex justify-center items-center drop-shadow-xl"
+              disabled
+              aria-disabled="true"
+              title="This book is currently borrowed."
+            >
+              Overdue
+            </button>
+          ) : (
+            <button
+              className="min-w-[160px] rounded-xl sm:px-5 bg-secondaryBlue text-white px-3 py-3 text-sm font-bold flex justify-center items-center drop-shadow-xl"
+              disabled
+              aria-disabled="true"
+              title="This book is currently borrowed."
+            >
+              Currently Borrowed
+            </button>
+          )}
         </div>
       </div>
 
       <div className="flex flex-col items-start gap-[21px] ">
         <div className="flex items-center justify-between gap-5 self-stretch bg-white-A700"></div>
-        <div className="px-5 pb-5 flex flex-col gap-y-4 w-full">
+        <div className="px-5 pb-5 flex flex-col gap-y-4 w-full ">
           <div className="flex flex-col items-start gap-0.5">
             <h2 className={`${sizesHeading["3xl"]} !text-black`}>
               {selectedBook.title}
@@ -108,32 +123,34 @@ const BookSelected = ({ selectedBook }) => {
           <div className="flex w-[91%] items-center justify-between gap-5 pr-[5px] md:w-full">
             <div className="flex flex-col items-start">
               <p className="text-base">Status</p>
-              <h3 className={`${sizesHeading.s} !text-black`}>
-                {selectedBook.order.status ? "Borrowed" : "Available"}
+              <h3 className={`${sizesHeading.s} text-gray-500 font-medium`}>
+                {selectedBook.order.status === "OVERDUE"
+                  ? "Overdue"
+                  : "Borrowed"}
               </h3>
             </div>
             <div className="flex flex-col items-start">
               <p className="text-base">Borrowed On</p>
-              <h4 className={`${sizesHeading.s} !text-black`}>
+              <h4 className={`${sizesHeading.s} text-gray-500 font-medium`}>
                 {formatDate(selectedBook.order.borrowed_at)}
               </h4>
             </div>
             <div className="flex flex-col gap-0.5">
               <p className="text-base">Deadline</p>
-              <h5 className={`${sizesHeading.s} !text-black`}>
+              <h5 className={`${sizesHeading.s} text-gray-500 font-medium`}>
                 {formatDate(selectedBook.order.due_date)}
               </h5>
             </div>
             <div className="flex flex-col items-start gap-0.5">
               <p className="text-base">Days Remaining</p>
-              <h6 className={`${sizesHeading.s} !text-black`}>
+              <h6 className={`${sizesHeading.s} text-gray-500 font-medium`}>
                 {calculateDaysRemaining(selectedBook.order.due_date)}
               </h6>
             </div>
           </div>
           <div className="flex flex-col items-start self-stretch">
-            <p className={`${sizesHeading.s} !text-black`}>Description</p>
-            <p className="text-[13px] font-light !text-black">
+            <p className={`${sizesHeading.s}font-medium`}>Description</p>
+            <p className="text-sm text-gray-500 font-medium">
               {selectedBook.description}
             </p>
           </div>

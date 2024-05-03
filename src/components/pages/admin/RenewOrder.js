@@ -91,17 +91,20 @@ const RenewOrder = () => {
     try {
       const order = await OrderService.getOrder(id);
       if (order.returned_at) {
-        toast.error(`Order #${id} is already marked as returned`, {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
+        toast.error(
+          `Order #${id} is already marked as returned. Please submit a new order instead.`,
+          {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          }
+        );
       } else {
         await OrderService.renewOrderWithBooks(id, booksArray.books);
         toast.success(`Order renewed successfully with selected books! 😄`, {
