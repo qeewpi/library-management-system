@@ -272,7 +272,7 @@ export function OrderTable({ searchValue }) {
                     <button>
                       <Link
                         to={`/admin/renew-order/${order.id}`}
-                        className="tooltip tooltip-left tooltip-primary"
+                        className="tooltip tooltip-left tooltip-success"
                         data-tip="Renew Order"
                       >
                         <svg
@@ -280,11 +280,9 @@ export function OrderTable({ searchValue }) {
                           width="25"
                           height="24"
                           viewBox="0 0 24 24"
+                          className="fill-green-900"
                         >
-                          <path
-                            fill="currentColor"
-                            d="M12 6v3l4-4l-4-4v3c-4.42 0-8 3.58-8 8c0 1.57.46 3.03 1.24 4.26L6.7 14.8A5.87 5.87 0 0 1 6 12c0-3.31 2.69-6 6-6m6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8c0 3.31-2.69 6-6 6v-3l-4 4l4 4v-3c4.42 0 8-3.58 8-8c0-1.57-.46-3.03-1.24-4.26"
-                          ></path>
+                          <path d="M12 6v3l4-4l-4-4v3c-4.42 0-8 3.58-8 8c0 1.57.46 3.03 1.24 4.26L6.7 14.8A5.87 5.87 0 0 1 6 12c0-3.31 2.69-6 6-6m6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8c0 3.31-2.69 6-6 6v-3l-4 4l4 4v-3c4.42 0 8-3.58 8-8c0-1.57-.46-3.03-1.24-4.26"></path>
                         </svg>
                       </Link>
                     </button>
