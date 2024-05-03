@@ -1,6 +1,7 @@
 import React from "react";
 import BookService from "service/BookService";
 import cardItemPlaceholder from "../../img/cardItemPlaceholder.png";
+import { Link } from "react-router-dom";
 
 const BookSelected = ({ selectedBook }) => {
   const formatDate = (dateString) => {
@@ -62,9 +63,11 @@ const BookSelected = ({ selectedBook }) => {
             <p className="text-[13px] font-light !text-black">...</p>
           </div>
           <div className="flex w-full">
-            <button className="bg-primaryYellow p-3 rounded-xl text-white text-sm">
-              Browse Library
-            </button>
+            <Link to="/browse-library">
+              <button className="bg-primaryYellow p-3 rounded-xl text-white text-sm transform transition duration-500 hover:scale-110">
+                Browse Library
+              </button>
+            </Link>
           </div>
         </div>
       </div>
