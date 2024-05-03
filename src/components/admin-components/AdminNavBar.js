@@ -41,10 +41,12 @@ function AdminNavBar() {
             <div className="flex flex-grow items-center pr-2">
               <img src={userFilledSVG} alt="" />
             </div>
-            <div className="nameDiv flex flex-col hidden xl:block">
-              <h1>{currentUser.name}</h1>
-              <h1 className="text-gray-500">Admin</h1>
-            </div>
+            <NavLink to="/admin/profile" className="navItems">
+              <div className="nameDiv flex flex-col hidden xl:block">
+                <h1>{currentUser.name}</h1>
+                <h1 className="text-gray-500">Admin</h1>
+              </div>
+            </NavLink>
 
             <button
               className="p-2 items-start transform transition duration-500 hover:scale-110"

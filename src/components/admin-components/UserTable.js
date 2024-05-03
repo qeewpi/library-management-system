@@ -84,7 +84,9 @@ export function UserTable({ searchValue }) {
                     <Link
                       to={`/admin/view/user/${user.id}`}
                       className="tooltip tooltip-success tooltip-right"
-                      data-tip="View user"
+                      data-tip={`View ${
+                        user.roles[0].name === "ROLE_ADMIN" ? "Admin" : "User"
+                      }`}
                     >
                       <svg
                         width="25"
@@ -99,7 +101,9 @@ export function UserTable({ searchValue }) {
                     <Link
                       to={`/admin/edit/user/${user.id}`}
                       className="tooltip tooltip-primary"
-                      data-tip="Edit user"
+                      data-tip={`Edit ${
+                        user.roles[0].name === "ROLE_ADMIN" ? "Admin" : "User"
+                      }`}
                     >
                       <svg
                         width="24"

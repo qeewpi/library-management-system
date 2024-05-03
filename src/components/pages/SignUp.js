@@ -69,13 +69,10 @@ function SignUp() {
           >
             <div className="flex flex-row gap-2 items-center justify-center">
               <img src={brandSVG} alt="" />
-              <h1 className="text-xl">eLibrary</h1>
+              <h1 className="text-xl">BookMarked</h1>
             </div>
             <div>
               <h2 className="text-xl mt-2">Create an Account</h2>
-              <p className="mt-2 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
               {registerFailed && (
                 <p className="mt-2 text-red-900">
                   Signup failed, please try again.
