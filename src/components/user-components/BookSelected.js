@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import BookService from "service/BookService";
 import cardItemPlaceholder from "../../img/cardItemPlaceholder.png";
-import { Link } from "react-router-dom";
 
 const BookSelected = ({ selectedBook }) => {
   const formatDate = (dateString) => {
@@ -17,10 +17,6 @@ const BookSelected = ({ selectedBook }) => {
     const daysRemaining = Math.ceil(timeDifference / (1000 * 3600 * 24));
     return daysRemaining;
   };
-
-  useEffect(() => {
-    console.log(selectedBook);
-  }, [selectedBook]);
 
   if (!selectedBook) {
     return (
