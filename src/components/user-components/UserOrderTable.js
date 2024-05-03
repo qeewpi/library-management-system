@@ -129,7 +129,7 @@ export function UserOrderTable({ searchValue }) {
                     <button>
                       <Link
                         to={`/order-summary/${order.id}`}
-                        className="text-green-900 flex items-center gap-x-1 tooltip tooltip-left tooltip-primary"
+                        className="text-green-900 flex items-center gap-x-1 tooltip tooltip-left tooltip-success"
                         data-tip="View Order Details"
                       >
                         <svg
