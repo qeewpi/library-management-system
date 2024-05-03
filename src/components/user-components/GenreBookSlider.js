@@ -22,7 +22,13 @@ function GenreBookSlider({ genre, excludeBookId }) {
   return (
     <div className="sliderContainer bg-white font-semibold p-6 rounded-xl flex flex-col gap-y-4">
       <h1 className="text-xl">
-        {genre.charAt(0).toUpperCase() + genre.slice(1).toLowerCase()}
+        {genre
+          .replace(/_/g, "-")
+          .split("-")
+          .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          )
+          .join("-")}
       </h1>
       <BookCardSlider books={books} />
     </div>

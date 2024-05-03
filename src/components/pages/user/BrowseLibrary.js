@@ -2,7 +2,7 @@ import GenreBookSlider from "components/user-components/GenreBookSlider";
 import React from "react";
 
 function BrowseLibrary() {
-  const genres = ["FICTION", "NON-FICTION", "MYSTERY", "FANTASY", "BIOGRAPHY"]; // replace with your genres
+  const genres = ["FICTION", "NON_FICTION", "MYSTERY", "FANTASY", "BIOGRAPHY"]; // replace with your genres
 
   return (
     <div className="flex flex-col gap-y-6">
