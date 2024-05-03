@@ -45,9 +45,7 @@ const BookLibrary = ({ setSelectedBook }) => {
   return (
     <div className="flex flex-1 flex-col items-start rounded-xl bg-white p-6 min-h-full">
       <div className="containerDiv flex-grow flex flex-col">
-        <h1
-          className={`${sizesHeading["4xl"]} ml-[5px] !text-black-900 md:ml-0`}
-        >
+        <h1 className="ml-[5px] text-2xl !text-black-900 md:ml-0">
           Your Book Library
         </h1>
         <div className="overflow-auto mb-[42px] ml-[5px]  md:ml-0 min-h-full">
