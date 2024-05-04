@@ -80,15 +80,15 @@ export function UserOrderTable({ searchValue }) {
         <thead className="text-xs lg:text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
             <th className="font-medium border-b p-1 lg:p-1 lg:p-4">Order ID</th>
-            <th className="hidden lg:block font-medium border-b p-1 lg:p-4 whitespace-normal">
+            <th className="hidden lg:table-cell font-medium border-b p-1 lg:p-4 whitespace-normal">
               Book ID(s)
             </th>
             <th className="font-medium border-b p-1 lg:p-4">Status</th>
-            <th className="hidden xl:block font-medium border-b p-1 lg:p-4">
+            <th className="hidden xl:table-cell font-medium border-b p-1 lg:p-4">
               Borrowed At
             </th>
             <th className="font-medium border-b p-1 lg:p-4">Due Date</th>
-            <th className="hidden lg:block font-medium border-b p-1 lg:p-4">
+            <th className="hidden lg:table-cell font-medium border-b p-1 lg:p-4">
               Returned At
             </th>
             <th className="font-medium border-b p-1 lg:p-4">Actions</th>
@@ -117,17 +117,17 @@ export function UserOrderTable({ searchValue }) {
                 className="text-xs lg:text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
               >
                 <td className="border-b p-1 lg:p-4">{order.id}</td>
-                <td className="hidden lg:block border-b p-1 lg:p-4">
+                <td className="hidden lg:table-cell border-b p-1 lg:p-4">
                   {order.books.map((book) => book.id).join(", ")}
                 </td>
                 <td className="border-b p-1 lg:p-4">{order.status}</td>
-                <td className="hidden xl:block border-b p-1 lg:p-4">
+                <td className="hidden xl:table-cell border-b p-1 lg:p-4">
                   {formatDate(order.borrowed_at)}
                 </td>
                 <td className="border-b p-1 lg:p-4">
                   {formatDate(order.due_date)}
                 </td>
-                <td className="hidden lg:block border-b p-1 lg:p-4">
+                <td className="hidden lg:table-cell border-b p-1 lg:p-4">
                   {order.returned_at
                     ? formatDate(order.returned_at)
                     : "To Be Returned"}
