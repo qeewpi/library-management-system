@@ -60,8 +60,10 @@ function BookCardSlider({ books }) {
                     </div>
                   </div>
                   <div className="pt-3 text-base">
-                    <h1>{book.title}</h1>
-                    <h2 className="text-gray-500 font-medium">{book.author}</h2>
+                    <h1 className="line-clamp-2">{book.title}</h1>
+                    <h2 className="line-clamp-2 text-gray-500 font-medium">
+                      {book.author}
+                    </h2>
                   </div>
                 </Link>
               </div>

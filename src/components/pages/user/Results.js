@@ -3,7 +3,7 @@ import React from "react";
 
 function Results() {
   return (
-    <div className="contentDiv px-8 flex flex-col flex-grow h-full w-full bg-[#EDEDED] gap-y-6">
+    <div className="contentDiv flex flex-col w-full bg-[#EDEDED] gap-y-6">
       <BookResults />
     </div>
   );

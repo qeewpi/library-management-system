@@ -12,7 +12,7 @@ function SideNavBar() {
     return null;
   }
 
-return (
+  return (
     <div className="flex flex-col py-16 gap-y-2 h-screen bg-primaryBlue text-white items-start">
       <NavLink
         to={"/home"}
@@ -88,14 +88,16 @@ return (
         to={"/browse-library"}
         className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
           location.pathname === "/browse-library" ||
-          location.pathname.startsWith("/book/")
+          location.pathname.startsWith("/book/") ||
+          location.pathname.startsWith("/search-results/")
             ? "text-primaryYellow"
             : ""
         }`}
       >
         <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/browse-library" ||
-          location.pathname.startsWith("/book/") ? (
+          location.pathname.startsWith("/book/") ||
+          location.pathname.startsWith("/search-results/") ? (
             <svg
               width="20"
               height="18"
@@ -116,7 +118,10 @@ return (
           )}
           <h1
             className={`font-normal ${
-              location.pathname === "/browse-library" ? "font-semibold" : ""
+              location.pathname === "/browse-library" ||
+              location.pathname.startsWith("/search-results/")
+                ? "font-semibold"
+                : ""
             }`}
           >
             Browse Library
@@ -130,7 +135,8 @@ return (
         }`}
       >
         <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
-          {location.pathname === "/checkout-page" ? (
+          {location.pathname === "/checkout-page" ||
+          location.pathname.startsWith("/order-summary/") ? (
             <svg
               width="24"
               height="24"
@@ -153,7 +159,10 @@ return (
           )}
           <h1
             className={`font-normal ${
-              location.pathname === "/cart" ? "font-semibold" : ""
+              location.pathname === "/cart" ||
+              location.pathname.startsWith("/order-summary/")
+                ? "font-semibold"
+                : ""
             }`}
           >
             Cart

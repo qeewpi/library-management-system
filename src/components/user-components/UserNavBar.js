@@ -166,13 +166,17 @@ function UserNavBar() {
         </div>
         <div className="flex flex-row-reverse gap-x-8 lg:w-1/3 items-center text-sm">
           <div className="flex flex-row gap-x-2 items-center">
-            <div className="flex flex-grow items-center lg:pr-2">
-              <img src={userFilledSVG} alt="" />
-            </div>
-            <div className="hidden lg:block nameDiv flex flex-col">
-              <h1>{currentUser ? currentUser.name : "Guest"}</h1>
-              <h1 className="text-gray-500">Student</h1>
-            </div>
+            <NavLink to={"/profile"}>
+              <div className="flex flex-row gap-x-2 items-center">
+                <div className="flex flex-grow items-center lg:pr-2">
+                  <img src={userFilledSVG} alt="" />
+                </div>
+                <div className="hidden lg:block nameDiv flex flex-col">
+                  <h1>{currentUser ? currentUser.name : "Guest"}</h1>
+                  <h1 className="text-gray-500">Student</h1>
+                </div>
+              </div>
+            </NavLink>
             <button
               className="p-2 hidden lg:block items-start transform transition duration-500 hover:scale-110"
               data-tip="Log Out"
@@ -315,14 +319,16 @@ function UserNavBar() {
               to={"/browse-library"}
               className={`navItems px-8 font-semibold flex flex-row items-center gap-x-6 w-full ${
                 location.pathname === "/browse-library" ||
-                location.pathname.startsWith("/book/")
+                location.pathname.startsWith("/book/") ||
+                location.pathname.startsWith("/search-results/")
                   ? "text-primaryYellow"
                   : ""
               }`}
             >
               <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
                 {location.pathname === "/browse-library" ||
-                location.pathname.startsWith("/book/") ? (
+                location.pathname.startsWith("/book/") ||
+                location.pathname.startsWith("/search-results/") ? (
                   <svg
                     width="20"
                     height="18"
@@ -343,7 +349,8 @@ function UserNavBar() {
                 )}
                 <h1
                   className={`font-normal ${
-                    location.pathname === "/browse-library"
+                    location.pathname === "/browse-library" ||
+                    location.pathname.startsWith("/search-results/")
                       ? "font-semibold"
                       : ""
                   }`}
@@ -362,7 +369,8 @@ function UserNavBar() {
             <NavLink
               to={"/checkout-page"}
               className={`navItems px-8 font-semibold flex flex-row items-center gap-x-6 w-full ${
-                location.pathname === "/checkout-page"
+                location.pathname === "/checkout-page" ||
+                location.pathname.startsWith("/order-summary/")
                   ? "text-primaryYellow"
                   : ""
               }`}
@@ -391,7 +399,10 @@ function UserNavBar() {
                 )}
                 <h1
                   className={`font-normal ${
-                    location.pathname === "/cart" ? "font-semibold" : ""
+                    location.pathname === "/cart" ||
+                    location.pathname.startsWith("/order-summary/")
+                      ? "font-semibold"
+                      : ""
                   }`}
                 >
                   Cart
