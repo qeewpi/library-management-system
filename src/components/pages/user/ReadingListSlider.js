@@ -27,7 +27,7 @@ const ReadingListSlider = () => {
       {books.length > 0 ? (
         <BookCardSlider books={books} />
       ) : (
-        <p>
+        <p className="font-medium text-gray-600">
           Your reading list is empty. Start exploring the library to find books
           to borrow! 📚🔍
         </p>

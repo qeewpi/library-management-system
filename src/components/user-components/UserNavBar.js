@@ -308,6 +308,53 @@ function UserNavBar() {
             </NavLink>
           </motion.span>
           <motion.span
+            className="font-medium  font-semibold flex flex-row items-center gap-x-6 w-full pb-4 text-white"
+            variants={textVariants}
+          >
+            <NavLink
+              to={"/browse-library"}
+              className={`navItems px-8 font-semibold flex flex-row items-center gap-x-6 w-full ${
+                location.pathname === "/browse-library" ||
+                location.pathname.startsWith("/book/")
+                  ? "text-primaryYellow"
+                  : ""
+              }`}
+            >
+              <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
+                {location.pathname === "/browse-library" ||
+                location.pathname.startsWith("/book/") ? (
+                  <svg
+                    width="20"
+                    height="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="fill-primaryYellow"
+                  >
+                    <path d="M3.5 0C4.328 0 5 0.672 5 1.5V16.5C5 17.328 4.328 18 3.5 18H1.5C0.672 18 0 17.328 0 16.5V1.5C0 0.672 0.672 0 1.5 0H3.5ZM9.5 0C10.328 0 11 0.672 11 1.5V16.5C11 17.328 10.328 18 9.5 18H7.5C6.672 18 6 17.328 6 16.5V1.5C6 0.672 6.672 0 7.5 0H9.5ZM16.781 3.1238L19.995 15.6428C20.201 16.4448 19.718 17.2628 18.915 17.4688L17.039 17.9498C16.236 18.1558 15.419 17.6728 15.213 16.8698L11.999 4.3528C11.793 3.5498 12.276 2.7328 13.079 2.5268L14.955 2.0438C15.758 1.8388 16.575 2.3228 16.781 3.1238Z" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="18"
+                    className="fill-white"
+                  >
+                    <path d="M2 0h1c1.054 0 1.918.816 1.995 1.85L5 2v14a2.001 2.001 0 0 1-1.85 1.994L3 18H2a2.001 2.001 0 0 1-1.995-1.85L0 16V2C0 .946.816.082 1.85.005L2 0Zm6 0h1c1.054 0 1.918.816 1.995 1.85L11 2v14a2.001 2.001 0 0 1-1.85 1.994L9 18H8a2.001 2.001 0 0 1-1.995-1.85L6 16V2C6 .946 6.816.082 7.85.005L8 0Zm6.974 2c.84 0 1.608.531 1.89 1.346l.047.156 3.015 11.747a2 2 0 0 1-1.296 2.391l-.144.043-.969.248a2.002 2.002 0 0 1-2.387-1.284l-.047-.155-3.016-11.745a2 2 0 0 1 1.298-2.392l.143-.042.968-.25c.166-.042.334-.063.498-.063ZM3 1.5H2a.501.501 0 0 0-.492.41L1.5 2v14c0 .244.177.45.41.492L2 16.5h1c.245 0 .45-.178.492-.41L3.5 16V2a.501.501 0 0 0-.41-.492L3 1.5Zm6 0H8a.501.501 0 0 0-.492.41L7.5 2v14c0 .244.177.45.41.492L8 16.5h1c.245 0 .45-.178.492-.41L9.5 16V2a.501.501 0 0 0-.41-.492L9 1.5Zm5.975 2-.063.004-.063.013-.968.248a.498.498 0 0 0-.376.51l.015.1 3.016 11.744a.5.5 0 0 0 .483.375l.063-.003.062-.012.97-.25a.5.5 0 0 0 .374-.519l-.015-.089-3.015-11.745a.501.501 0 0 0-.483-.375Z" />
+                  </svg>
+                )}
+                <h1
+                  className={`font-normal ${
+                    location.pathname === "/browse-library"
+                      ? "font-semibold"
+                      : ""
+                  }`}
+                >
+                  Browse Library
+                </h1>
+              </div>
+            </NavLink>
+          </motion.span>
+
+          <motion.span
             className="font-medium font-semibold flex flex-row items-center gap-x-6 w-full pb-4 text-white"
             variants={textVariants}
           >
