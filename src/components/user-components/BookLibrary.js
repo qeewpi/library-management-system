@@ -46,7 +46,7 @@ const BookLibrary = ({ setSelectedBook }) => {
         </h1>
         <div className="overflow-auto mb-11 ml-1 md:ml-0 min-h-full">
           <div
-            className={`grid gap-4 mt-4 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-4 grid-cols-4 min-h-full`}
+            className={`grid gap-4 mt-4 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-4 md:grid-cols-4 grid-cols-4 min-h-full`}
           >
             {orders
               .filter((order) => order.status === "BORROWED")

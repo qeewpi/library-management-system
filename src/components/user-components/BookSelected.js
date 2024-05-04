@@ -20,17 +20,17 @@ const BookSelected = ({ selectedBook }) => {
 
   if (!selectedBook) {
     return (
-      <div className="flex w-[45%] flex-col gap-[26px] bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl ">
-        <div className="relative h-[471px] md:h-auto">
+      <div className="flex  flex-col gap-[26px] bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl ">
+        <div className="relative md:h-auto">
           <img
             src={cardItemPlaceholder}
             alt="Book Placeholder"
-            className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white sm:aspect-[1/1] sm:w-full"
+            className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white "
           />
           <img
             src={cardItemPlaceholder}
             alt="Book Placeholder"
-            className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover sm:aspect-[1/1] sm:scale-[0.8] sm:rounded-[10px]"
+            className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover"
           />
         </div>
         <div className="flex flex-col items-start gap-[21px] p-5">
@@ -40,7 +40,7 @@ const BookSelected = ({ selectedBook }) => {
             </h2>
             <p className="text-base">Select a book to display its details</p>
           </div>
-          <div className="flex w-[91%] items-center justify-between gap-4 pr-[5px] md:w-full ">
+          <div className="flex w-[91%] items-start 2xl:items-center justify-between gap-4 pr-[5px] md:w-full ">
             <div className="flex flex-col items-start ">
               <p className="text-base">Status</p>
               <h3 className={`${sizesHeading.s} !text-black`}>...</h3>
@@ -75,8 +75,8 @@ const BookSelected = ({ selectedBook }) => {
   }
 
   return (
-    <div className="flex w-[45%] flex-col gap-4 bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl h-full ">
-      <div className="relative h-[471px] md:h-auto ">
+    <div className="flex flex-col gap-4 bg-white pb-[27px] md:w-full md:p-5 sm:pb-5 rounded-xl h-full ">
+      <div className="relative md:h-auto">
         <img
           src={BookService.downloadBookImage(selectedBook.imagePath)}
           alt={selectedBook.title}
@@ -119,7 +119,7 @@ const BookSelected = ({ selectedBook }) => {
             </h2>
             <p className={`${sizesText["2xl"]}`}>{selectedBook.author}</p>
           </div>
-          <div className="flex w-[91%] items-center justify-between gap-5 pr-[5px] md:w-full">
+          <div className="flex w-[91%] items-start 2xl:items-center justify-between gap-5 pr-[5px] md:w-full">
             <div className="flex flex-col items-start">
               <p className="text-base">Status</p>
               <h3 className={`${sizesHeading.s} text-gray-500 font-medium`}>

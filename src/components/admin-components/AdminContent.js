@@ -14,6 +14,7 @@ import EditBook from "components/pages/admin/EditBook";
 import EditUser from "components/pages/admin/EditUser";
 import OrderList from "components/pages/admin/OrderList";
 import Profile from "components/pages/admin/Profile";
+import RenewOrder from "components/pages/admin/RenewOrder";
 import ViewUser from "components/pages/admin/ViewUser";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
@@ -21,7 +22,6 @@ import LibraryCatalog from "../pages/admin/LibraryCatalog";
 import UserList from "../pages/admin/UserList";
 import ViewBook from "../pages/admin/ViewBook";
 import ViewOrder from "../pages/admin/ViewOrder";
-import RenewOrder from "components/pages/admin/RenewOrder";
 
 function AdminContent() {
   return (

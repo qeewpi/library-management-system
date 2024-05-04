@@ -74,18 +74,24 @@ export function UserOrderTable({ searchValue }) {
   };
 
   return (
-    <div className="overflow-hidden border border-b-0 rounded-xl border-gray-200">
-      <table className="table table-lg border-gray-500 border-spacing-y-4">
+    <div className="overflow-x-auto border border-b-0 rounded-xl border-gray-200">
+      <table className="overflow-x-auto table table-xs border-gray-500 border-spacing-y-4">
         {/* head */}
-        <thead className="text-sm text-gray-500 bg-gray-100">
+        <thead className="text-xs lg:text-sm text-gray-500 bg-gray-100">
           <tr className="border-gray-200 border-b">
-            <th className="font-medium border-b p-4">Order ID</th>
-            <th className="font-medium border-b p-4">ID of Books Borrowed</th>
-            <th className="font-medium border-b p-4">Status</th>
-            <th className="font-medium border-b p-4">Borrowed At</th>
-            <th className="font-medium border-b p-4">Due Date</th>
-            <th className="font-medium border-b p-4">Returned At</th>
-            <th className="font-medium border-b p-4">Actions</th>
+            <th className="font-medium border-b p-1 lg:p-1 lg:p-4">Order ID</th>
+            <th className="hidden lg:block font-medium border-b p-1 lg:p-4 whitespace-normal">
+              Book ID(s)
+            </th>
+            <th className="font-medium border-b p-1 lg:p-4">Status</th>
+            <th className="hidden xl:block font-medium border-b p-1 lg:p-4">
+              Borrowed At
+            </th>
+            <th className="font-medium border-b p-1 lg:p-4">Due Date</th>
+            <th className="hidden lg:block font-medium border-b p-1 lg:p-4">
+              Returned At
+            </th>
+            <th className="font-medium border-b p-1 lg:p-4">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -108,23 +114,25 @@ export function UserOrderTable({ searchValue }) {
             .map((order, index) => (
               <tr
                 key={index}
-                className="text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
+                className="text-xs lg:text-sm font-medium text-primaryBlack border-gray-200 h-full w-full"
               >
-                <td className="border-b p-4">{order.id}</td>
-                <td className="border-b p-4">
+                <td className="border-b p-1 lg:p-4">{order.id}</td>
+                <td className="hidden lg:block border-b p-1 lg:p-4">
                   {order.books.map((book) => book.id).join(", ")}
                 </td>
-                <td className="border-b p-4">{order.status}</td>
-                <td className="border-b p-4">
+                <td className="border-b p-1 lg:p-4">{order.status}</td>
+                <td className="hidden xl:block border-b p-1 lg:p-4">
                   {formatDate(order.borrowed_at)}
                 </td>
-                <td className="border-b p-4">{formatDate(order.due_date)}</td>
-                <td className="border-b p-4">
+                <td className="border-b p-1 lg:p-4">
+                  {formatDate(order.due_date)}
+                </td>
+                <td className="hidden lg:block border-b p-1 lg:p-4">
                   {order.returned_at
                     ? formatDate(order.returned_at)
                     : "To Be Returned"}
                 </td>
-                <td className="border-b p-4">
+                <td className="border-b p-1 lg:p-4">
                   <div className="container flex flex-row">
                     <button>
                       <Link
