@@ -45,7 +45,7 @@ function BookCardSlider({ books }) {
                     <img
                       src={BookService.downloadBookImage(book.imagePath)} //
                       alt=""
-                      className="aspect-[1/1.6] w-full rounded-xl object-cover transform transition duration-500 group-hover:scale-110"
+                      className="aspect-[1/1.6]  w-full rounded-xl object-cover transform transition duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-500 pointer-events-none">
                       <svg
