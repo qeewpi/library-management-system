@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BookService from "service/BookService";
 import BookCardSlider from "./BookCardSlider";
 
@@ -17,19 +18,30 @@ function GenreBookSlider({ genre, excludeBookId }) {
     fetchBooks();
   }, [genre, excludeBookId]);
 
+  const processGenre = (genre) => {
+    return genre
+      .replace(/_/g, "-")
+      .split("-")
+      .map((word) => word.slice(0).toLowerCase())
+      .join("-");
+  };
+
   if (books.length === 0) return null;
 
   return (
     <div className="sliderContainer bg-white font-semibold p-6 rounded-xl flex flex-col gap-y-4">
-      <h1 className="text-xl">
-        {genre
-          .replace(/_/g, "-")
-          .split("-")
-          .map(
-            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-          )
-          .join("-")}
-      </h1>
+      <Link to={`/browse-library/${processGenre(genre)}`} className="text-xl">
+        <h1 className="text-xl">
+          {genre
+            .replace(/_/g, "-")
+            .split("-")
+            .map(
+              (word) =>
+                word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            )
+            .join("-")}
+        </h1>
+      </Link>
       <BookCardSlider books={books} />
     </div>
   );

@@ -17,11 +17,21 @@ function AdminSideNavBar() {
       <NavLink
         to={"/admin/user-list"}
         className={`navItems px-16 flex flex-row items-center gap-x-6 w-full ${
-          location.pathname === "/admin/user-list" ? "text-primaryYellow" : ""
+          location.pathname === "/admin/user-list" ||
+          location.pathname.startsWith("/admin/add/user") ||
+          location.pathname.startsWith("/admin/delete/user") ||
+          location.pathname.startsWith("/admin/edit/user") ||
+          location.pathname.startsWith("/admin/view/user")
+            ? "text-primaryYellow"
+            : ""
         }`}
       >
         <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
-          {location.pathname === "/admin/user-list" ? (
+          {location.pathname === "/admin/user-list" ||
+          location.pathname.startsWith("/admin/add/user") ||
+          location.pathname.startsWith("/admin/delete/user") ||
+          location.pathname.startsWith("/admin/edit/user") ||
+          location.pathname.startsWith("/admin/view/user") ? (
             <svg
               width="24"
               height="24"
@@ -44,7 +54,13 @@ function AdminSideNavBar() {
           )}
           <h1
             className={`font-normal ${
-              location.pathname === "/admin/user-list" ? "font-semibold" : ""
+              location.pathname === "/admin/user-list" ||
+              location.pathname.startsWith("/admin/add/user") ||
+              location.pathname.startsWith("/admin/delete/user") ||
+              location.pathname.startsWith("/admin/edit/user") ||
+              location.pathname.startsWith("/admin/view/user")
+                ? "font-semibold"
+                : ""
             }`}
           >
             User List
@@ -56,14 +72,22 @@ function AdminSideNavBar() {
         to={"/admin/library-catalog"}
         className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
           location.pathname === "/admin/library-catalog" ||
-          location.pathname.startsWith("/admin/library-catalog/")
+          location.pathname.startsWith("/admin/library-catalog/") ||
+          location.pathname.startsWith("/admin/add/book") ||
+          location.pathname.startsWith("/admin/delete/book") ||
+          location.pathname.startsWith("/admin/edit/book") ||
+          location.pathname.startsWith("/admin/view/book")
             ? "text-primaryYellow"
             : ""
         }`}
       >
         <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/library-catalog" ||
-          location.pathname.startsWith("/admin/library-catalog/") ? (
+          location.pathname.startsWith("/admin/library-catalog/") ||
+          location.pathname.startsWith("/admin/add/book") ||
+          location.pathname.startsWith("/admin/delete/book") ||
+          location.pathname.startsWith("/admin/edit/book") ||
+          location.pathname.startsWith("/admin/view/book") ? (
             <svg
               width="24"
               height="24"
@@ -86,7 +110,11 @@ function AdminSideNavBar() {
           )}
           <h1
             className={`font-normal ${
-              location.pathname === "/admin/library-catalog"
+              location.pathname === "/admin/library-catalog" ||
+              location.pathname.startsWith("/admin/add/book") ||
+              location.pathname.startsWith("/admin/delete/book") ||
+              location.pathname.startsWith("/admin/edit/book") ||
+              location.pathname.startsWith("/admin/view/book")
                 ? "font-semibold"
                 : ""
             }`}
@@ -100,14 +128,22 @@ function AdminSideNavBar() {
         to={"/admin/orders"}
         className={`navItems px-16 font-semibold flex flex-row items-center gap-x-6 w-full ${
           location.pathname === "/admin/orders" ||
-          location.pathname.startsWith("/admin/orders")
+          location.pathname.startsWith("/admin/orders") ||
+          location.pathname.startsWith("/admin/view/order") ||
+          location.pathname.startsWith("/admin/renew-order") ||
+          location.pathname.startsWith("/admin/add/order") ||
+          location.pathname.startsWith("/admin/delete/order")
             ? "text-primaryYellow"
             : ""
         }`}
       >
         <div className="flex flex-row items-center gap-x-6 transform transition duration-500 hover:scale-110">
           {location.pathname === "/admin/orders" ||
-          location.pathname.startsWith("/admin/orders") ? (
+          location.pathname.startsWith("/admin/orders") ||
+          location.pathname.startsWith("/admin/view/order") ||
+          location.pathname.startsWith("/admin/renew-order") ||
+          location.pathname.startsWith("/admin/add/order") ||
+          location.pathname.startsWith("/admin/delete/order") ? (
             <svg
               width="24"
               height="24"
@@ -130,7 +166,13 @@ function AdminSideNavBar() {
           )}
           <h1
             className={`font-normal ${
-              location.pathname === "/admin/orders" ? "font-semibold" : ""
+              location.pathname === "/admin/orders" ||
+              location.pathname.startsWith("/admin/view/order") ||
+              location.pathname.startsWith("/admin/renew-order") ||
+              location.pathname.startsWith("/admin/add/order") ||
+              location.pathname.startsWith("/admin/delete/order")
+                ? "font-semibold"
+                : ""
             }`}
           >
             Orders

@@ -116,11 +116,13 @@ function BookDetails() {
             <Link to="/browse-library">Browse Library</Link>
           </li>
           <li>
-            <a>
-              {" "}
-              {book.genre.charAt(0).toUpperCase() +
-                book.genre.slice(1).toLowerCase()}
-            </a>
+            <Link to={`/browse-library/${book.genre}`}>
+              <a>
+                {" "}
+                {book.genre.charAt(0).toUpperCase() +
+                  book.genre.slice(1).toLowerCase()}
+              </a>
+            </Link>
           </li>
           <li className="font-bold">{book.title}</li>
         </ul>
