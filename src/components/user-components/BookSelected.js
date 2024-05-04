@@ -25,12 +25,12 @@ const BookSelected = ({ selectedBook }) => {
           <img
             src={cardItemPlaceholder}
             alt="Book Placeholder"
-            className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white "
+            className="relative aspect-[1/0.75] rounded-xl object-cover filter blur-sm border border-white sm:aspect-[1/1] sm:w-full"
           />
           <img
             src={cardItemPlaceholder}
             alt="Book Placeholder"
-            className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover"
+            className="absolute bottom-0 left-0 right-0 top-0 m-auto aspect-[1/1.6] scale-[0.4] rounded-[20px] object-cover sm:aspect-[1/1] sm:scale-[0.8] sm:rounded-[10px]"
           />
         </div>
         <div className="flex flex-col items-start gap-[21px] p-5">
