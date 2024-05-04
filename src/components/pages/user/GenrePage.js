@@ -13,9 +13,9 @@ function GenrePage() {
       try {
         const allBooks = await BookService.getAllBooks();
         const searchedBooks = allBooks.filter((book) => {
-          return Object.values(book).some((value) =>
-            value.toString().toLowerCase().includes(params.genre.toLowerCase())
-          );
+          return book.genre
+            .toLowerCase()
+            .includes(processGenrePath(params.genre));
         });
         setBooks(searchedBooks);
         setLoading(false);
@@ -27,12 +27,16 @@ function GenrePage() {
     fetchAllBooks();
   }, [params.search]);
 
+  const processGenrePath = (genre) => {
+    return genre.replace("-", "_").toLowerCase();
+  };
+
   const processGenreTitle = (genre) => {
     return genre
       .replace(/_/g, "-")
       .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(" ");
+      .join("-");
   };
 
   return (
@@ -51,8 +55,8 @@ function GenrePage() {
                   alt={book.title}
                   className="object-cover rounded-xl aspect-[1/1.6]"
                 />
-                <h1 className="text-sm line-clamp-2 pt-2">{book.title}</h1>
-                <p className="text-xs text-gray-500">{book.author}</p>
+                <h1 className="text-base line-clamp-2 pt-2">{book.title}</h1>
+                <p className="text-base text-gray-500">{book.author}</p>
               </div>
             </Link>
           ))}
