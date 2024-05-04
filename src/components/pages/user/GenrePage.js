@@ -13,9 +13,7 @@ function GenrePage() {
       try {
         const allBooks = await BookService.getAllBooks();
         const searchedBooks = allBooks.filter((book) => {
-          return book.genre
-            .toLowerCase()
-            .includes(processGenrePath(params.genre));
+          return book.genre.toLowerCase() === processGenrePath(params.genre);
         });
         setBooks(searchedBooks);
         setLoading(false);
