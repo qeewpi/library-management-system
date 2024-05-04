@@ -36,7 +36,7 @@ function GenrePage() {
   };
 
   return (
-    <div className="flex flex-col gap-8 rounded-xl bg-white md:p-5 flex-grow w-full">
+    <div className="flex flex-col gap-8 rounded-xl bg-white md:p-5  w-full pb-8">
       <div className="ml-5 mt-5 md:ml-2 pb-8">
         <h1 className="text-2xl">{processGenreTitle(params.genre)} Books</h1>
         <div className="grid gap-4 mt-4 grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 min-h-full">
